@@ -10,17 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;
-	unsigned char	*tem;
+	unsigned char	*x;
 
 	i = 0;
-	tem = (unsigned char *) s;
+	x = (unsigned char *) s;
 	while (n > i)
 	{
-		tem[i] = 0;
+		x[i] = 0;
 		i++;
 	}
-	s = tem;
+	s = x;
 }
