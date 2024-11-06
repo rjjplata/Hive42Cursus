@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 12:29:07 by rplata            #+#    #+#             */
-/*   Updated: 2024/10/29 12:35:49 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/07 00:56:20 by root              #+#    #+#             */
+/*   Updated: 2024/11/07 00:57:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char*s2, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
+	int i;
 
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0')
+	if (s != NULL)
 	{
-		if (i < (n - 1))
+		i = 0;
+		while (s[i])
+		{
+			ft_putchar_fd(s[i], fd);
 			i++;
-		else
-			return (0);
+		}
 	}
-	return ((s1[i]) - (s2[i]));
 }
