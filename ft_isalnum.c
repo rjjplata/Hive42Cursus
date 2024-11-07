@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:42:21 by rplata            #+#    #+#             */
-/*   Updated: 2024/10/29 15:27:08 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/07 12:38:05 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
-	return(0);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:00:58 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/04 10:06:15 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/07 14:01:18 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t b;
-	size_t l;
+	size_t		b;
+	size_t		l;
 
 	b = 0;
-	if(little[0] == '\0')
+	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[b] != '\0')
 	{

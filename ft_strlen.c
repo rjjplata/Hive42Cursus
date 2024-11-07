@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:21:57 by rplata            #+#    #+#             */
-/*   Updated: 2024/10/29 15:35:07 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/07 14:00:08 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_strlen(const char *str)
 {
 	int	i;
+
 	i = 0;
 	while (str[i] != '\0')
 	{
