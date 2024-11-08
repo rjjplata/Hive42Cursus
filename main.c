@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:41:37 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/05 11:41:40 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/08 16:34:11 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,4 +187,5 @@ int main()
     result = ft_strnstr(str1, str2, 20);
     printf("The substring is: %s\n", result);
     return(0);
+    
 }

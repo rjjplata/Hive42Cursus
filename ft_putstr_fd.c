@@ -6,7 +6,7 @@
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:36:50 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/07 13:52:07 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/08 15:21:27 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int		i;
+	int	i;
 
-	if (s != NULL)
+	i = 0;
+	if (s[i] != '\0')
 	{
-		i = 0;
 		while (s[i])
 		{
 			ft_putchar_fd(s[i], fd);
