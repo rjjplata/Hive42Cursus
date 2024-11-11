@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_strjoin.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:37:19 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 13:42:03 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/11 23:02:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 int main ()
 {
-	char	*str;
+	char	s1[] = "black";
+	char	s2[] = "white";
 
-	str = ft_strjoin("White", "Black");
-	printf("%s", str);
-	return 0;
+	printf("\n**************************************************\n");
+	printft("%s\n", ft_strjoin(s1, s2));
+	printf("\n**************************************************\n");
 }
