@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   test_ft_strmapi.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 11:34:02 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 15:41:11 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/11 10:50:32 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/11 10:57:18 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.>
+#include <string.h>
 
-void	ft_putchar_fd(char c, int fd)
+char	f(unsigned int i, char c)
 {
-	write(fd, &c, 1);
+	char str;
+	str = c + 1;
+	return (str);
+}
+
+int main ()
+{
+	char	str1[] = "abcd";
+	char	*str2;
+
+	str2 = ft_strmapi(str1, *f);
+	printf("%s\n, str2);
 }

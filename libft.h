@@ -6,13 +6,12 @@
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:24:33 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/07 14:22:56 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/11 13:17:56 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -23,12 +22,11 @@
 # include <stddef.h>
 # include <stdarg.h>
 
-
 typedef struct s_list
 {
 	int		content;
 	struct	s_list	*next;
-}	t_list;
+} t_list;
 
 // PART 1
 

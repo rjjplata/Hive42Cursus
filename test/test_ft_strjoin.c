@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   test_ft_strjoin.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 11:34:02 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 15:41:11 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/11 13:37:19 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/11 13:42:03 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void	ft_putchar_fd(char c, int fd)
+int main ()
 {
-	write(fd, &c, 1);
+	char	*str;
+
+	str = ft_strjoin("White", "Black");
+	printf("%s", str);
+	return 0;
 }

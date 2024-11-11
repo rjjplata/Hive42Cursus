@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   test_ft_substr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 11:34:02 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 15:41:11 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/11 12:38:46 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/11 13:04:27 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-void	ft_putchar_fd(char c, int fd)
+int main ()
 {
-	write(fd, &c, 1);
+	char	*str;
+
+	str = ft_substr("Hello, how are you!", 7, 3);
+	printf("%s\n", str);
+	return 0;
 }

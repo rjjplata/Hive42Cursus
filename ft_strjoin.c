@@ -6,7 +6,7 @@
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 00:50:24 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/08 16:34:13 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/11 14:08:23 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*new_str;
 	int		i;
 	int		j;
+	int		x;
+	int		y;
 
-	if (!s1 || !s2 )
+	if (!s1 || !s2)
 	{
-		new_str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+		x = ft_strlen(s1);
+		y = ft_strlen(s2);
+		new_str = (char *)malloc(sizeof(char) * (x + (y + 1)));
 		if (!new_str)
 			return (0);
 	}

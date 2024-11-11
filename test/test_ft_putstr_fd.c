@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   test_ft_putstr_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 11:34:02 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 15:41:11 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/11 18:35:42 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/11 18:37:52 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
 
-void	ft_putchar_fd(char c, int fd)
+int main (void)
 {
-	write(fd, &c, 1);
+	char file[] = "mystringfile.txt";
+	int fd = open(file, O_CREAT | O_WRONLY);
+	ft_putstr_fd("Lets Go!", fd);
+	close(fd);
 }

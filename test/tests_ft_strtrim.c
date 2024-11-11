@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   tests_ft_strtrim.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 11:34:02 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 15:41:11 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/11 12:33:41 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/11 12:34:54 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-void	ft_putchar_fd(char c, int fd)
+int main()
 {
-	write(fd, &c, 1);
+	printf("%s\n", ft_strtrim("abqbc", "abc"));
+	printf("%s\n", ft_strtrim("xavocadoyz", "xyz"));
+	return 0;
 }
