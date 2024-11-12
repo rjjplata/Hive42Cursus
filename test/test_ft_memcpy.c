@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:41:15 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 17:39:38 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:44:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int main ()
     char str4[18] = "test";
     char str5[30] = "LearningIsHard";
     char str6[30] = "LearningIsHard";
+    
+    printf("\n----------ft_memcpy----------");
     printf("\n**************************************************\n");
     printf("str1 before memcpy:\n ");
     printf("%s\n", str1);

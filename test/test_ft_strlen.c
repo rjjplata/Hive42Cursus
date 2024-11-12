@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 01:41:40 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 03:04:41 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:42:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int main ()
     char x2 = strlen(x);
     char y2 = strlen(y);
     char z2 = strlen(z);
+
+    printf("\n----------ft_strlen----------");
     printf("\n**************************************************\n");
     printf("The result:             %d\n", x1);
     printf("The expected result:    %d\n", x2);

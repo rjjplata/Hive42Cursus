@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 12:11:26 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/08 16:34:09 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/04 10:00:58 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/07 14:01:18 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	result;
-	int	sign;
-	int	i;
+	size_t		b;
+	size_t		l;
 
-	i = 0;
-	result = 0;
-	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	b = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[b] != '\0')
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		l = 0;
+		while (big[b + l] == little[l] && (b + l) < len)
+		{
+			if (big[b + l] == '\0' && little[l] == '\0')
+				return ((char *)&big[b]);
+			l++;
+		}
+		if (little[l] == '\0')
+			return ((char *)big + b);
+		b++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (sign * result);
+	return (0);
 }

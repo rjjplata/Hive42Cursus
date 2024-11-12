@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:22:39 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 17:39:34 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:44:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main ()
  //when overlap it starts with initial char
     char str3[30] = "LearningIsHard";
     char str4[30] = "LearningIsHard";
+    
+    printf("\n----------ft_memmove----------");
     printf("\n**************************************************\n");
     printf("This is a sample of overlap\n");
     printf("\nThe string: %s\n", str3);

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 02:32:56 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 10:39:11 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:42:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int main ()
 {
     char str1[9] = "aabbccdd";
     char str2[9] = "efghi";
+
+    printf("\n----------ft_strlcpy----------");
     printf("\n**************************************************\n");
     printf("The string: %s\n", str1);
     char result = ft_strlcpy(str1+2, str2, 3); //start after the 2nd character

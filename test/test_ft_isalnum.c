@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 22:56:06 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 00:57:44 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:45:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int main ()
     char x2 = ft_result(x);
     char y2 = ft_result(y);
     char z2 = ft_result(z);
+    
+    printf("\n----------ft_isalnum----------");
     printf("\n**************************************************\n");
     printf("The result:             %d\n", x1);
     printf("The expected result:    %c\n", x2);

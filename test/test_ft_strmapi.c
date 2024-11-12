@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:50:32 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 22:20:55 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:42:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main (void)
 	char	*str;
 	char	*strmapi;
 	
+	printf("\n----------ft_strmapi----------");
 	str = (char *)malloc(sizeof(*str) * 12);
 	strcpy(str, "FrEe StUdIeS");
 	strmapi = ft_strmapi(str, &mapi);

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 01:29:01 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 10:39:31 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:45:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int main ()
     char x2 = ft_result(x);
     char y2 = ft_result(y);
     char z2 = ft_result(z);
+    
+    printf("\n----------ft_isascii----------");
     printf("\n**************************************************\n");
     printf("The result:             %d\n", x1);
     printf("The expected result:    %c\n", x2);

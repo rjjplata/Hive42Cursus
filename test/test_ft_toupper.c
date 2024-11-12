@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:44:12 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 01:10:08 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:44:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int main ()
     x2 = ft_result(x1, toupper(x));
     y2 = ft_result(y1, toupper(y));
     z2 = ft_result(z1, toupper(z));
+
+    printf("\n----------ft_toupper----------");
     printf("\n**************************************************\n");
     printf("Example 1: %c\n", x);
     printf("The result:             %c\n", x1);

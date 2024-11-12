@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 12:11:26 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/08 16:34:09 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/04 16:40:08 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/07 15:28:00 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strdup(const char *s)
 {
-	int	result;
-	int	sign;
-	int	i;
+	char	*output_str;
+	int		i;
 
+	output_str = (char *)malloc(sizeof (char) * ft_strlen(s) + 1);
 	i = 0;
-	result = 0;
-	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (!output_str)
+		return (NULL);
+	while (s[i])
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		output_str[i] = s[i];
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (sign * result);
+	output_str[i] = '\0';
+	return (output_str);
 }

@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 12:11:26 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/08 16:34:09 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/09 21:59:30 by root              #+#    #+#             */
+/*   Updated: 2024/11/11 13:18:15 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	result;
-	int	sign;
-	int	i;
+	size_t	i;
+	size_t	j;
+	char	*sub;
 
 	i = 0;
-	result = 0;
-	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	j = 0;
+	if (!s)
+		return (NULL);
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (!sub)
+		return (NULL);
+	while (s[i])
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		if (i >= start && j < len)
+		{
+			sub[j] = s[i];
+			j++;
+		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (sign * result);
+	sub[j] = '\0';
+	return (sub);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_putendl_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:12:03 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 18:16:39 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/12 22:37:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main (void)
 {
-	char file[] = "mystringfile.txt";
+	char file[] = "mystringfile2.txt";
 	int fd = open(file, O_CREAT | O_WRONLY);
 	ft_putendl_fd("I am tired", fd);
 	close(fd);

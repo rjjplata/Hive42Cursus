@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 01:43:43 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 10:38:53 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 22:43:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int main ()
     char b[] = "aaaabb";
     char c[] = "aaaa";
     char d[] = "aaaa";
+
+    printf("\n----------ft_strncmp----------");
     printf("\n**************************************************\n");
     printf("The result:             %d\n", ft_strncmp(x, y, 6));
     printf("The expected result:    %d\n", strncmp(x, y, 6));

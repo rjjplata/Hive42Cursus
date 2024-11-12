@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_strtrim.c                                 :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 12:33:41 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 22:18:31 by root             ###   ########.fr       */
+/*   Created: 2024/11/09 22:23:13 by root              #+#    #+#             */
+/*   Updated: 2024/11/12 00:04:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
-
-int main()
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	printf("\n**************************************************\n");
-	printf("%s\n", ft_strtrim("abqbc", "abc"));
-	printf("%s\n", ft_strtrim("xavocadoyz", "xyz"));
-	printf("\n**************************************************\n");
-	return 0;
+	unsigned int	i;
+
+	if (!s || !f)
+		return ;
+	i = -1;
+	while (s[++i])
+		f(i, &s[i]);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_striteri.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:52:35 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/12 13:05:23 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/12 22:41:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ int	main()
 {
 	char	*str;
 	
+	printf("\n----------ft_striteri----------");
+    printf("\n**************************************************\n");
 	str = (char *)malloc(sizeof(*str) * 12);
 	strcpy(str, "LeRoN lErOn");
 	ft_striteri(str, myfunction);
 	printf("%s\n", str);
+	printf("**************************************************\n");
 }	
