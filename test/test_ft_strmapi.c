@@ -10,23 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.>
+#include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-char	f(unsigned int i, char c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+char	mapi(unsigned int i, char c)
 {
-	char str;
-	str = c + 1;
-	return (str);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
 }
 
-int main ()
+int	main (void)
 {
-	char	str1[] = "abcd";
-	char	*str2;
-
-	str2 = ft_strmapi(str1, *f);
-	printf("\n**************************************************\n");
-	printf("%s\n", str2);
-	printf("\n**************************************************\n");
+	char	*str;
+	char	*strmapi;
+	
+	str = (char *)malloc(sizeof(*str) * 12);
+	strcpy(str, "FrEe StUdIeS");
+	strmapi = ft_strmapi(str, &mapi);
+	printf("%s\n", strmapi);
+	if (strmapi == str)
+		printf("\nA new string was not returned");
+	if (strmapi[13] != '\0')
+		printf("\nString is not null terminated");
+	return (0);
 }
+
