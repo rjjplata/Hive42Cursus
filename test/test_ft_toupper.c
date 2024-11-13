@@ -14,6 +14,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "libft.h"
 
 int main ()
 {
@@ -24,12 +25,9 @@ int main ()
     x = 78;
     y = 'B';
     z = 'z';
-    x1 = ft_toupper(x);
-    y1 = ft_toupper(y);
-    z1 = ft_toupper(z);
-    x2 = ft_result(x1, toupper(x));
-    y2 = ft_result(y1, toupper(y));
-    z2 = ft_result(z1, toupper(z));
+    char x1 = ft_toupper(x);
+    char y1 = ft_toupper(y);
+    char z1 = ft_toupper(z);
 
     printf("\n----------ft_toupper----------");
     printf("\n**************************************************\n");
@@ -43,4 +41,4 @@ int main ()
     printf("The result:             %c\n", z1);
     printf("The expected result:    %c       ", toupper(z));
     printf("\n**************************************************\n");
-}
+}	

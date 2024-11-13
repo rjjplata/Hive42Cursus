@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "libft.h"
 
 int main ()
 {
@@ -21,6 +22,7 @@ int main ()
 	printf("\n----------ft_substr----------");
 	printf("\n**************************************************\n");
 	printf("%s\n", str);
+	free(str);
 	printf("\n**************************************************\n");
 	return 0;
 }

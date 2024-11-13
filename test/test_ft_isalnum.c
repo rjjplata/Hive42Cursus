@@ -14,19 +14,17 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "libft.h"
 
-char    ft_result(int a)
+int   ft_result(int a)
 {
     char x;
     
     x = isalnum(a);
-    if (x > 0)
-        printf("1");
-    else
-        printf("0");
+    return (x);
 }
 
-int main ()
+int main (void)
 {
     char x = '*';
     char y = 'B';
@@ -34,17 +32,18 @@ int main ()
     char x1 = ft_isalnum(x);
     char y1 = ft_isalnum(y);
     char z1 = ft_isalnum(z);
-    char x2 = ft_result(x);
-    char y2 = ft_result(y);
-    char z2 = ft_result(z);
+    int x2 = ft_result(x);
+    int y2 = ft_result(y);
+    int z2 = ft_result(z);
     
     printf("\n----------ft_isalnum----------");
     printf("\n**************************************************\n");
     printf("The result:             %d\n", x1);
-    printf("The expected result:    %c\n", x2);
+    printf("The expected result:    %d\n", x2);
     printf("The result:             %d\n", y1);
-    printf("The expected result:    %c\n", y2);
+    printf("The expected result:    %d\n", y2);
     printf("The result:             %d\n", z1);
-    printf("The expected result:    %c\n", z2);
+    printf("The expected result:    %d\n", z2);
     printf("**************************************************\n");
+    return (0);
 }

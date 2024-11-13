@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include "libft.h"
 
 int main ()
 {
@@ -28,5 +29,6 @@ int main ()
     printf("\nThe string: %s\n", str3);
     char *result1 = ft_memmove(str3 + 5, str4, 14);
     printf("New string: %s\n", str3);
+    printf("%s\n", result1);
     printf("**************************************************\n");
 }

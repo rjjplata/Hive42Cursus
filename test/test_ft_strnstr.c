@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_strtrim.c                                  :+:      :+:    :+:   */
+/*   test_ft_strnstr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 12:33:41 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/12 22:43:30 by root             ###   ########.fr       */
+/*   Created: 2024/11/13 14:06:06 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/13 14:10:26 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "libft.h"
-#include <stdio.h>
 
-int main()
+int main ()
 {
-	printf("\n----------ft_strtrim----------");
+	char	*str;
+
+	str = ft_strnstr("Hello, how are you!", "how", 10);
+	printf("\n----------ft_strnstr----------");
 	printf("\n**************************************************\n");
-	char *str = ft_strtrim("abqbc", "abc");
 	printf("%s\n", str);
-//	free(str);
-//	char *str = ft_strtrim("xavocadoyz", "xyz");
-//	printf("%s\n", str);
-	free (str);
 	printf("\n**************************************************\n");
 	return 0;
 }

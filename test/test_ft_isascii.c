@@ -15,6 +15,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <bsd/string.h>
+#include "libft.h"
+#include <stdio.h>
 
 char    ft_result(int a)
 {
@@ -29,7 +31,7 @@ char    ft_result(int a)
 
 int main ()
 {
-    char x = 128;
+    char x = 127;
     char y = 54;
     char z = -1;
     char x1 = ft_isascii(x);

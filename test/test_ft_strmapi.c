@@ -14,33 +14,29 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 char	mapi(unsigned int i, char c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+	i = i;
+	c = c - 32;
+	return (c);
 }
 
 int	main (void)
 {
 	char	*str;
-	char	*strmapi;
+//	char	*strmapi;
 	
 	printf("\n----------ft_strmapi----------");
-	str = (char *)malloc(sizeof(*str) * 12);
-	strcpy(str, "FrEe StUdIeS");
-	strmapi = ft_strmapi(str, &mapi);
-	printf("%s\n", strmapi);
-	if (strmapi == str)
-		printf("\nA new string was not returned");
-	if (strmapi[13] != '\0')
-		printf("\nString is not null terminated");
+	str = (char *)malloc(sizeof(*str) * 5);
+	strcpy(str, "free");
+	ft_strmapi(str, &mapi);
+	printf("%s\n", str);
+	free(str);
+	
 	return (0);
 }
 

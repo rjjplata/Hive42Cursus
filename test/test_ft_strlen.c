@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include "libft.h"
 
 int	ft_strlen(const char *str)
 {

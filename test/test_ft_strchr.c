@@ -14,13 +14,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
+#include "libft.h"
 
 int main ()
 {
     char str1[10] = "Actuation";
     char str2 = 'i';
-    char str3[13] = "Actuation";
-    char str4 = 'i';
+
     printf("\n----------ft_strchr----------");
     printf("\n**************************************************\n");
     printf("Using strchr: %s\n", strchr(str1, str2));

@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:20:54 by root              #+#    #+#             */
-/*   Updated: 2024/11/11 23:08:47 by root             ###   ########.fr       */
+/*   Updated: 2024/11/13 10:56:33 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-size_t		ft_nb_len(int nb)
+size_t	ft_nb_len(int nb)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (nb <= 0)
@@ -28,7 +27,7 @@ size_t		ft_nb_len(int nb)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		len;
 	char	*str;
@@ -36,7 +35,8 @@ char		*ft_itoa(int n)
 
 	len = ft_nb_len(n);
 	nb = n;
-	if (!(str = malloc(sizeof(char) * len + 1)))
+	str = malloc(sizeof(char) * len + 1);
+	if (!str)
 		return (NULL);
 	if (nb < 0)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:19:11 by root              #+#    #+#             */
-/*   Updated: 2024/11/12 22:32:02 by root             ###   ########.fr       */
+/*   Updated: 2024/11/13 10:05:00 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ char	**ft_split(char const *s, char c)
 	words = count_words(s, c);
 	tab = malloc(sizeof(char *) * (words + 1));
 	if (!tab)
+	{
+		free(tab);
 		return (NULL);
+	}
 	set_mem(tab, s, c);
 	return (tab);
 }

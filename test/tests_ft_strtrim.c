@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_strtrim.c                                  :+:      :+:    :+:   */
+/*   tests_ft_strtrim.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:33:41 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/12 22:43:30 by root             ###   ########.fr       */
+/*   Updated: 2024/11/11 22:18:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
-#include "libft.h"
-#include <stdio.h>
 
 int main()
 {
-	printf("\n----------ft_strtrim----------");
 	printf("\n**************************************************\n");
-	char *str = ft_strtrim("abqbc", "abc");
-	printf("%s\n", str);
-//	free(str);
-//	char *str = ft_strtrim("xavocadoyz", "xyz");
-//	printf("%s\n", str);
-	free (str);
+	char *x = ft_strtrim("abqbc", "abc");
+	printf("%s\n", x);
+	free (x);
+//	printf("%s\n", ft_strtrim("xavocadoyz", "xyz"));
 	printf("\n**************************************************\n");
 	return 0;
 }

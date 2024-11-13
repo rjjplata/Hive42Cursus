@@ -14,9 +14,11 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 void	myfunction(unsigned int i, char *c)
 {
+	i = i; 
 	if (*c >= 'a' && *c <= 'z')
 		*c = *c - 32;
 	else if (*c >= 'A' && *c <= 'Z')
@@ -28,10 +30,11 @@ int	main()
 	char	*str;
 	
 	printf("\n----------ft_striteri----------");
-    printf("\n**************************************************\n");
+    	printf("\n**************************************************\n");
 	str = (char *)malloc(sizeof(*str) * 12);
 	strcpy(str, "LeRoN lErOn");
 	ft_striteri(str, myfunction);
 	printf("%s\n", str);
+	free (str);
 	printf("**************************************************\n");
 }	

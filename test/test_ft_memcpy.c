@@ -15,7 +15,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-
+#include "libft.h"
+ 
 int main ()
 {
      //when overlap happens then it just ignore it
@@ -23,8 +24,6 @@ int main ()
     char str2[18] = "test";
     char str3[18] = "Program";
     char str4[18] = "test";
-    char str5[30] = "LearningIsHard";
-    char str6[30] = "LearningIsHard";
     
     printf("\n----------ft_memcpy----------");
     printf("\n**************************************************\n");
@@ -44,6 +43,7 @@ int main ()
     printf("\nThe string: %s\n", str3);
     char *result1 = ft_memcpy(str3 + 5, str4, 8);
     printf("New string: %s\n", str3);
+    printf("%s\n", result1);
     printf("**************************************************\n");
     return 0;
 }

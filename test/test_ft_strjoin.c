@@ -12,6 +12,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "libft.h"
+
 
 int main ()
 {
@@ -20,6 +22,8 @@ int main ()
 
 	printf("\n----------ft_strjoin----------");
 	printf("\n**************************************************\n");
-	printft("%s\n", ft_strjoin(s1, s2));
+	char *x = ft_strjoin(s1, s2);
+	printf("%s\n", x);
+	free (x);
 	printf("\n**************************************************\n");
 }

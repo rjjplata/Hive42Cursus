@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <bsd/string.h>
+#include "libft.h"
 
 int main ()
 {

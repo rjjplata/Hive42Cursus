@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_putstr_fd.c                                :+:      :+:    :+:   */
+/*   test_ft_strdup.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rplata <rplata@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 18:35:42 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/11 18:37:52 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/13 14:12:52 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/13 14:13:40 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include <string.h>
 #include "libft.h"
 
-int main (void)
+int main ()
 {
-	char file[] = "mystringfile.txt";
-	int fd = open(file, O_CREAT | O_WRONLY);
-	ft_putstr_fd("Lets Go!", fd);
-	close(fd);
+        char    *str;
+
+        str = ft_strdup("Hello, how are you!");
+        printf("\n----------ft_strdup----------");
+        printf("\n**************************************************\n");
+        printf("%s\n", str);
+        free(str);
+        printf("\n**************************************************\n");
+        return 0;
 }
+

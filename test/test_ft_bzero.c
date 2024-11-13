@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include "libft.h"
 
 /* add printf("0") in while loop to show how bzero fills n bytes of the 
 object pointed to by dst with zero (NUL) bytes */

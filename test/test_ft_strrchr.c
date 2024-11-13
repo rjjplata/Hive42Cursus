@@ -14,7 +14,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 #include <bsd/string.h>
+#include "libft.h"
 
 int main ()
 {

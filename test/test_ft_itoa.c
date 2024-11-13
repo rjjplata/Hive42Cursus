@@ -14,13 +14,22 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
+#include "libft.h"
 
 int main()
 {
 	printf("\n----------ft_itoa----------");
     printf("\n**************************************************\n");
-	printf("%s\n", ft_itoa(0));
-	printf("%s\n", ft_itoa(987654321));
-	printf("%s\n", ft_itoa(-123456789));
+    	char *x = ft_itoa(0);
+	printf("%s\n", x);
+	free(x);
+	x = ft_itoa(987654321);
+	printf("%s\n", x);
+	free(x);
+	x = ft_itoa(-123456789);
+	printf("%s\n", x);
+	free(x);
     printf("\n**************************************************\n");
+    
+   
 }
