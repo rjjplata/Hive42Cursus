@@ -18,11 +18,11 @@
 
 void	myfunction(unsigned int i, char *c)
 {
-	i = i; 
+	i = 32; 
 	if (*c >= 'a' && *c <= 'z')
-		*c = *c - 32;
+		*c = *c - i;
 	else if (*c >= 'A' && *c <= 'Z')
-		*c = *c + 32;
+		*c = *c + i;
 }
 
 int	main()
@@ -31,10 +31,12 @@ int	main()
 	
 	printf("\n----------ft_striteri----------");
     	printf("\n**************************************************\n");
+    	printf("Used function toupper/tolower for sample\n");
+    	printf("Original String: LeRoN lErOn\n");
 	str = (char *)malloc(sizeof(*str) * 12);
 	strcpy(str, "LeRoN lErOn");
 	ft_striteri(str, myfunction);
-	printf("%s\n", str);
+	printf("Using ft_striteri: %s\n", str);
 	free (str);
 	printf("**************************************************\n");
 }	

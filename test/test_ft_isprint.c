@@ -32,6 +32,6 @@ int main (void)
     printf("The result:             %d\n", y1);
     printf("The expected result:    %c\n", '0');
     printf("The result:             %d\n", z1);
-    printf("The expected result:    %c\n", 1);
+    printf("The expected result:    %c\n", '1');
     printf("**************************************************\n");
 }

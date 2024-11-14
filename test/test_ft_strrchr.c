@@ -20,13 +20,14 @@
 
 int main ()
 {
-    char str1[16] = "LiberatingThIng";
+    char str1[16] = "LiberatingThing";
     char str2 = 'i';
-    char str3[16] = "LiberatingThIng";
+    char str3[16] = "LiberatingThing";
     char str4 = 'i';
 
     printf("\n----------ft_strrchr----------");
     printf("\n**************************************************\n");
+    printf("String: LiberatingThing | Char: i\n");
     printf("Using strchr: %s\n", strrchr(str1, str2));
     printf("Using ft_strchr: %s\n", ft_strrchr(str3, str4));
     printf("**************************************************\n");

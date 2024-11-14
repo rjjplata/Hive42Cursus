@@ -24,6 +24,8 @@ int main ()
     char str2[18] = "test";
     char str3[18] = "Program";
     char str4[18] = "test";
+    char str5[6] = "abcde";
+    char str6[3] = "abc";
     
     printf("\n----------ft_memcpy----------");
     printf("\n**************************************************\n");
@@ -40,10 +42,11 @@ int main ()
     printf("**************************************************\n");
     printf("\n**************************************************\n");
     printf("This is a sample of overlap\n");
-    printf("\nThe string: %s\n", str3);
-    char *result1 = ft_memcpy(str3 + 5, str4, 8);
-    printf("New string: %s\n", str3);
-    printf("%s\n", result1);
+    printf("\nThe string: %s\n", str5);
+    char *x = memcpy(str5 + 2, str6, 3);
+    printf("%s\n", x);
+ //   ft_memcpy(str5 + 2, str6, 3);
+   // printf("New string: %s\n", str5);
     printf("**************************************************\n");
     return 0;
 }

@@ -19,8 +19,9 @@ int main()
 {
 	printf("\n----------ft_strtrim----------");
 	printf("\n**************************************************\n");
+	printf("String: abqbc   | String to trim: abc\n");
 	char *str = ft_strtrim("abqbc", "abc");
-	printf("%s\n", str);
+	printf("After using ft_strtrim: %s\n", str);
 //	free(str);
 //	char *str = ft_strtrim("xavocadoyz", "xyz");
 //	printf("%s\n", str);

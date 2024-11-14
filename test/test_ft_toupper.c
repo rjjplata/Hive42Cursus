@@ -31,7 +31,7 @@ int main ()
 
     printf("\n----------ft_toupper----------");
     printf("\n**************************************************\n");
-    printf("Example 1: %c\n", x);
+    printf("Example 1: 78\n");
     printf("The result:             %c\n", x1);
     printf("The expected result:    %c\n", toupper(x));
     printf("Example 2: %c\n", y);

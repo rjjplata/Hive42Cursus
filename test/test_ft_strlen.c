@@ -43,10 +43,13 @@ int main ()
 
     printf("\n----------ft_strlen----------");
     printf("\n**************************************************\n");
+    printf("String: IKnowNothing\n");
     printf("The result:             %d\n", x1);
     printf("The expected result:    %d\n", x2);
+    printf("String: Hello\n");
     printf("The result:             %d\n", y1);
     printf("The expected result:    %d\n", y2);
+    printf("String: (NULL)\n");
     printf("The result:             %d\n", z1);
     printf("The expected result:    %d\n", z2);
     printf("**************************************************\n");

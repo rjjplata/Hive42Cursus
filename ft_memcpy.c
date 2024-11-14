@@ -6,7 +6,7 @@
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:27:21 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/07 13:42:28 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/14 17:02:18 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char		*dst_tmp;
-	const char	*src_temp;
+	unsigned char	*dst1;
+	unsigned char	*src1;
+	size_t			i;
 
-	dst_tmp = dst;
-	src_temp = src;
-	if (dst_tmp == src_temp)
-		return (dst_tmp);
-	while (n > 0)
+	dst1 = (unsigned char *)dst;
+	src1 = (unsigned char *)src;
+	if (!dst && !src)
+		return (0);
+	i = 0;
+	while (i < n)
 	{
-		*dst_tmp = *src_temp;
-		dst_tmp++;
-		src_temp++;
-		n--;
+		dst1[i] = src1[i];
+		i++;
 	}
 	return (dst);
 }

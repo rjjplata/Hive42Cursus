@@ -17,22 +17,22 @@
 #include <stdio.h>
 #include "libft.h"
 
-int main ()
+int	main (void)
 {
-	char	**result;
-	int		cur;
-
+	char	**tab;
+	int	i;
+	
+	i = 0;
 	printf("\n----------ft_split----------");
 	printf("\n**************************************************\n");
-	printf("Hello World    !! :\n");
-	result = ft_split("Hello World    !!", ' ');
-	cur = -1;
-	while (cur++, result[cur] != 0)
-		printf("%d => %s\n", cur, result[cur]);
-	printf("\naaaa bbbb..cccc .dddd!!eeee :\n");
-	result = ft_split("aaaa bbbb..cccc .dddd!!eeee", '.');
-	cur = -1;
-	while (cur++, result[cur] != 0)
-		printf("%d => %s\n", cur, result[cur]);
+	tab = ft_split("Wall Wextra Werror	CheckDefine", ' ');
+	while (i < 4)
+	{
+		printf("string %d : %s\n", i, tab[i]);
+		free (tab[i]);
+		i++;
+	}
 	printf("**************************************************\n");
+	free(tab);
+	return (0);
 }

@@ -26,6 +26,8 @@ int main ()
     
     printf("\n----------ft_memchr----------");
     printf("\n**************************************************\n");
+    printf("Word: Pinoy\n");
+    printf("Character to search: i\n");
     printf("Using memchr: %s\n", ((char*)memchr(str1, str2, 4)));
     printf("Using ft_memchr: %s\n", ((char*)ft_memchr(str3, str4, 4)));
     printf("**************************************************\n");

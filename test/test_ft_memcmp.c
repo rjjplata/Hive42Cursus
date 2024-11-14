@@ -26,6 +26,8 @@ int main ()
     
     printf("\n----------ft_memcmp----------");
     printf("\n**************************************************\n");
+    printf("Word 1: Authentic\n");
+    printf("Word 2: Auth\n");
     printf("Using memchr: %d\n", memcmp(str1, str2, 10));
     printf("Using ft_memchr: %d\n", (ft_memcmp(str3, str4, 10)));
     printf("**************************************************\n");

@@ -20,15 +20,19 @@
 int main ()
 {
  //when overlap it starts with initial char
-    char str3[30] = "LearningIsHard";
-    char str4[30] = "LearningIsHard";
+ //   char str3[30] = "LearningIsHard";
+ //   char str4[30] = "LearningIsHard";
+    char str5[5] = "abcde";
+    char str6[3] = "abc";
     
     printf("\n----------ft_memmove----------");
     printf("\n**************************************************\n");
     printf("This is a sample of overlap\n");
-    printf("\nThe string: %s\n", str3);
-    char *result1 = ft_memmove(str3 + 5, str4, 14);
-    printf("New string: %s\n", str3);
-    printf("%s\n", result1);
+ //   printf("\nThe string: %s\n", str3);
+  //  ft_memmove(str3 + 5, str4, 14);
+ //   printf("New string: %s\n", str3);
+    printf("\nThe string: %s\n", str5);
+    ft_memmove(str5 + 2, str6, 3);
+    printf("New string: %s\n", str5);
     printf("**************************************************\n");
 }

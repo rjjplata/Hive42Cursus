@@ -16,14 +16,6 @@
 #include <unistd.h>
 #include "libft.h"
 
-int    ft_result(int a)
-{
-    int x;
-    
-    x = isdigit(a);
-    return (x);
-}
-
 int main ()
 {
     char x = '1';
@@ -32,17 +24,14 @@ int main ()
     char x1 = ft_isdigit(x);
     char y1 = ft_isdigit(y);
     char z1 = ft_isdigit(z);
-    int x2 = ft_result(x);
-    int y2 = ft_result(y);
-    int z2 = ft_result(z);
     
     printf("\n----------ft_isdigit----------");
     printf("\n**************************************************\n");
     printf("The result:             %d\n", x1);
-    printf("The expected result:    %d\n", x2);
+    printf("The expected result:    1\n");
     printf("The result:             %d\n", y1);
-    printf("The expected result:    %d\n", y2);
+    printf("The expected result:    0\n");
     printf("The result:             %d\n", z1);
-    printf("The expected result:    %d\n", z2);
+    printf("The expected result:    1\n");
     printf("**************************************************\n");
 }

@@ -26,7 +26,7 @@ int main ()
     printf("\n----------ft_strlcat----------");
     printf("\n**************************************************\n");
     printf("The string: %s\n", str1);
-    char result = ft_strlcat(str1, str2, sizeof(str1));
-    printf("New string: %d\n", result);
+    ft_strlcat(str1, str2, 14) ;
+    printf("New string: %s\n", str1);
     printf("**************************************************\n");
 }

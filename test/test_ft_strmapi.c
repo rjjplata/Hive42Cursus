@@ -16,8 +16,6 @@
 #include <unistd.h>
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-
 char	mapi(unsigned int i, char c)
 {
 	i = i;
@@ -28,13 +26,13 @@ char	mapi(unsigned int i, char c)
 int	main (void)
 {
 	char	*str;
-//	char	*strmapi;
 	
 	printf("\n----------ft_strmapi----------");
-	str = (char *)malloc(sizeof(*str) * 5);
-	strcpy(str, "free");
-	ft_strmapi(str, &mapi);
+	printf("\n**************************************************\n");
+//	strcpy(str, "libag");
+	str = ft_strmapi("libag", mapi);
 	printf("%s\n", str);
+	printf("**************************************************\n");
 	free(str);
 	
 	return (0);

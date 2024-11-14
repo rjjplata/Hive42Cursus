@@ -21,7 +21,8 @@ int main ()
 	str = ft_substr("Hello, how are you!", 7, 3);
 	printf("\n----------ft_substr----------");
 	printf("\n**************************************************\n");
-	printf("%s\n", str);
+	printf("String: Hello, how are you!  |  Start: 7  | Len: 3\n");
+	printf("After using ft_substr: %s\n", str);
 	free(str);
 	printf("\n**************************************************\n");
 	return 0;

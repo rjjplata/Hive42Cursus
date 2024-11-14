@@ -29,10 +29,13 @@ int main ()
 
     printf("\n----------ft_strncmp----------");
     printf("\n**************************************************\n");
+    printf("String 1: aaaabb | String 2: aaaabc\n");
     printf("The result:             %d\n", ft_strncmp(x, y, 6));
     printf("The expected result:    %d\n", strncmp(x, y, 6));
+    printf("String 1: aaaabc | String 2: aaaabb\n");
     printf("The result:             %d\n", ft_strncmp(a, b, 6));
     printf("The expected result:    %d\n", strncmp(a, b, 6));
+    printf("String 1: aaaa | String 2: aaaa\n");
     printf("The result:             %d\n", ft_strncmp(c, d, 4));
     printf("The expected result:    %d\n", strncmp(c, d, 4));
     printf("**************************************************\n");

@@ -22,6 +22,7 @@ int main ()
         str = ft_strdup("Hello, how are you!");
         printf("\n----------ft_strdup----------");
         printf("\n**************************************************\n");
+        printf("String: Hello, how are you!\n");
         printf("%s\n", str);
         free(str);
         printf("\n**************************************************\n");

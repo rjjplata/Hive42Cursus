@@ -22,8 +22,10 @@ int main ()
 
 	printf("\n----------ft_strjoin----------");
 	printf("\n**************************************************\n");
+	printf("Word 1: black\n");
+	printf("Word 2: white\n");
 	char *x = ft_strjoin(s1, s2);
-	printf("%s\n", x);
+	printf("Using ft_strjoin: %s\n", x);
 	free (x);
 	printf("\n**************************************************\n");
 }

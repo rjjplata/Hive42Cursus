@@ -21,6 +21,7 @@ int main ()
 	str = ft_strnstr("Hello, how are you!", "how", 10);
 	printf("\n----------ft_strnstr----------");
 	printf("\n**************************************************\n");
+	printf("String: Hello, how are you!  | Search: how  | Len: 10\n");
 	printf("%s\n", str);
 	printf("\n**************************************************\n");
 	return 0;
