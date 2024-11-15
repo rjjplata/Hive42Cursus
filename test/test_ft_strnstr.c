@@ -12,13 +12,14 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "libft.h"
 
 int main ()
 {
 	char	*str;
 
-	str = ft_strnstr("Hello, how are you!", "how", 10);
+	str = ft_strnstr(NULL, NULL, 10);
 	printf("\n----------ft_strnstr----------");
 	printf("\n**************************************************\n");
 	printf("String: Hello, how are you!  | Search: how  | Len: 10\n");

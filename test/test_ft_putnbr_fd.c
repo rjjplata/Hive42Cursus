@@ -20,6 +20,6 @@ int main (void)
 {
 	char file[] = "mynumberfile.txt";
 	int fd = open(file, O_CREAT | O_WRONLY);
-	ft_putnbr_fd(3, fd);
+	ft_putnbr_fd(-2147483648, fd);
 	close(fd);
 }

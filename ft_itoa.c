@@ -6,13 +6,13 @@
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:20:54 by root              #+#    #+#             */
-/*   Updated: 2024/11/13 10:56:33 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/15 10:52:14 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_nb_len(int nb)
+static	size_t	ft_nb_len(int nb)
 {
 	int	len;
 

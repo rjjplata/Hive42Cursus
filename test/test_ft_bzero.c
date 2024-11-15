@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:25:42 by root              #+#    #+#             */
-/*   Updated: 2024/11/09 21:52:52 by root             ###   ########.fr       */
+/*   Updated: 2024/11/15 14:32:10 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,29 @@
 #include <string.h>
 #include "libft.h"
 
-/* add printf("0") in while loop to show how bzero fills n bytes of the 
-object pointed to by dst with zero (NUL) bytes */
-int main()
+int	main(void)
 {
-    char buf1[] = "bzero";
-    ft_bzero(buf1, 5);
+	unsigned int	n;
+	unsigned int	i;
+	char	buf1[10];
+	char	buf2[10];
+
+	i = 0;
+	n = 5;
+	printf("\n----------ft_bzero----------");
+	printf("\n**************************************************\n");
+	ft_bzero(buf1, n);
+	while (i < n)
+	{
+		printf("Element in position %u is : %d \n", i, buf1[i]);
+		i++;
+	}
+	bzero(buf2, n);
+	i = 0;
+	while (i < n)
+	{
+		printf("Element in position %u is : %d \n", i, buf2[i]);
+		i++;
+	}
+	printf("**************************************************\n");
 }
