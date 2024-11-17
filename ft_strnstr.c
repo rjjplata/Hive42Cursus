@@ -6,7 +6,7 @@
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:00:58 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/07 14:01:18 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/17 15:54:42 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t		b;
-	size_t		l;
+	size_t	i;
+	size_t	j;
 
-	b = 0;
-	if (little[0] == '\0')
+	i = 0;
+	j = 0;
+	if (ft_strlen(little) == 0)
 		return ((char *)big);
-	while (big[b] != '\0')
+	while (i < len && big[i])
 	{
-		l = 0;
-		while (big[b + l] == little[l] && (b + l) < len)
-		{
-			if (big[b + l] == '\0' && little[l] == '\0')
-				return ((char *)&big[b]);
-			l++;
-		}
-		if (little[l] == '\0')
-			return ((char *)big + b);
-		b++;
+		j = 0;
+		while (big[i + j] == little[j]
+			&& big[i + j] && little[j] && i + j < len)
+			j++;
+		if (!little[j])
+			return ((char *)big + i);
+		else
+			i++;
 	}
 	return (0);
 }
