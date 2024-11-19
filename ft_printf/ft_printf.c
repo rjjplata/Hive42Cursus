@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 10:55:44 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/19 23:05:34 by root             ###   ########.fr       */
+/*   Created: 2024/11/19 22:49:00 by root              #+#    #+#             */
+/*   Updated: 2024/11/20 00:21:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFT_H
+#include "libftprintf.h"
 
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdio.h>
+int ft_printf(const char *form, ...)
+{
+    va_list argp;
+    int i;
 
-int ft_printf(const char *, )
-
-#endif
+    va_start(argp, form);
+    i = 0;
+    while (form[i] != '\0')
+    {
+        if (form[i] == '%')
+            ft_format(*(++form), argp);
+            i++;
+        else
+            write(1, form, 1);
+            ++form;
+            i++;
+    }
+    va_end(argp);
+    return (i);
+}
