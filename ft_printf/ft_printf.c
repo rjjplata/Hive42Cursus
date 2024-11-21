@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 22:49:00 by root              #+#    #+#             */
-/*   Updated: 2024/11/20 21:17:08 by root             ###   ########.fr       */
+/*   Updated: 2024/11/21 11:12:27 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
 
 int ft_putchar(int c)
 {
@@ -24,7 +25,7 @@ int ft_putstr(char *str)
     i = 0;
     while (*str)
     {
-        ft_putchar((int)*str)
+        ft_putchar((int)*str++);
         i++;
         str++;
     }
@@ -55,18 +56,18 @@ int ft_digit(long n, int base)
 
 int ft_format(char specifier, va_list argp)
 {
-   
+   int i;
 
     i = 0;
     if (specifier == 'c')
         i += ft_putchar(va_arg(argp, int));
     else if (specifier == 's')
         i += ft_putstr(va_arg(argp, char *));
-    else if (specifier == 'i')
-        i += ft_putnum(va_arg(argp, int));
+ //   else if (specifier == 'i')
+ //       i += ft_putnum(va_arg(argp, int));
     else if (specifier == 'd')
         i += ft_digit(va_arg(argp, int), 10);
-    else if (specifier == 'p')
+  /*  else if (specifier == 'p')
         i += ft_pointer(va_arg(argp, void *));
     else if (specifier == 'u')
         i += ft_unsigned(va_arg(argp, unsigned int));
@@ -75,34 +76,37 @@ int ft_format(char specifier, va_list argp)
     else if (specifier == 'X')
         i += ft_hexaupper(va_arg(argp, int));
     else
-        i += write(1, &specifier, 1);
+        i += write(1, &specifier, 1);*/
+    return i;
 }
 
 int ft_printf(const char *form, ...)
 {
     va_list argp;
     int i;
+    int len;
 
     va_start(argp, form);
     i = 0;
-    while (form[i] != '\0')
+    len = 0;
+    while (form[i])
     {
-        if (form[i] == '%')
-            ft_format(*(++form), argp);
+        if(form[i] == '%')
+        {
+            len += ft_format ((form[i+1]), argp);
             i++;
+        }
         else
-            write(1, form, 1);      // try with i += write(1, form, 1) if it doesn't work
-            ++form;
-            i++;
+            len += ft_putchar(form[i]);      // try with i += write(1, form, 1) if it doesn't work
+        i++;
     }
     va_end(argp);
-    return (i);
+    return (len);
 }
 
 int main()
 {
     int count;
 
-    count = ft_printf("%x\n", 42);
-    ft_printf("the chars are %d\n", count);
+    ft_printf("the char is %c", 'x');
 }
