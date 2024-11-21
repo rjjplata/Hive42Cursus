@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 22:49:00 by root              #+#    #+#             */
-/*   Updated: 2024/11/21 11:12:27 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/22 00:31:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
 
 int ft_putchar(int c)
 {
@@ -25,33 +24,49 @@ int ft_putstr(char *str)
     i = 0;
     while (*str)
     {
-        ft_putchar((int)*str++);
-        i++;
-        str++;
+        i += ft_putchar((int)*str++);
     }
     return i;
+}
+
+int ft_hexaupper(long n, int base)
+{
+    int i;
+    char    *hexaupper;
+
+    hexaupper = "0123456789ABCDEF";
+    if (n < 0)
+    {
+        write (1, "-", 1);
+        return ft_hexaupper(-n, base) + 1;
+    }
+    else if (n < base)
+        return ft_putchar(hexaupper[n]);
+    else
+    {
+        i = ft_hexaupper(n / base, base);
+        return i + ft_hexaupper(n % base, base);
+    }
 }
 
 int ft_digit(long n, int base)
 {
     int i;
-    char    *hexa;
+    char    *hexalower;
 
-    hexa = "0123456789abcdef";
+    hexalower = "0123456789abcdef";
     if (n < 0)
     {
         write (1, "-", 1);
         return ft_digit(-n, base) + 1;
     }
     else if (n < base)
-        return ft_putchar(hexa[n]);
+        return ft_putchar(hexalower[n]);
     else
     {
         i = ft_digit(n / base, base);
         return i + ft_digit(n % base, base);
     }
-    
-
 }
 
 int ft_format(char specifier, va_list argp)
@@ -63,20 +78,18 @@ int ft_format(char specifier, va_list argp)
         i += ft_putchar(va_arg(argp, int));
     else if (specifier == 's')
         i += ft_putstr(va_arg(argp, char *));
- //   else if (specifier == 'i')
- //       i += ft_putnum(va_arg(argp, int));
-    else if (specifier == 'd')
-        i += ft_digit(va_arg(argp, int), 10);
-  /*  else if (specifier == 'p')
-        i += ft_pointer(va_arg(argp, void *));
-    else if (specifier == 'u')
-        i += ft_unsigned(va_arg(argp, unsigned int));
+    else if (specifier == 'd' || specifier == 'i')
+        i += ft_digit((long)(va_arg(argp, int)), 10);
     else if (specifier == 'x')
-        i += ft_hexalower(va_arg(argp, unsigned int), 16);
+        i += ft_digit((long)(va_arg(argp, unsigned int)), 16);
     else if (specifier == 'X')
-        i += ft_hexaupper(va_arg(argp, int));
+        i += ft_hexaupper((long)(va_arg(argp, unsigned int)), 16); //explicit typecast to a long to trick the overflow when there is a minus sign
+    else if (specifier == 'u')
+        i += ft_digit((long)(va_arg(argp, unsigned int)), 10);
+//    else if (specifier == 'p')
+//        i += ft_pointer((unsigned long)va_arg(argp, void *));
     else
-        i += write(1, &specifier, 1);*/
+        i += write(1, &specifier, 1);
     return i;
 }
 
@@ -97,7 +110,7 @@ int ft_printf(const char *form, ...)
             i++;
         }
         else
-            len += ft_putchar(form[i]);      // try with i += write(1, form, 1) if it doesn't work
+            len += ft_putchar(form[i]);
         i++;
     }
     va_end(argp);
@@ -108,5 +121,5 @@ int main()
 {
     int count;
 
-    ft_printf("the char is %c", 'x');
+    ft_printf("the char is %X", 2323323);
 }
