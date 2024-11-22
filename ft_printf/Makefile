@@ -2,7 +2,14 @@ NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = 
+SRC =	ft_format.c ft_printf.c \
+		./src/ft_digit.c \
+		./src/ft_hexaupper.c \
+		./src/ft_pointer.c \
+		./src/ft_putchar.c \
+		./src/ft_putstr.c
+
+OFILES = $(SRC:.c=.o)
 
 all: $(NAME)
 
@@ -12,7 +19,7 @@ $(NAME): $(OFILES)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f *.o
+	@rm -f *.o ./src/*.o
 
 fclean: clean
 	rm -f $(NAME)

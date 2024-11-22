@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_hexaupper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 10:55:44 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/22 14:03:43 by rplata           ###   ########.fr       */
+/*   Created: 2024/11/22 12:59:07 by rplata            #+#    #+#             */
+/*   Updated: 2024/11/22 13:10:16 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "../libftprintf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
+int	ft_hexaupper(long n, int base)
+{
+	char	*hexaupper;
+	int		i;
 
-int	ft_printf(const char *form, ...);
-int	ft_format(char specifier, va_list argp);
-int	ft_putchar(int c);
-int	ft_putstr(char *str);
-int	ft_digit(long n, int base);
-int	ft_hexaupper(long n, int base);
-int	ft_pointer(unsigned long n);
-
-#endif
+	hexaupper = "0123456789ABCDEF";
+	if (n < 0)
+	{
+		write (1, "-", 1);
+		return (ft_hexaupper(-n, base) + 1);
+	}
+	else if (n < base)
+		return (ft_putchar(hexaupper[n]));
+	else
+	{
+		i = ft_hexaupper(n / base, base);
+		return (i + ft_hexaupper(n % base, base));
+	}
+}
