@@ -3,26 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pointer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:59:21 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/22 13:23:36 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/22 19:42:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_pointer(unsigned long n)
+static int	ft_ptr(unsigned long n, int base)
 {
-	int	len;
+	char	*hexalower;
+	int		i;
+
+	hexalower = "0123456789abcdef";
+	if (n < (unsigned long) base)
+		return (ft_putchar(hexalower[n]));
+	else
+	{
+		i = ft_ptr(n / base, base);
+		return (i + ft_ptr(n % base, base));
+	}
+}
+
+int	ft_pointer(void *ptr)
+{
+	int		len;
+	long	point;
 
 	len = 0;
-	if (n == 0)
+	if (ptr == 0)
 		return (ft_putstr("(nil)"));
 	else
 	{
+		point = (long)ptr;
 		len += ft_putstr("0x");
-		len += ft_digit((long)n, 16);
+		len += ft_ptr(point, 16);
 	}
 	return (len);
 }

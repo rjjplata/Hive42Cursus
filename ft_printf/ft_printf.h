@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 10:55:44 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/22 14:03:43 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/22 19:41:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	ft_putchar(int c);
 int	ft_putstr(char *str);
 int	ft_digit(long n, int base);
 int	ft_hexaupper(long n, int base);
-int	ft_pointer(unsigned long n);
+int	ft_pointer(void *ptr);
 
 #endif

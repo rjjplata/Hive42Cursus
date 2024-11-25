@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 12:17:57 by root              #+#    #+#             */
-/*   Updated: 2024/11/22 13:28:48 by rplata           ###   ########.fr       */
+/*   Updated: 2024/11/22 19:41:38 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ int	ft_format(char specifier, va_list argp)
 	else if (specifier == 'u')
 		i += ft_digit((long)(va_arg(argp, unsigned int)), 10);
 	else if (specifier == 'p')
-		i += ft_pointer((unsigned long)va_arg(argp, void *));
+	{
+		i += ft_pointer(va_arg(argp, void *));
+	}
 	else
 		i += write(1, &specifier, 1);
 	return (i);
