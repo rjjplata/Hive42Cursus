@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 22:49:00 by root              #+#    #+#             */
-/*   Updated: 2024/11/22 19:41:28 by root             ###   ########.fr       */
+/*   Updated: 2024/11/26 14:54:06 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	ft_printf(const char *form, ...)
 	va_start(argp, form);
 	i = 0;
 	len = 0;
-	while (form[i])
+	while (form[i] != '\0')
 	{
+		if (form[i] == '%' && form[i + 1] == '\0')
+			return (-1);
 		if (form[i] == '%')
 		{
 			len += ft_format((form[i + 1]), argp);
