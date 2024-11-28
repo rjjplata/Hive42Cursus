@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:59:40 by rplata            #+#    #+#             */
-/*   Updated: 2024/11/22 19:42:05 by root             ###   ########.fr       */
+/*   Updated: 2024/11/28 13:36:10 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 int	ft_putchar(int c)
 {
-	return (write(1, &c, 1));
+	int	errorcheck;
+
+	errorcheck = write(1, &c, 1);
+	if (errorcheck == 1)
+		return (errorcheck);
+	else
+		return (-1);
 }
