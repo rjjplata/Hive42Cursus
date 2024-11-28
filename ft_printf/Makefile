@@ -12,7 +12,7 @@ SRC =	ft_format.c ft_printf.c \
 OFILES = $(SRC:.c=.o)
 
 all: $(NAME)
-	@echo "Compiling successful."
+
 $(NAME): $(OFILES)
 	ar crs $(NAME) $(OFILES)
 %.o: %.crs
@@ -20,14 +20,10 @@ $(NAME): $(OFILES)
 
 clean:
 	@rm -f *.o ./src/*.o
-	@echo "Binaries generated from sources deleted successfully."
 
-fclean:
-	@rm -f *.o ./src/*.o
-	@rm -f $(NAME)
-	@echo "All files produced by Makefile removed succesfully."
+fclean: clean
+	rm -f $(NAME)
 
-re: fclean all	
-	@echo "Rebuilding successful."
+re: fclean all
 
 .PHONY: all clean fclean re
