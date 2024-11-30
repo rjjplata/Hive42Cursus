@@ -3,60 +3,26 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 5
+#endif
 char    *get_next_line(int fd)
 {
-    int byte;
-    int i;
-    int x;
-    char c;
-    char *strbuff;
+    int     i;
+    char    *strbuff;
+    char    byte;
 
-    if (fd < 0)
+    if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == 0)
         return (NULL);
-    i = 0;
-    strbuff = (char *)malloc(10000000);
+    strbuff = (char *)malloc(sizeof(BUFFER_SIZE + 1))
     if (!strbuff)
     {
         free(strbuff);
-        return(NULL);
+        return(NULL);    
     }
-    byte = read(fd, &c, 1); // reads every character in the file
-    while (byte > 0)
-    {
-        if (c == '\n' || c == EOF)
-            break;
-        else
-            strbuff[i] = c;
-            i++;
-            x--;
-        byte = read(fd, &c, 1);
-    }
-    while (i == 0 || byte < 0)
-    {
-        free(strbuff);
-        return(NULL);
-    }
-    strbuff[i] = '\0';
-    return (strbuff);
-
-}
-
-int main(void)
-{
-    int     fd;
-    int     i;
-    char    *str;
-    char    *path;
-
-    path = "tester.txt";
-    fd = open(path, O_RDONLY);
     i = 0;
-    while (i < 20)
-    {
-        str = get_next_line(fd);
-        printf("[%i] %s\n",i, str);
-        i++;
-    }
-    close(fd);
-    return(0);
+    x = BUFFER_SIZE;
+    byte = read(fd, &c, 1);
+
 }
+   
