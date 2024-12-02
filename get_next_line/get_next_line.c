@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/02 14:47:59 by rplata            #+#    #+#             */
+/*   Updated: 2024/12/02 16:04:52 by rplata           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -13,88 +25,91 @@ int ft_strlen(char *buffer)
 
     i = 0;
     while(buffer[i] != '\0')
-    {
         i++;
-    }
     return (i);
 }
 
-char    ft_copy(char *newbuff, char *buffer)
+char    *ft_strstr(char *fd, char *search)
 {
     int i;
     int j;
-
-    i = 0;
-    j = 0;
-    while (buffer[i] != '\0')
-    {
-        if (buffer[i] == '\n')
-        {
-            buffer[j++] = '\n'; // copy \n
-            buffer[j] = '\0'; // append \0
-            return;
-        }
-        newbuff[j++] = buffer[i++];
-    }
-    newbuff[i] = '\0';
-    return(newbuff);
-}
-char    ft_fillnewline(char *buffer)
-{
-    char *newbuff;
     int len;
 
-    if (!buffer)
-        return;         //return null
-    len = ft_strlen(buffer);
-    newbuff = malloc(len + 1);
-    if (!newbuff)
-        return (NULL);      //return null
-    ft_copy(newbuff, buffer);
-    free(buffer);               //free buffer malloc
-    return (*newbuff);
+    i = 0;
+    len = ft_strlen(search);
+    if(!search)
+        return (fd);
+    while (fd[i] && j != len)
+    {
+        if (fd[i] == search[j])
+            j++;
+        else
+            j = 0;
+        i++;
+    }
+    if (j == len)
+        return (fd + i);
+    return (0);
 }
 
-void    ft_findend(int fd)
+char    *ft_getfirstline(char *fd)
 {
-    int byte;
-    char *buff;
-    char    *buffer;
+    int     i;
+    char    *result;
 
-    byte = read(fd, &buffer, 1);
-    while (byte > 0)
+    i = 0;
+    while (fd[i] != '\n' && fd[i] != '\0')
+        i++;    //count till \n or \0
+    result = malloc (i + 2);        //1 for \n and 1 for \0
+    i = 0;
+    while (fd[i] != '\n' && fd[i] != '\0')
     {
-        if(fd !< 0)
-            buff = malloc(BUFFER_SIZE + 1);
-        if(!buff)
-            return (NULL); //
-        byte = read(fd, buffer, BUFFER_SIZE);
-        if (!byte)
-        {
-            free(buff);
-            return (NULL);
-        }
-        buff[byte] = '\n';
-        ft_fillnewline(buff)
+            result[i] = fd[i];   //copying
+            i++;
     }
-    free(buff);
+    result[i] = '\n';
+    result[i + 1] = '\0';
+    return (result);
+}
+
+char    *ft_fromtemp(char *fd, char *fdline)
+{
+    char    *result;
+    char    *temp;
+
+    if(!fdline)
+    {
+        result = ft_getfirstline(fd);
+        return (result);
+    }
+    if(!ft_strstr(fd, fdline))
+        return(0);
+    temp = ft_strstr(fd, fdline);
+    result = ft_getfirstline(temp);
 }
 
 char    *get_next_line(int fd)
 {
-    char    *buffer;
+    static char     *buffer;
+    static char     *fdline;
     char    byte;
     char    *next_line;
 
     if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &buffer, 0) < 0)
         return (NULL);
-    while (byte > 0)
+    if (!fdline)
     {
-        if(byte == '\n' || byte == 0)
-            return (NULL);
-        next_line = ft_findend(fd); //search for '\n'
+        buffer = (char *)malloc(BUFFER_SIZE + 1);
+        byte = read(fd, buffer, BUFFER_SIZE);
+        buffer[byte + 1] = '\0';
     }
-    return (0);
+    fdline = ft_fromtemp(buffer, fdline);
+    if(!fdline || fdline[0] == '\n')
+    {
+        free(buffer);
+        return(0);
+    }
+    return (fdline);
 }
 
 int main(void)
