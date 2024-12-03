@@ -6,7 +6,7 @@
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:47:59 by rplata            #+#    #+#             */
-/*   Updated: 2024/12/02 16:04:52 by rplata           ###   ########.fr       */
+/*   Updated: 2024/12/03 16:13:41 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t ft_strlen(const char *str)
     return (i);
 }
 
-char	*gnl_ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	if (!str)
 		return (NULL);
@@ -39,12 +39,12 @@ char	*gnl_ft_strchr(const char *str, int c)
 			return ((char *)str);
 		str++;
 	}
-	if (c == '\0')
+	if (c == '\n')
 		return ((char *)str);
 	return (NULL);
 }
 
-static char    *ft_getfirstline(char *fd)
+static char    *ft_duplicate(char *fd)
 {
     int     i;
     char    *result;
@@ -71,13 +71,13 @@ static char    *ft_fromtemp(char *fd, char *fdline)
 
     if(!fdline)
     {
-        result = ft_getfirstline(fd);
+        result = ft_duplicate(fd);
         return (result);
     }
-    if(!ft_strchr(fd, '/n'))
+    if(!ft_strchr(fd, '\n'))
         return(0);
     temp = ft_strchr(fd, '\n');
-    result = ft_getfirstline(temp);
+    result = ft_duplicate(temp);
     return (result);
 }
 
@@ -102,7 +102,7 @@ char    *get_next_line(int fd)
     }
     buffer[byte] = '\0';
     fdline = ft_fromtemp(buffer, fdline);
-    if(!fdline || (fdline[0] == '\n' && byte == 0))
+    if (!fdline || (fdline[0] == '\n' && byte == 0))
     {
         free(buffer);
         buffer = NULL;
@@ -110,7 +110,6 @@ char    *get_next_line(int fd)
     }
     return (fdline);
 }
-
 
 int main() 
 {

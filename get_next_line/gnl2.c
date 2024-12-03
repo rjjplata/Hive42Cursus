@@ -8,6 +8,21 @@
 # define BUFFER_SIZE 3
 #endif
 
+char	*ft_strchr(const char *str, int c)
+{
+	if (!str)
+		return (NULL);
+	while (*str)
+	{
+		if (*str == (char)c)
+			return ((char *)str);
+		str++;
+	}
+	if (c == '\n')
+		return ((char *)str);
+	return (NULL);
+}
+
 size_t ft_strlen(const char *str)
 {
     size_t i = 0;
@@ -46,6 +61,25 @@ char *ft_strjoin(char *s1, const char *s2)
     return new_str;
 }
 
+static char    *ft_duplicate(char *dest, char *source)
+{
+    int     i;
+
+    i = 0;
+    while (source[i] != '\n' && source[i] != '\0')
+        i++;    //count till \n or \0
+    dest = (char *)malloc(i + 1);        //1 for \n and 1 for \0
+    i = 0;
+    while (source[i] != '\n' && source[i] != '\0')
+    {
+            dest[i] = source[i];   //copying
+            i++;
+    }
+    dest[i] = '\0';
+    return (dest);
+}
+
+
 char *get_next_line(int fd)
 {
     static char *buffer = NULL;  // static buffer to hold data between calls
@@ -59,7 +93,7 @@ char *get_next_line(int fd)
 
     while (1)
     {
-        if (buffer == NULL || (newline_pos = strchr(buffer, '\n')) == NULL)
+        if (buffer == NULL || (newline_pos = ft_strchr(buffer, '\n')) == NULL)
         {
             // Read more data if we don't have a newline
             bytes_read = read(fd, temp, BUFFER_SIZE);
@@ -82,15 +116,14 @@ char *get_next_line(int fd)
         }
         
         // Now we have the buffer with at least one line or it's empty
-        newline_pos = strchr(buffer, '\n');
+        newline_pos = ft_strchr(buffer, '\n');
         if (newline_pos)
         {
             size_t line_length = newline_pos - buffer + 1;
             line = (char *)malloc(line_length + 1);
             if (!line)
                 return NULL;
-            strncpy(line, buffer, line_length);
-            line[line_length] = '\0';  // Null-terminate the line
+            ft_duplicate(line, buffer);
             char *new_buffer = ft_strdup(newline_pos + 1);
             free(buffer);
             buffer = new_buffer;
@@ -98,6 +131,7 @@ char *get_next_line(int fd)
         }
     }
 }
+
 
 int main()
 {
@@ -122,6 +156,6 @@ int main()
         perror("Error closing file");
         return 1;
     }
-`
+
     return 0;
 }
