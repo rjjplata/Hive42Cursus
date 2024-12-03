@@ -9,7 +9,6 @@
 /*   Updated: 2024/12/03 16:13:41 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -21,115 +20,134 @@
 
 size_t ft_strlen(const char *str)
 {
-    size_t i;
-
-    i = 0;
-    while(str[i] != '\0')
+    size_t i = 0;
+    while (str[i])
         i++;
     return (i);
 }
 
-char	*ft_strchr(const char *str, int c)
+char *ft_strdup(const char *s)
 {
-	if (!str)
-		return (NULL);
-	while (*str)
-	{
-		if (*str == (char)c)
-			return ((char *)str);
-		str++;
-	}
-	if (c == '\n')
-		return ((char *)str);
-	return (NULL);
+    size_t len = ft_strlen(s);
+    char *dup = (char *)malloc(len + 1);
+    if (!dup)
+        return NULL;
+    for (size_t i = 0; i < len; i++)
+        dup[i] = s[i];
+    dup[len] = '\0';
+    return dup;
 }
 
-static char    *ft_duplicate(char *fd)
+char *ft_strchr(const char *str, int c)
 {
-    int     i;
-    char    *result;
-
-    i = 0;
-    while (fd[i] != '\n' && fd[i] != '\0')
-        i++;    //count till \n or \0
-    result = (char *)malloc(i + 2);        //1 for \n and 1 for \0
-    i = 0;
-    while (fd[i] != '\n' && fd[i] != '\0')
+    if (!str)
+        return (NULL);
+    while (*str)
     {
-            result[i] = fd[i];   //copying
-            i++;
+        if (*str == (char)c)
+            return ((char *)str);
+        str++;
     }
-    result[i] = '\n';
-    result[i + 1] = '\0';
-    return (result);
+    return (c == '\0') ? (char *)str : NULL;
 }
 
-static char    *ft_fromtemp(char *fd, char *fdline)
+static char *ft_strjoin(char *s1, char *s2)
 {
-    char    *result;
-    char    *temp;
+    size_t len1 = ft_strlen(s1);
+    size_t len2 = ft_strlen(s2);
+    char *result = malloc(len1 + len2 + 1);
+    if (!result)
+        return NULL;
+    
+    for (size_t i = 0; i < len1; i++)
+        result[i] = s1[i];
+    for (size_t i = 0; i < len2; i++)
+        result[len1 + i] = s2[i];
+    result[len1 + len2] = '\0';
 
-    if(!fdline)
-    {
-        result = ft_duplicate(fd);
-        return (result);
-    }
-    if(!ft_strchr(fd, '\n'))
-        return(0);
-    temp = ft_strchr(fd, '\n');
-    result = ft_duplicate(temp);
-    return (result);
+    free(s1); // free the first string
+    return result;
 }
 
-char    *get_next_line(int fd)
+char *get_next_line(int fd)
 {
-    static char     *buffer;
-    static char     *fdline;
-    int    byte;
-    char    *buff;
+    static char *buffer = NULL;
+    char temp[BUFFER_SIZE + 1];
+    char *line = NULL;
+    ssize_t bytesRead = 0;
 
     if (fd < 0 || BUFFER_SIZE <= 0)
-        return (NULL);
-    buffer = (char *)malloc(BUFFER_SIZE + 1);
+        return NULL;
+
+    // Initialize the buffer on the first call
     if (!buffer)
-            return (NULL);
-    byte = read(fd, buffer, BUFFER_SIZE);
-    if(byte < 0)
+        buffer = malloc(1);
+    buffer[0] = '\0';
+
+    while ((bytesRead = read(fd, temp, BUFFER_SIZE)) > 0)
+    {
+        temp[bytesRead] = '\0'; // Null-terminate the read buffer
+        buffer = ft_strjoin(buffer, temp); // Concatenate the new data
+        if (ft_strchr(temp, '\n'))
+            break;
+    }
+
+    if (bytesRead < 0 || (bytesRead == 0 && buffer[0] == '\0'))
     {
         free(buffer);
         buffer = NULL;
-        return (NULL);
+        return NULL; // End of file or error
     }
-    buffer[byte] = '\0';
-    fdline = ft_fromtemp(buffer, fdline);
-    if (!fdline || (fdline[0] == '\n' && byte == 0))
+
+    // Process the line
+    char *newline_pos = ft_strchr(buffer, '\n');
+    if (newline_pos)
     {
+        size_t line_length = newline_pos - buffer + 1; // Include the newline
+        line = malloc(line_length + 1);
+        if (!line)
+            return NULL;
+        for (size_t i = 0; i < line_length; i++)
+            line[i] = buffer[i];
+        line[line_length] = '\0'; // Null-terminate the string
+        
+        // Shift the buffer to remove the processed line
+        char *remaining = ft_strdup(newline_pos + 1);
+        free(buffer);
+        buffer = remaining;
+    }
+    else if (buffer && buffer[0] != '\0') // If there's no newline but data in buffer
+    {
+        line = ft_strdup(buffer);
         free(buffer);
         buffer = NULL;
-        return(NULL);
     }
-    return (fdline);
+
+    return line;
 }
 
-int main() 
+int main()
 {
     int fd = open("tester.txt", O_RDONLY);
-    if (fd == -1) 
+    if (fd == -1)
     {
         perror("Error opening file");
         return 1;
     }
+    
     char *line;
-	int	i = 1;
-    while ((line = get_next_line(fd)) != NULL) 
+    int i = 1;
+    while ((line = get_next_line(fd)) != NULL)
     {
-        printf("Line %d: %s\n", i, line);
-		i++;
+        printf("Line %d: %s", i, line);
+        i++;
         free(line);
     }
+    
     if (close(fd) == -1) {
         perror("Error closing file");
         return 1;
     }
+    
     return 0;
 }

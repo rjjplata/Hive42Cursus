@@ -16,6 +16,24 @@ size_t ft_strlen(const char *str)
     return i;
 }
 
+char	*ft_strchr(char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i] != '\0')
+	{
+		if (s[i] == (char) c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	return (0);
+}
+
 char *ft_strdup(const char *s)
 {
     size_t len = ft_strlen(s);
@@ -82,7 +100,7 @@ char *get_next_line(int fd)
         }
         
         // Now we have the buffer with at least one line or it's empty
-        newline_pos = strchr(buffer, '\n');
+        newline_pos = ft_strchr(buffer, '\n');
         if (newline_pos)
         {
             size_t line_length = newline_pos - buffer + 1;
@@ -122,6 +140,5 @@ int main()
         perror("Error closing file");
         return 1;
     }
-`
     return 0;
 }
