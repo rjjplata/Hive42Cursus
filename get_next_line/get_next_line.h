@@ -1,16 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/04 17:43:45 by root              #+#    #+#             */
+/*   Updated: 2024/12/04 17:53:28 by root             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 # include <unistd.h>
-# include <stdarg.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
 
-int	ft_printf(const char *form, ...);
-int	ft_format(char specifier, va_list argp);
-int	ft_putchar(int c);
-int	ft_putstr(char *str);
-int	ft_digit(long n, int base);
-int	ft_hexaupper(long n, int base);
-int	ft_pointer(void *ptr);
+size_t      ft_strlen(char *str);
+char    *ft_strchr(char *str, int c);
+char    *ft_strjoin(char *s1, char *s2);
+char    *get_next_line(int fd);
 
 #endif

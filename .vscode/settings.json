@@ -61,6 +61,7 @@
     "string.h": "c",
     "stdlib.h": "c",
     "ctype.h": "c",
-    "unistd.h": "c"
+    "unistd.h": "c",
+    "get_next_line.h": "c"
   }
 }
