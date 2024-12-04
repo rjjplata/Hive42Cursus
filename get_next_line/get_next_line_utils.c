@@ -163,7 +163,7 @@ int main()
     int i = 1;
     while ((line = get_next_line(fd)) != NULL)
     {
-        printf("Line %d: %s", i, line);
+        printf("Line %d: %s\n", i, line);
         i++;
         free(line);
     }
