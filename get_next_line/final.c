@@ -37,11 +37,11 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
-    	char	*str;
+    char	*str;
 
 	if (!s1)
 	{
-		s1 = (char *)malloc(1 * sizeof(char));
+		s1 = (char *)malloc(sizeof(char) * 1);
 		s1[0] = '\0';
 	}
 	if (!s2)
@@ -65,7 +65,7 @@ static char	*ft_read(int fd, char *str)
 	char	*line;
 	int		len;
 
-	line = malloc(1 + BUFFER_SIZE);
+	line = malloc(BUFFER_SIZE + 1);
 	if (!line)
 		return (NULL);
 	len = 1;
@@ -78,7 +78,8 @@ static char	*ft_read(int fd, char *str)
 			return (NULL);
 		}
 		line[len] = '\0';
-		str = ft_strjoin(str, line);	}
+		str = ft_strjoin(str, line);
+	}
 	free(line);
 	return (str);
 }
@@ -91,19 +92,19 @@ static char	*ft_get_line(char *str)
 	i = 0;
 	if (!str[0])
 		return (NULL);
-	while (str[i] != '\0' && str[i] != '\n')
+	while (str[i] != '\0' && str[i] != '\n') // or
 		i++;
 	line = malloc(i + 2);
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (str[i] != '\0' && str[i] != '\n')
+	while (str[i] != '\0' && str[i] != '\n')  // or
 	{
-		line[i] = str[i];
+		line[i] = str[i];  // copying of the character
 		i++;
 	}
 	if (str[i] == '\n')
-		line[i++] = '\n';
+		line[i++] = '\n';	//should i  add an additional next line if i found next line at the end of the string??
 	line[i] = '\0';
     	return (line);
 }

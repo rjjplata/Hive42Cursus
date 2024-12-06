@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:43:39 by root              #+#    #+#             */
-/*   Updated: 2024/12/04 18:05:45 by root             ###   ########.fr       */
+/*   Updated: 2024/12/06 21:22:43 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*ft_read(int fd, char *str)
 	char	*line;
 	int		len;
 
-	line = malloc(1 + BUFFER_SIZE);
+	line = (char *)malloc(BUFFER_SIZE + 1);
 	if (!line)
 		return (NULL);
 	len = 1;
@@ -31,7 +31,7 @@ static char	*ft_read(int fd, char *str)
 		}
 		line[len] = '\0';
 		str = ft_strjoin(str, line);
-    }
+	}
 	free(line);
 	return (str);
 }
@@ -46,7 +46,7 @@ static char	*ft_get_line(char *str)
 		return (NULL);
 	while (str[i] != '\0' && str[i] != '\n')
 		i++;
-	line = malloc(i + 2);
+	line = (char *)malloc(i + 2);
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -57,11 +57,11 @@ static char	*ft_get_line(char *str)
 	}
 	if (str[i] == '\n')
 		line[i++] = '\n';
-    line[i] = '\0';
-    return (line);
+	line[i] = '\0';
+	return (line);
 }
 
-static char	*ft_get_rest(char *str)
+static char	*ft_get_remaining(char *str)
 {
 	char	*line;
 	int		i;
@@ -100,6 +100,6 @@ char	*get_next_line(int fd)
 	if (!current_line)
 		return (NULL);
 	line = ft_get_line(current_line);
-	current_line = ft_get_rest(current_line);
+	current_line = ft_get_remaining(current_line);
 	return (line);
 }

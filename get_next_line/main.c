@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:43:51 by root              #+#    #+#             */
-/*   Updated: 2024/12/04 17:55:54 by root             ###   ########.fr       */
+/*   Updated: 2024/12/05 13:26:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include "get_next_line.h"
 
 int main()
 {
