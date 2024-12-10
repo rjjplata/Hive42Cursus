@@ -19,8 +19,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
 
 char		*ft_strchr(char *str, int c);
 char		*ft_strjoin(char *s1, char *s2);

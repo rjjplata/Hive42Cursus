@@ -18,7 +18,7 @@
 
 int main()
 {
-    int fd = open("tester.txt", O_RDONLY);
+    int fd = open("tester1.txt", O_RDONLY);
     if (fd == -1)
     {
         perror("Error opening file");

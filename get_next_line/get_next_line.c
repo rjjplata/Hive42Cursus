@@ -31,6 +31,8 @@ static char	*ft_read(int fd, char *str)
 		}
 		line[len] = '\0';
 		str = ft_strjoin(str, line);
+		if (!str)
+			return(NULL);
 	}
 	free(line);
 	return (str);
@@ -100,6 +102,10 @@ char	*get_next_line(int fd)
 	if (!current_line)
 		return (NULL);
 	line = ft_get_line(current_line);
+	if (!line)
+		return (NULL);
 	current_line = ft_get_remaining(current_line);
+	if (!current_line)
+		return (NULL);
 	return (line);
 }
