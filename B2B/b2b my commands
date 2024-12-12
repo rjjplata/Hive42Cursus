@@ -1,0 +1,64 @@
+VM -  a digitized version of a physical computer  that can run programs and operating systems, store data, connect to networks and do other computing function
+
+Choice of operating system is Debian
+Debian is stable, lightweight and fast performance as a desktop OS or server builder and it is also easy to use for new users / inexperienced users.
+
+Difference of Rocky and DebianOS
+Rocky:
+	- Rocky is more stable than debian and supports enterprise application
+	- Does not have an upgrade path
+	- It comes with many security  in-built features that helps protect from cyber attacks.
+	
+Debian:
+	-Released and supported by community and members still maintain it
+	-Has more software/packages available
+	-Comes with easy installation package
+
+Purpose of VM:
+	The main purpose is to operate multiple operating systems at the same time, from the same piece of hardware. Without virtualization, operating multiple systems, it would require two separate physical units
+
+Difference of aptitude and apt:
+	Apt and Aptitude are both package managers but aptitude is more upgraded than apt. Apt is a low level package manager while Aptitude is a higher level package manager.
+	In terms of upgrading, apt does upgrade most important packages and leaves the least important ones.
+	Aptitude adds user interface that allows user to interactively search for a package and install or remove it.
+	
+What is AppArmor:
+	AppArmor provides Mandatory Access Control security. For example an application can take photos by accesing the camera application, but then the administrator denies the privilege, so the application will not be able to access the camera application. If a vulnerability occurs, AppArmor blocks the application so that the damage does not spread to the rest of the system.
+
+To check if ufw is installed:
+	dpkg -l|grep ufw
+UFW Servce:
+	sudo ufw status
+to add new port:
+	netstat -na | grep :8080
+to allow rules on new port:
+	sudo ufw allow 8080
+to delete the port:
+	sudo delete (num)		
+
+SSH is started:
+	sudo service ssh status
+
+what is an SSH:
+	Secure Shell is an encrypted protocol used to administer and communicate with servers
+		
+USER
+to add user:
+	sudo adduser username
+
+to add new group:
+	sudo addgroup groupname
+	
+to assign new user to new group (group)
+	sudo adduser username groupname
+
+to delete user from a group:
+	sudo gpasswd -d username groupname
+	
+setup for strong password:
+	sudo nano /etc/login.defs
+
+HOSTNAME:
+check the hostname:
+	uname -a
+
