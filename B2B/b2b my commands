@@ -31,7 +31,7 @@ USER
 checking of user if included in user42 and sudo
 	getent group user42
 	getent group sudo
-	
+
 to add user:
 	sudo adduser username
 
@@ -53,7 +53,7 @@ check the hostname:
 	uname -a
 
 modify hostname:
-	sudo hostnamectl set-hostname "sampleroot"
+	sudo hostnamectl set-hostname "sampleroot" // restart and name of root should be sampleroot
 
 to view partition:
 	lsblk
