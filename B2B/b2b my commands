@@ -25,6 +25,50 @@ Difference of aptitude and apt:
 What is AppArmor:
 	AppArmor provides Mandatory Access Control security. For example an application can take photos by accesing the camera application, but then the administrator denies the privilege, so the application will not be able to access the camera application. If a vulnerability occurs, AppArmor blocks the application so that the damage does not spread to the rest of the system.
 
+
+USER
+to add user:
+	sudo adduser username
+
+to add new group:
+	sudo addgroup groupname
+	
+to assign new user to new group (group)
+	sudo adduser username groupname
+
+to delete user from a group:
+	sudo gpasswd -d username groupname
+	
+setup for strong password:
+	sudo nano /etc/login.defs
+
+
+HOSTNAME:
+check the hostname:
+	uname -a
+
+modify hostname:
+	sudo hostnamectl set-hostname "sampleroot"
+
+to view partition:
+	lsblk
+
+LVM
+	Logic Volume Manager that is used to gather a whole bunch of hard disks into a group of logic volumes that you have more control over and has more flexibility
+
+SUDO:
+to check if sudo is properly installed:
+	dpkg -l |grep sudo
+
+add user to sudo group
+	sudo adduser "username" sudo
+
+explain sudo:
+	sudo means superuser do. it is a command that runs commands without the need to change your identity for example to root. The implementation can be seen in /etc/sudoers.d/
+
+check the /var/log/sudo/ to check if the history if using sudo command is being updated.
+
+UFW
 To check if ufw is installed:
 	dpkg -l|grep ufw
 UFW Servce:
@@ -42,25 +86,23 @@ SSH is started:
 what is an SSH:
 	Secure Shell is an encrypted protocol used to administer and communicate with servers
 		
-USER
-to add user:
-	sudo adduser username
+-make sure that "ssh rplata42@localhost -p 4241" will not work
 
-to add new group:
-	sudo addgroup groupname
-	
-to assign new user to new group (group)
-	sudo adduser username groupname
 
-to delete user from a group:
-	sudo gpasswd -d username groupname
-	
-setup for strong password:
-	sudo nano /etc/login.defs
+LVM
+	Logic Volume Manager that is used to gather a whole bunch of hard disks into a group of logic volumes that you have more control over and has more flexibility
 
-HOSTNAME:
-check the hostname:
-	uname -a
+Script Monitoring:
+
+Cron: 
+	a system that helps Linux users to schedule tasks. it can be a shell script or a simple bash command. It helps in automating any routine tasks.
+
+stop cron:
+	sudo service cron stop
+
+start cron:
+	sudo service cron start
+
 	
 https://mathieu-soysal.gitbook.io/born2beroot/correction-preparation/correction-sheet
 https://www.linkedin.com/pulse/born2beroot-imad-mimouni
