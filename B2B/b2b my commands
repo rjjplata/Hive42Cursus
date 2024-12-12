@@ -27,6 +27,11 @@ What is AppArmor:
 
 
 USER
+
+checking of user if included in user42 and sudo
+	getent group user42
+	getent group sudo
+	
 to add user:
 	sudo adduser username
 
