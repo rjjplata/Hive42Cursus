@@ -1,5 +1,3 @@
-
-
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -55,6 +53,7 @@ int *ft_stratoi(const char *str)
 int main(int argc, char **argv)
 {
     int i;
+    char *x;
 
     i =0;
     if (argc < 2)
@@ -65,11 +64,12 @@ int main(int argc, char **argv)
     if (argc == 2 )
     {
         printf("Using ft_atoi\n");
-        i = 1;
-        while(argv[1][i])
+        i = 0;
+        x = (ft_split(argv[1], ' '));
+        x = ft_atoi(x);
+        while(x[i])
         {
-            ft_split(argv[1][i]);
-            printf("Element in the array[%i]: \n", argv[1][i]);
+            printf("Element [i]: %d", x[i]);
             i++;
         }
     }

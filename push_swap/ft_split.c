@@ -1,3 +1,9 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int ft_atoi(char *str);
 
 static size_t	count_words(char const *s, char c)
 {
@@ -70,4 +76,20 @@ char	**ft_split(char const *s, char c)
 	}
 	set_mem(tab, s, c);
 	return (tab);
+}
+
+int main(int argc, char **argv)
+{	
+	int i;
+
+	if (argc == 2)
+		ft_split(argv[1], ' ');
+	ft_atoi(argv[1]);
+	i = 0;
+	while(argv[1][i] != '\0')
+	{
+		printf("element [%d]: %d\n", i, argv[1][i]);
+		i++;
+	}
+	return(0);
 }
