@@ -1,18 +1,19 @@
 
+
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
 #include <stdlib.h>
 
-long ft_atoi(const char *str)
+int ft_atoi(char *str)
 {
-    long result = 0;
+    int result = 0;
     int sign = 1;
     int i = 0;
 
     if (!str)
-        return 0;
+        return (0);
     while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
         i++;
     if (str[i] == '-' || str[i] == '+')
@@ -29,54 +30,59 @@ long ft_atoi(const char *str)
     return (sign * result);
 }
 
-void ft_stratoi(const char *str)
+int *ft_stratoi(const char *str)
 {
-    long result;
-    int i = 0;
-    int j = 1;
+    int *result;
+    int i;
+    int j;
 
+    i = 0;
+    j = 0;
     while (str[i] != '\0')
     {
         while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
             i++;
         if (str[i] != '\0')
         {
-            result = ft_atoi(&str[i]);
-            printf("Input %d: %li\n", j, result);
-            j++;
+            result = ft_atoi(str[i]);
             while ((str[i] >= '0' && str[i] <= '9') || str[i] == '-' || str[i] == '+')
                 i++;
         }
     }
+    return(result);
 }
 
 int main(int argc, char **argv)
 {
+    int i;
+
+    i =0;
     if (argc < 2)
     {
         printf("No input provided.\n");
         return 0;
     }
-    if (argc > 2)
+    if (argc == 2 )
     {
-        for (int i = 1; i < argc; i++)
+        printf("Using ft_atoi\n");
+        i = 1;
+        while(argv[1][i])
         {
-            long x = ft_atoi(argv[i]);
-            if (x < LONG_MIN || x > LONG_MAX)
-            {
-                printf("Input is invalid\n");
-                return 0;
-            }
-            else
-            {
-                printf("Input %d: %li\n", i, x);
-            }
+            ft_split(argv[1][i]);
+            printf("Element in the array[%i]: \n", argv[1][i]);
+            i++;
         }
     }
-    else
+    i = 0;
+    if (argc > 2)
     {
         printf("Using ft_stratoi\n");
         ft_stratoi(argv[1]);
+        while(argv[1][i])
+        {
+            printf("Element in the array[%d]: \n", argv[1][i]);
+            i++;
+        }
     }
     return 0;
-}
+} 
