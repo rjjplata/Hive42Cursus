@@ -62,5 +62,5 @@ int ft_rrb(int arrayB[])
 int ft_rrr(int arrayA, int arrayB)
 {
     ft_revrotate(arrayA);
-    ft_revrotate(arrayB);s
+    ft_revrotate(arrayB);
 }

@@ -49,22 +49,3 @@ int ft_findlowest(int array[])
         i++;
     }
 }
-
-int ft_sort(int array[])
-{
-    int i;
-    int length;
-
-    length = ft_arraylength(array)
-    i = 0;
-    while(array[i] != array[length - 1])
-    {
-        j = 1;
-        while{array[j] > array[j-1]}
-        {
-
-        }
-    }
-
-
-}
