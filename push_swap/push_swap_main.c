@@ -4,6 +4,56 @@
 #include <limits.h>
 #include <stdlib.h>
 
+char	**ft_split(char const *s, char c);
+
+/*
+static size_t countsubstr(char const *str, char c)
+{
+    int i;
+    unsigned int count;
+
+    i = 0;
+    count = 0;
+    if(str[i] == '\0')
+        return(0);
+    while(str[i] != '\0')
+    {
+        if(str[i] == c)
+            i++;
+        if(str[i] == '+' || str[i] == '-' || (str[i] >= '0' && str[i] <= '9'))
+        {
+            count++;
+            while(str[i] && (str[i] >= '0' && str[i] <= '9'))
+                i++;
+        }
+        i++;
+    }
+    return(count - 1);
+}
+*/
+
+static size_t countsubstr(char const *str)
+{
+    int i = 0;
+    unsigned int count = 0;
+
+    if (str[i] == '\0')
+        return 0;
+    while (str[i] != '\0')
+    {
+        while (str[i] == ' ' && (str[i + 1] != '\0'))
+            i++;
+        if (str[i] == '+' || str[i] == '-' || (str[i] >= '0' && str[i] <= '9')) 
+        {
+            i++;
+            count++;
+        }
+        while (str[i] != ' ' && (str[i] >= '0' && str[i] <= '9'))
+                i++;
+    }
+    return(count);
+}
+
 static int checkarg1(char *str)
 {
     int i;
@@ -11,7 +61,7 @@ static int checkarg1(char *str)
     i = 0;
     while(str[i] != '\0')
     {
-        if(!(str[i] == '+' || str[i] == '-' || str[i] == ' ' || str[i] == '\t' || (str[i] >= '0' && str[i] <= '9')))
+        if(!(str[i] == '+' || str[i] == '-' || str[i] == ' ' || (str[i] >= '0' && str[i] <= '9')))
             return(0);
         if(str[i] == '+' || str[i] == '-')
         {
@@ -21,7 +71,7 @@ static int checkarg1(char *str)
         }
         while(str[i] >= '0' && str[i] <= '9')
             i++;
-        while(str[i] == ' ' || str[i] == '\t')
+        while(str[i] == ' ')
             i++;
     }
     return(1);
@@ -29,8 +79,8 @@ static int checkarg1(char *str)
 
 int main(int argc, char **argv)
 {
-    size_t argnbr;
-    int *array;
+    int argnbr;
+    char **array;
     int i;
     int result;
     long nbr;
@@ -44,10 +94,13 @@ int main(int argc, char **argv)
     }
     if (argc == 2)
     {
+            argnbr = 0;
             result = checkarg1(argv[1]);
             if(result == 1)
             {
-                printf("Number okay");
+                argnbr = countsubstr(argv[1]);
+                printf("Number okay\n");
+                printf("Number of arguments: %d", argnbr);
             }
             else if (result == 0)
             {
