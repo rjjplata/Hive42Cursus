@@ -4,126 +4,56 @@
 #include <string.h>
 #include <limits.h>
 #include <stdlib.h>
-/*
-long ft_atoi(const char *str)
+
+
+static int checkarg1(char *str)
 {
-    long result = 0;
-    int sign = 1;
-    int i = 0;
+    int i;
 
-    if (!str)
-        return 0;
-    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-        i++;
-    if (str[i] == '-' || str[i] == '+')
+    i = 0;
+    while(str[i] != '\0')
     {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
-    }
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-    return (sign * result);
-}
-
-void ft_stratoi(const char *str)
-{
-    long result;
-    int i = 0;
-    int j = 1;
-
-    while (str[i] != '\0')
-    {
-        while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-            i++;
-        if (str[i] != '\0')
+        if(!(str[i] == '+' || str[i] == '-' || str[i] == ' ' || str[i] == '\t' || (str[i] >= '0' && str[i] <= '9')))
+            return(0);
+        if(str[i] == '+' || str[i] == '-')
         {
-            result = ft_atoi(&str[i]);
-            printf("Input %d: %li\n", j, result);
-            j++;
-            while ((str[i] >= '0' && str[i] <= '9') || str[i] == '-' || str[i] == '+')
-                i++;
-        }
-    }
-}
-
-*/
-
-long ft_atoi(const char *str)
-{
-    long result = 0;
-    int sign = 1;
-    int i = 0;
-
-    if (!str)
-        return 0;
-    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-        i++;
-    if (str[i] == '-' || str[i] == '+')
-    {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
-    }
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-    return (sign * result);
-}
-
-void ft_stratoi(const char *str)
-{
-    long result;
-    int i = 0;
-    int j = 1;
-
-    while (str[i] != '\0')
-    {
-        while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+            if(!(str[i + 1] >= '0' && str[i + 1] <= '9'))
+                return(0);
             i++;
-        if (str[i] != '\0')
-        {
-            result = ft_atoi(&str[i]);
-            printf("Input %d: %li\n", j, result);
-            j++;
-            while ((str[i] >= '0' && str[i] <= '9') || str[i] == '-' || str[i] == '+')
-                i++;
         }
+        while(str[i] >= '0' && str[i] <= '9')
+            i++;
+        while(str[i] == ' ' || str[i] == '\t')
+            i++;
     }
-}
+    return(1);
+} 
+
+
 
 int main(int argc, char **argv)
 {
-    if (argc < 2)
+    size_t argnbr;
+    int *array;
+    int i;
+    int result;
+
+    if (argc == 1)
     {
-        printf("No input provided.\n");
-        return 0;
+        printf("No arguments");
+        return(0);
     }
-    if (argc > 2)
+    if (argc == 2)
     {
-        for (int i = 1; i < argc; i++)
-        {
-            long x = ft_atoi(argv[i]);
-            if (x < LONG_MIN || x > LONG_MAX)
+            result = checkarg1(argv[1]);
+            if(result == 1)
             {
-                printf("Input is invalid\n");
-                return 0;
+                printf("Number okay");
             }
-            else
+            else if (result == 0)
             {
-                printf("Input %d: %li\n", i, x);
+                printf("Error in input");
             }
-        }
+            i++;
     }
-    else
-    {
-        printf("Using ft_stratoi\n");
-        ft_stratoi(argv[1]);
-    }
-    return 0;
 }

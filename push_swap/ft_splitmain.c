@@ -98,7 +98,6 @@ int 	*ft_handleargs(char *argv)
     }
     free(strings);
 	return a;
-
 }
 
 int        ft_isvalidarg(char *argv)
@@ -183,5 +182,4 @@ int main(int argc, char *argv[])
 		i++;
 	} 
 	free(a);
-    
 }
