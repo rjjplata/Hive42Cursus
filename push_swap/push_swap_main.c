@@ -4,6 +4,29 @@
 #include <limits.h>
 #include <stdlib.h>
 
+long    ft_atol(const char *str)
+{
+    long    result;
+    long    sign;
+    long    i;
+
+    result = 0;
+    sign = 1;
+    i = 0;
+    if(str[i] == '-' || str[i] == '+')
+    {
+        if(str[i] == '-')
+            sign *= -1;
+        i++;
+    }
+    while((str[i] >= '0' && str[i] <= '9'))
+    {
+        result = result * 10 + (str[i] - '0');
+        i++;
+    }
+    return(sign * result);
+}
+
 static size_t countsubstr(char const *str)
 {
     int i = 0;
@@ -26,7 +49,7 @@ static size_t countsubstr(char const *str)
     return(count);
 }
 
-char *ft_strncpy(char *s1, char *s2, int n)
+static char *ft_strncpy(char *s1, char *s2, int n)
 {
 	int i = -1;
 
@@ -39,7 +62,6 @@ char *ft_strncpy(char *s1, char *s2, int n)
 char    **ft_split(char *str, char c)
 {
     char **result;
-    size_t substr;
     size_t i;
     size_t j;
     size_t k;
@@ -97,8 +119,9 @@ int main(int argc, char **argv)
     char **array;
     int i;
     int result;
-    long nbr;
     int j;
+    int *array2;
+    long nbr;
 
     array = NULL;
     if (argc == 1)
@@ -106,40 +129,59 @@ int main(int argc, char **argv)
         printf("No arguments");
         return(0);
     }
+    i = 0;
     if (argc == 2)
     {
-            argnbr = 0;
-            result = checkarg1(argv[1]);
-            if(result == 1)
-            {
-                array = ft_split(argv[1], ' ');
-                printf("%s\n", array[1]);
-              //  argnbr = countsubstr(argv[1]);
-                printf("Number okay\n");
-              //  printf("Number of arguments: %d", argnbr);
-            }
-            else if (result == 0)
-            {
-                printf("Error in input");
-            }
-            i++;
-    }
-    i = 1;
-    j = 0;
-    if (argc > 2)
-    {
-   //     nbr = (int *)malloc(sizeof(int) * (argc - 1));
-        while (i < argc)
+        argnbr = 0;
+        result = checkarg1(argv[1]);
+        if(result == 1)
         {
-            result = checkarg1(argv[i]);
-            if(result == 0)
+            argnbr = countsubstr(argv[1]);
+            if(argnbr == 1)
             {
-                printf("Error input");
+                printf("Error!!");
                 return(0);
             }
- //           nbr[j] = (int)
-            printf("Input valid\n");
-            i++;
+            array = ft_split(argv[1], ' ');
+          //  printf("%s\n", array[4]);
+            
+            printf("Number okay\n");
+            printf("Number of arguments: %d\n", argnbr);
         }
+        else if (result == 0)
+        {
+            printf("Error in input");
+        }
+        i++;
     }
+    if (argc >= 3)
+    {
+        i = 1;
+        while(argc > 1)
+        {
+            result = checkarg1(argv[i]);
+            result *= 1;
+            i++;
+            argc--;
+        }
+        j = 1;
+        if(result == 1)
+        {
+            printf("number of input is: %d\n", (i - 1));
+            printf("input good\n");
+            array2 = (int *)malloc(sizeof(int) * i);
+            while(i > j)
+            {
+                nbr = ft_atol(argv[j]);
+                array2[j - 1] = (int)nbr;
+                j++;
+            }
+            array2[j - 1] = '\0';
+            printf("Element 0 = %d\n ", array2[6]); // for checking if elements are in right place
+        }
+        else if (result == 0)
+            printf("Error in input\n");
+    }
+    free(array);
+    return(0);
 }
