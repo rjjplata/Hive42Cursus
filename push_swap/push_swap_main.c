@@ -129,13 +129,14 @@ int main(int argc, char **argv)
         printf("No arguments");
         return(0);
     }
-    i = 0;
     if (argc == 2)
     {
+      
         argnbr = 0;
         result = checkarg1(argv[1]);
         if(result == 1)
         {
+            i = 0;
             argnbr = countsubstr(argv[1]);
             if(argnbr == 1)
             {
@@ -144,15 +145,26 @@ int main(int argc, char **argv)
             }
             array = ft_split(argv[1], ' ');
           //  printf("%s\n", array[4]);
-            
             printf("Number okay\n");
             printf("Number of arguments: %d\n", argnbr);
+            array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
+            while(argnbr >= (i + 1))
+            {
+                nbr = ft_atol(array[i]);
+                array2[i] = (int)nbr;
+                i++;
+            }
+            array2[i] = '\0';
+            while(i >= 0)
+            {
+                printf("Element [%i] = %i\n", i, array2[i]);
+                i--;
+            }
         }
         else if (result == 0)
         {
             printf("Error in input");
         }
-        i++;
     }
     if (argc >= 3)
     {
@@ -177,7 +189,12 @@ int main(int argc, char **argv)
                 j++;
             }
             array2[j - 1] = '\0';
-            printf("Element 0 = %d\n ", array2[6]); // for checking if elements are in right place
+            i = 0;
+            while(array2[i] != '\0')
+            {
+                printf("Element %d = %d\n", i, array2[i]); // for checking if elements are in right place
+                i++;
+            }
         }
         else if (result == 0)
             printf("Error in input\n");
