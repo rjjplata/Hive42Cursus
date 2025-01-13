@@ -10,7 +10,6 @@ all: $(NAME)
 
 $(NAME): $(OFILES)
 	ar crs $(NAME) $(OFILES)
-
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 

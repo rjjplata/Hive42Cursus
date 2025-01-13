@@ -1,6 +1,7 @@
-
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h> //need to remove
+#include <limits.h>
+#include <stdlib.h>
 #include <string.h>
 
 void ft_putchar(char c) //not in push_swap.h yet
@@ -30,7 +31,7 @@ void ft_pb(int *arrayB, int *arrayA)
     ft_push(arrayB, arrayA);
 }
 
-void ft_pa(int *arrayA, int arrayB)
+void ft_pa(int *arrayA, int *arrayB)
 {
     ft_push(arrayA, arrayB);
 }

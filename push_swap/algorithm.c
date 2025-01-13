@@ -1,17 +1,35 @@
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h> //need to remove
+#include <limits.h>
+#include <stdlib.h>
+#include <string.h>
 
 void   random3(int *array)
 {
     int i;
     
     i = 0;
-    if(array[i] != '\0' && (array[i + 1] < array[i]) && (array[i + 1] < array[i + 2]))
+    if(array[i] && (array[i + 1] < array[i]) && (array[i + 1] < array[i + 2]))
     {
         if(array[i] < array[i + 2])
             ft_sa(array);
         if(array[i] > array[i + 2])
             ft_ra(array);
+    }
+    else if(array[i] && (array[i + 1] > array[i] && array[i + 1] > array[i + 2]))
+    {
+        if(array[i] > array[i + 2])
+            ft_rra(array);
+        if(array[i] < array[i + 2])
+        {
+            ft_sa(array);
+            ft_ra(array);
+        }
+    }
+    else if (array[i] && (array[i + 2] < array[i + 1]) && (array[i + 1] < array[i]))
+    {
+        ft_sa(array);
+        ft_rra(array);
     }
 }
 
