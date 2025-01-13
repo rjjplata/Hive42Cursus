@@ -19,7 +19,8 @@ void    ft_rr(int *arrayA, int *arrayB);
 void    ft_rra(int *arrayA);
 void    ft_rrb(int *arrayB);
 void    ft_rrr(int *arrayA, int *arrayB);
-
+void    pushtoalgo(int *array);
+long ft_atol(const char *str)
 
 int ft_arraylength (int *array);
 int ft_swap(int *array);
@@ -33,5 +34,6 @@ char *ft_strncpy(char *s1, char *s2, int n);
 size_t countsubstr(char const *str);
 long ft_atol(const char *str);
 void   random3(int *array);
+void    ft_putchar(char c);
 
 #endif

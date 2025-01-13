@@ -1,8 +1,4 @@
-#include <unistd.h>
-#include <stdio.h> //need to remove
-#include <limits.h>
-#include <stdlib.h>
-#include <string.h>
+#include "push_swap.h"
 
 void   random3(int *array)
 {

@@ -2,9 +2,9 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = algorithm.c array_swap.c moves.c push_swap_main.c
+SRCS = $(wildcard src/*.c util/.*c)
 
-OFILES = $(SRC:.c=.o)
+OFILES = $(SRCS:.c=.o)
 
 all: $(NAME)
 
