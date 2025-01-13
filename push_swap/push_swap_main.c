@@ -144,7 +144,6 @@ int main(int argc, char **argv)
                 return(0);
             }
             array = ft_split(argv[1], ' ');
-          //  printf("%s\n", array[4]);
             printf("Number okay\n");
             printf("Number of arguments: %d\n", argnbr);
             array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
