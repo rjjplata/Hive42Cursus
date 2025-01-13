@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int ft_arraylength (int array[])
+int ft_arraylength (int *array)
 {
     int length;
 
@@ -14,7 +14,7 @@ int ft_arraylength (int array[])
     return (length);
 }
 
-int ft_swap(int array[])
+int ft_swap(int *array)
 {
     int temp;
     int length;
@@ -33,7 +33,7 @@ int ft_swap(int array[])
     }
 }
 
-int ft_pushToEmpty (int arraySRC[], int arrayDST[])
+int ft_pushToEmpty (int *arraySRC, int *arrayDST)
 {
     int i;
 
@@ -49,7 +49,7 @@ int ft_pushToEmpty (int arraySRC[], int arrayDST[])
     return (0);
 }
 
-int ft_push(int arraySRC[], int arrayDST[]) 
+int ft_push(int *arraySRC, int *arrayDST) 
 {
     int i = 0;
     int lengthA = 0;
@@ -85,7 +85,7 @@ int ft_push(int arraySRC[], int arrayDST[])
     return 0;  // Return 0 for successful operation
 }
 
-int ft_rotate(int array[])
+int ft_rotate(int *array)
 {
     int i;
     int temp;
@@ -103,7 +103,7 @@ int ft_rotate(int array[])
     return (0);
 }
 
-int ft_revrotate(int array[])
+int ft_revrotate(int *array)
 {
     int i;
     int temp;

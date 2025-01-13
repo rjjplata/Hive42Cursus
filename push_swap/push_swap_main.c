@@ -4,7 +4,7 @@
 #include <limits.h>
 #include <stdlib.h>
 
-long    ft_atol(const char *str)
+static long ft_atol(const char *str)
 {
     long    result;
     long    sign;
