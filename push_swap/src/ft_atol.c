@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long ft_atol(const char *str)
 {

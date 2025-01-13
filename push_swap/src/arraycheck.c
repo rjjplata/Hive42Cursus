@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int arraySortedOrNot(int *arr, int n)
 {
@@ -10,9 +10,8 @@ int arraySortedOrNot(int *arr, int n)
     while(i < n)
     {
         if(arr[i - 1] > arr[i])
-            return(0)
+            return(0);
         i++;
     }
     return (1);
-
 }

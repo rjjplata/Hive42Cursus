@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static char *ft_strncpy(char *s1, char *s2, int n)
 {

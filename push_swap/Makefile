@@ -14,7 +14,8 @@ $(NAME): $(OFILES)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f *.o
+	@rm -f src/*.o
+	@rm -f util/*.o
 
 fclean: clean
 	rm -f $(NAME)
