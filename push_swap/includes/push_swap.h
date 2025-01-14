@@ -8,30 +8,30 @@
 #include <string.h>
 
 void    ft_putchar(char c);
-void    ft_sa(int *arrayA);
-void    ft_sb(int *arrayB);
-void    ft_ss(int *arrayA, int *arrayB);
-void    ft_pb(int *arrayB, int *arrayA);
-void    ft_pa(int *arrayA, int *arrayB);
-void    ft_ra(int *arrayA);
-void    ft_rb(int *arrayB);
-void    ft_rr(int *arrayA, int *arrayB);
-void    ft_rra(int *arrayA);
-void    ft_rrb(int *arrayB);
-void    ft_rrr(int *arrayA, int *arrayB);
-void    pushtoalgo(int *array);
+void    ft_sa(int *arrayA, int length);
+void    ft_sb(int *arrayB, int length);
+void    ft_ss(int *arrayA, int *arrayB, int length);
+void    ft_pb(int *arrayB, int *arrayA, int length);
+void    ft_pa(int *arrayA, int *arrayB, int length);
+void    ft_ra(int *arrayA, int length);
+void    ft_rb(int *arrayB, int length);
+void    ft_rr(int *arrayA, int *arrayB, int length); //
+void    ft_rra(int *arrayA, int length);
+void    ft_rrb(int *arrayB, int length);
+void    ft_rrr(int *arrayA, int *arrayB, int length);
+void    pushtoalgo(int *array, int length);
 long ft_atol(const char *str);
 
-int ft_arraylength (int *array);
-int ft_swap(int *array);
-int ft_pushToEmpty (int *arraySRC, int *arrayDST);
-int ft_push(int *arraySRC, int *arrayDST);
-int ft_rotate(int *array);
-int ft_revrotate(int *array);
+int ft_swap(int *array, int length);
+int ft_pushToEmpty (int *arraySRC, int *arrayDST, int length);
+int ft_push(int *arraySRC, int *arrayDST, int length);
+int ft_rotate(int *array, int length);
+int ft_revrotate(int *array, int length);
 char    **ft_split(char *str, char c);
 long ft_atol(const char *str);
-void   random3(int *array);
+void   random3(int *array, int length);
 void    ft_putchar(char c);
 size_t countsubstr(char const *str);
+int find_dup(int *arr, int length);
 
 #endif

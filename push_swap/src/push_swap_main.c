@@ -64,8 +64,16 @@ int main(int argc, char **argv)
                 array2[i] = (int)nbr;
                 i++;
             }
-            array2[i] = '\0';
-            pushtoalgo(array2);
+            if(find_dup(array2, argnbr) == 0)
+            {
+                printf("No duplicate");
+                pushtoalgo(array2, argnbr);
+            }
+            else if(find_dup(array2, argnbr) == 1)
+            {
+                printf("Error (there is duplicate)!");
+                return(0);
+            }
         }
         else if (result == 0)
         {
@@ -106,5 +114,6 @@ int main(int argc, char **argv)
             printf("Error in input\n");
     }
     free(array);
+    free(array2);
     return(0);
 }

@@ -1,13 +1,9 @@
 #include "../includes/push_swap.h"
 
-void pushtoalgo(int *array)
+void pushtoalgo(int *array, int length)
 {
-    int elemnum;
-
-    elemnum = ft_arraylength(array);
-
-    if(elemnum == 3)
-        random3(array);
+    if(length == 3)
+        random3(array, length);
     else
         printf("wrong value");
 }

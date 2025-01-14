@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void   random3(int *array)
+void   random3(int *array, int length)
 {
     int i;
     
@@ -8,24 +8,24 @@ void   random3(int *array)
     if(array[i] && (array[i + 1] < array[i]) && (array[i + 1] < array[i + 2]))
     {
         if(array[i] < array[i + 2])
-            ft_sa(array);
+            ft_sa(array, length);
         if(array[i] > array[i + 2])
-            ft_ra(array);
+            ft_ra(array, length);
     }
     else if(array[i] && (array[i + 1] > array[i] && array[i + 1] > array[i + 2]))
     {
         if(array[i] > array[i + 2])
-            ft_rra(array);
+            ft_rra(array, length);
         if(array[i] < array[i + 2])
         {
-            ft_sa(array);
-            ft_ra(array);
+            ft_sa(array, length);
+            ft_ra(array, length);
         }
     }
     else if (array[i] && (array[i + 2] < array[i + 1]) && (array[i + 1] < array[i]))
     {
-        ft_sa(array);
-        ft_rra(array);
+        ft_sa(array, length);
+        ft_rra(array, length);
     }
 }
 
