@@ -29,8 +29,8 @@ int main(int argc, char **argv)
     int argnbr;
     char **array;
     int i;
-    int result;
     int j;
+    int result;
     int *array2;
     long nbr;
 
@@ -67,8 +67,10 @@ int main(int argc, char **argv)
             if(find_dup(array2, argnbr) == 0)
             {
                 printf("No duplicate\n");
-                if(pushtoalgo(argnbr) == 1)
+                if(argnbr == 3)
                     random3(array2, argnbr);
+                
+            //    else if(argnbr == 5)
                 printf("%i %i %i", array2[0], array2[1], array2[2]);
             }
             else if(find_dup(array2, argnbr) == 1)
@@ -104,13 +106,24 @@ int main(int argc, char **argv)
                 array2[j - 1] = (int)nbr;
                 j++;
             }
-            array2[j - 1] = '\0';
-            i = 0;
-            while(array2[i] != '\0')
+            argnbr = i - 1;
+            printf("%i\n", argnbr);
+            if(find_dup(array2, argnbr) == 0)
             {
-                printf("Element %d = %d\n", i, array2[i]); // for checking if elements are in right place
-                i++;
+                printf("No duplicate\n");
+                
+                if(argnbr == 3)
+                    random3(array2, argnbr);
+                
+            //    else if(argnbr == 5)
+                printf("%i %i %i", array2[0], array2[1], array2[2]);
             }
+            else if(find_dup(array2, argnbr) == 1)
+            {
+                printf("Error (there is duplicate)!");
+                return(0);
+            }
+            
         }
         else if (result == 0)
             printf("Error in input\n");

@@ -19,7 +19,6 @@ void    ft_rr(int *arrayA, int *arrayB, int length); //
 void    ft_rra(int *arrayA, int length);
 void    ft_rrb(int *arrayB, int length);
 void    ft_rrr(int *arrayA, int *arrayB, int length);
-int    pushtoalgo(int length);
 long ft_atol(const char *str);
 
 void ft_swap(int *array, int length);
