@@ -1,11 +1,12 @@
 #include "../includes/push_swap.h"
 
-void pushtoalgo(int *array, int length)
+int pushtoalgo(int length)
 {
     if(length == 3)
-        random3(array, length);
+        return(1);
     else if(length == 5)
-        random5(array, length);
+        return(2);
     else
         printf("wrong value");
+    return(0);
 }

@@ -1,23 +1,20 @@
 #include "../includes/push_swap.h"
 
-int ft_swap(int *array, int length)
+void ft_swap(int *array, int length)
 {
     int temp;
 
     if (length <= 1)
-    {
-        return (0);
-    }
+        return;
     else
     {
         temp = array[0];
         array[0] = array[1];
         array[1] = temp;
     }
-    return(0);
 }
 
-int ft_pushToEmpty (int *arraySRC, int *arrayDST, int length)
+void ft_pushToEmpty (int *arraySRC, int *arrayDST, int length)
 {
     int i;
 
@@ -30,10 +27,10 @@ int ft_pushToEmpty (int *arraySRC, int *arrayDST, int length)
     }
     // After shifting, set the last two elements of arrayA to 0
     arraySRC[length - 1] = 0; //
-    return (0);
+    return;
 }
 
-int ft_push(int *arraySRC, int *arrayDST, int length) 
+void ft_push(int *arraySRC, int *arrayDST, int length) 
 {
     int i = 0;
     int lengthA = 0;
@@ -46,7 +43,7 @@ int ft_push(int *arraySRC, int *arrayDST, int length)
         lengthB++;
     printf("The number of elements in stack B is: %d\n", lengthB); 
     if (arraySRC == NULL)
-        return (0);
+        return;
     else if (arrayDST != NULL && arraySRC != NULL)
     {
         i = lengthB;
@@ -66,10 +63,10 @@ int ft_push(int *arraySRC, int *arrayDST, int length)
     }
     else if (arrayDST == 0 && arraySRC != NULL)
         ft_pushToEmpty(arraySRC, arrayDST , length);
-    return 0;  // Return 0 for successful operation
+    return;  // Return 0 for successful operation
 }
 
-int ft_rotate(int *array, int length)
+void ft_revrotate(int *array, int length)
 {
     int i;
     int temp;
@@ -82,10 +79,10 @@ int ft_rotate(int *array, int length)
         i--;  
     }
     array[0] = temp;
-    return (0);
+    return;
 }
 
-int ft_revrotate(int *array, int length)
+void ft_rotate(int *array, int length)
 {
     int i;
     int temp;
@@ -98,5 +95,5 @@ int ft_revrotate(int *array, int length)
         i++;  
     }
     array[length-1] = temp;
-    return (0); 
+    return; 
 }

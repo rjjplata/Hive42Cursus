@@ -19,14 +19,14 @@ void    ft_rr(int *arrayA, int *arrayB, int length); //
 void    ft_rra(int *arrayA, int length);
 void    ft_rrb(int *arrayB, int length);
 void    ft_rrr(int *arrayA, int *arrayB, int length);
-void    pushtoalgo(int *array, int length);
+int    pushtoalgo(int length);
 long ft_atol(const char *str);
 
-int ft_swap(int *array, int length);
-int ft_pushToEmpty (int *arraySRC, int *arrayDST, int length);
-int ft_push(int *arraySRC, int *arrayDST, int length);
-int ft_rotate(int *array, int length);
-int ft_revrotate(int *array, int length);
+void ft_swap(int *array, int length);
+void ft_pushToEmpty (int *arraySRC, int *arrayDST, int length);
+void ft_push(int *arraySRC, int *arrayDST, int length);
+void ft_rotate(int *array, int length);
+void ft_revrotate(int *array, int length);
 char    **ft_split(char *str, char c);
 long ft_atol(const char *str);
 void   random3(int *array, int length);

@@ -5,24 +5,24 @@ void   random3(int *array, int length)
     int i;
     
     i = 0;
-    if(array[i] && (array[i + 1] < array[i]) && (array[i + 1] < array[i + 2]))
+    if((array[i + 1] < array[i]) && (array[i + 1] < array[i + 2]))
     {
         if(array[i] < array[i + 2])
             ft_sa(array, length);
-        if(array[i] > array[i + 2])
+        else if(array[i] > array[i + 2])
             ft_ra(array, length);
     }
-    else if(array[i] && (array[i + 1] > array[i] && array[i + 1] > array[i + 2]))
+    else if((array[i + 1] > array[i] && array[i + 1] > array[i + 2]))
     {
         if(array[i] > array[i + 2])
             ft_rra(array, length);
-        if(array[i] < array[i + 2])
+        else if(array[i] < array[i + 2])
         {
             ft_sa(array, length);
             ft_ra(array, length);
         }
     }
-    else if (array[i] && (array[i + 2] < array[i + 1]) && (array[i + 1] < array[i]))
+    else if ((array[i + 2] < array[i + 1]) && (array[i + 1] < array[i]))
     {
         ft_sa(array, length);
         ft_rra(array, length);
@@ -39,14 +39,8 @@ void    random5(int *array, int length)
     while((i + 2) < length)
     {
         ft_pb(array, array2, length);
+        printf("Element[0]: %i", array2[0]);
         i++;
-    }
-    int j = 0;
-    while(j < 5)
-    {
-        printf("Array A Element [%i]: %i\n", j, array[j]);
-        printf("Array B Element [%i]: %i\n", j, array2[j]);
-        j++;
     }
 }
 
