@@ -25,9 +25,6 @@ void ft_pushToEmpty (int *arraySRC, int *arrayDST, int length)
         arraySRC[i] = arraySRC[i + 1];
         i++;
     }
-    // After shifting, set the last two elements of arrayA to 0
-    arraySRC[length - 1] = 0; //
-    return;
 }
 
 void ft_push(int *arraySRC, int *arrayDST, int length) 
@@ -38,10 +35,8 @@ void ft_push(int *arraySRC, int *arrayDST, int length)
 
     while (arraySRC[lengthA] != 0) 
         lengthA++;
-    printf("The number of elements in stack A is: %d\n", lengthA);
     while (arrayDST[lengthB] != 0) 
         lengthB++;
-    printf("The number of elements in stack B is: %d\n", lengthB); 
     if (arraySRC == NULL)
         return;
     else if (arrayDST != NULL && arraySRC != NULL)
@@ -63,7 +58,6 @@ void ft_push(int *arraySRC, int *arrayDST, int length)
     }
     else if (arrayDST == 0 && arraySRC != NULL)
         ft_pushToEmpty(arraySRC, arrayDST , length);
-    return;  // Return 0 for successful operation
 }
 
 void ft_revrotate(int *array, int length)

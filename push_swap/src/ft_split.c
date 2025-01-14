@@ -10,18 +10,12 @@ static char *ft_strncpy(char *s1, char *s2, int n)
 	return (s1);
 }
 
-char    **ft_split(char *str, char c)
+static char **checksplit(char *str, char c, char **result)
 {
-    char **result;
-    size_t i;
-    size_t j;
-    size_t k;
-    size_t count;
+    int i;
+    int j;
+    int k;
 
-    count = countsubstr(str);
-    result = (char **)malloc(sizeof(char *) * (count + 1));
-    if(!str || !result)
-        return(NULL);
     i = 0;
     k = 0;
     while(str[i] != '\0')
@@ -38,5 +32,18 @@ char    **ft_split(char *str, char c)
         }
     }
     result[k] = NULL;
+    return(result);
+}
+
+char    **ft_split(char *str, char c)
+{
+    char **result;
+    size_t count;
+
+    count = countsubstr(str);
+    result = (char **)malloc(sizeof(char *) * (count + 1));
+    if(!str || !result)
+        return(NULL);
+    checksplit(str, c, result);
     return(result);
 }
