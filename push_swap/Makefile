@@ -2,23 +2,21 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(wildcard src/*.c util/.*c)
+SRCS = $(wildcard src/*.c util/*.c)
 
 OFILES = $(SRCS:.c=.o)
 
+$(NAME): $(OFILES)
+	$(CC) $(CFLAGS) $(SRCS) -Iincludes -o $(NAME)
+
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	ar crs $(NAME) $(OFILES)
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
-	@rm -f src/*.o
-	@rm -f util/*.o
+	@rm -rf src/*.o
+	@rm -rf util/*.o
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

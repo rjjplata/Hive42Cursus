@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 void pushtoalgo(int *array)
 {
@@ -8,7 +8,6 @@ void pushtoalgo(int *array)
 
     if(elemnum == 3)
         random3(array);
-    if(elemnum == 5)
     else
         printf("wrong value");
 }

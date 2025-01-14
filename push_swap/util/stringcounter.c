@@ -1,4 +1,4 @@
-#include "../push_swap.c"
+#include "../includes/push_swap.h"
 
 size_t countsubstr(char const *str)
 {

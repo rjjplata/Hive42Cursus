@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 int ft_arraylength (int *array)
 {
@@ -112,7 +112,7 @@ int ft_revrotate(int *array)
     temp = array[0];
     while (i != (length - 1))
     {
-        array[i] = array[i+1];  // Shift each element downwards/to the right
+        array[i] = array[i + 1];  // Shift each element downwards/to the right
         i++;  
     }
     array[length-1] = temp;

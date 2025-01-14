@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 
 static int checkarg1(char *str)
