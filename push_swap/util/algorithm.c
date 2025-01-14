@@ -29,7 +29,26 @@ void   random3(int *array, int length)
     }
 }
 
+void    random5(int *array, int length)
+{
+    int i;
+    int *array2;
 
+    i = 0;
+    array2 = 0;
+    while((i + 2) < length)
+    {
+        ft_pb(array, array2, length);
+        i++;
+    }
+    int j = 0;
+    while(j < 5)
+    {
+        printf("Array A Element [%i]: %i\n", j, array[j]);
+        printf("Array B Element [%i]: %i\n", j, array2[j]);
+        j++;
+    }
+}
 
 
 /*

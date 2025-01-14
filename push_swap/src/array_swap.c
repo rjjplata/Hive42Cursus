@@ -44,10 +44,10 @@ int ft_push(int *arraySRC, int *arrayDST, int length)
     printf("The number of elements in stack A is: %d\n", lengthA);
     while (arrayDST[lengthB] != 0) 
         lengthB++;
-    printf("The number of elements in stack B is: %d\n", lengthB);
-    if (lengthA == 0)
+    printf("The number of elements in stack B is: %d\n", lengthB); 
+    if (arraySRC == NULL)
         return (0);
-    else if (lengthB >= 1)
+    else if (arrayDST != NULL && arraySRC != NULL)
     {
         i = lengthB;
         while(i >= 1)
@@ -64,7 +64,7 @@ int ft_push(int *arraySRC, int *arrayDST, int length)
         }
         arraySRC[lengthA - 1] = 0;
     }
-    else
+    else if (arrayDST == 0 && arraySRC != NULL)
         ft_pushToEmpty(arraySRC, arrayDST , length);
     return 0;  // Return 0 for successful operation
 }

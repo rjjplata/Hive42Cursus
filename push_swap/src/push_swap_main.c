@@ -66,7 +66,8 @@ int main(int argc, char **argv)
             }
             if(find_dup(array2, argnbr) == 0)
             {
-                printf("No duplicate");
+                printf("No duplicate\n");
+                printf("argument number: %i", argnbr);
                 pushtoalgo(array2, argnbr);
             }
             else if(find_dup(array2, argnbr) == 1)

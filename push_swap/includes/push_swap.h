@@ -30,6 +30,7 @@ int ft_revrotate(int *array, int length);
 char    **ft_split(char *str, char c);
 long ft_atol(const char *str);
 void   random3(int *array, int length);
+void    random5(int *array, int length);
 void    ft_putchar(char c);
 size_t countsubstr(char const *str);
 int find_dup(int *arr, int length);
