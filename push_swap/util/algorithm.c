@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void   random3(int *array, int length)
+void   random3(int *array, int *length)
 {
     int i;
     
@@ -28,22 +28,24 @@ void   random3(int *array, int length)
         ft_rra(array, length);
     }
 }
-
-void    random5(int *array, int length)
+/*
+void    random5(int *array, int *length)
 {
     int i;
     int *array2;
+    int lengthB;
+    int lengthA;
 
     i = 0;
-    array2 = 0;
     while((i + 2) < length)
     {
-        ft_pb(array, array2, length);
+        ft_pb(array, array2, &lengthA, &lengthB);
         printf("Element[0]: %i", array2[0]);
         i++;
     }
+    random3
 }
-
+*/
 
 /*
 quicksort(int n)

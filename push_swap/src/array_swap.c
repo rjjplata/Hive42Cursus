@@ -1,10 +1,10 @@
 #include "../includes/push_swap.h"
 
-void ft_swap(int *array, int length)
+void ft_swap(int *array, int *length)
 {
     int temp;
 
-    if (length <= 1)
+    if (*length <= 1)
         return;
     else
     {
@@ -14,34 +14,35 @@ void ft_swap(int *array, int length)
     }
 }
 
-void ft_pushToEmpty (int *arraySRC, int *arrayDST, int length)
+void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthA)
 {
     int i;
 
+
     arrayDST[0] = arraySRC[0];
     i = 0;
-    while (i < (length - 1))  //
+    while (i < (*lengthA - 1))  //
     {
         arraySRC[i] = arraySRC[i + 1];
         i++;
     }
 }
 
-void ft_push(int *arraySRC, int *arrayDST, int length) 
+void ft_push(int *arraySRC, int *arrayDST, int *lengthA, int *lengthB) 
 {
-    int i = 0;
-    int lengthA = 0;
-    int lengthB = 0;
+    int i;
 
-    while (arraySRC[lengthA] != 0) 
-        lengthA++;
-    while (arrayDST[lengthB] != 0) 
-        lengthB++;
-    if (arraySRC == NULL)
-        return;
-    else if (arrayDST != NULL && arraySRC != NULL)
+
+ //  while (arraySRC[lengthA] != 0) 
+ //       lengthA++;
+ //   while (arrayDST[lengthB] != 0) 
+//        lengthB++;
+ //   if (arraySRC == NULL)
+ //       return;
+    i = 0;
+    if (arrayDST != NULL && arraySRC != NULL)
     {
-        i = lengthB;
+        i = *lengthB;
         while(i >= 1)
         {
             arrayDST[i] = arrayDST[i - 1];
@@ -49,23 +50,23 @@ void ft_push(int *arraySRC, int *arrayDST, int length)
         }
         arrayDST[0] = arraySRC[0];
         i = 0;
-        while (i < lengthA - 1)
+        while (i < *lengthA - 1)
         {
             arraySRC[i] = arraySRC[i + 1];
             i++;
         }
-        arraySRC[lengthA - 1] = 0;
+        *lengthA -= 1;
     }
     else if (arrayDST == 0 && arraySRC != NULL)
-        ft_pushToEmpty(arraySRC, arrayDST , length);
+        ft_pushToEmpty(arraySRC, arrayDST , lengthA);
 }
 
-void ft_revrotate(int *array, int length)
+void ft_revrotate(int *array, int *length)
 {
     int i;
     int temp;
 
-    i = length - 1;
+    i = *length - 1;
     temp = array[i];
     while (i >= 1) 
     {
@@ -76,18 +77,18 @@ void ft_revrotate(int *array, int length)
     return;
 }
 
-void ft_rotate(int *array, int length)
+void ft_rotate(int *array, int *length)
 {
     int i;
     int temp;
 
     i = 0;
     temp = array[0];
-    while (i != (length - 1))
+    while (i != (*length - 1))
     {
         array[i] = array[i + 1];  // Shift each element downwards/to the right
         i++;  
     }
-    array[length-1] = temp;
+    array[*length-1] = temp;
     return; 
 }

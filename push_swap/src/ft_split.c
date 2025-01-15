@@ -28,10 +28,12 @@ static char **checksplit(char *str, char c, char **result)
         if(i > j)
         {
             result[k] = (char *)malloc(sizeof(char) * ((i - j) + 1));
+            if(result == NULL)
+                return(result);
             ft_strncpy(result[k++], &str[j], i - j);
         }
     }
-    result[k] = NULL;
+  //  result[k] = NULL;
     return(result);
 }
 
