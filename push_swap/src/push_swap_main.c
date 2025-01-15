@@ -22,19 +22,65 @@ static int checkarg1(char *str)
             i++;
     }
     return(1);
-} 
+}
+
+static void ft_dupeChecker(int *array2, int argnbr)
+{
+    if(find_dup(array2, argnbr) == 0)
+    {
+        if(argnbr == 3)
+            random3(array2, argnbr);
+       // else if(argnbr == 5)
+    }
+    else if(find_dup(array2, argnbr) == 1)
+            return;
+    printf("%i %i %i", array2[0], array2[1], array2[2]);
+}
+
+static void dosort_2(char *str, int argnbr)
+{
+    int *array2;
+    int i;
+    char **array;
+    long nbr;
+
+    array = NULL;
+    i = 0;
+    array = ft_split(str, ' ');
+    array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
+    while(argnbr > (i))
+    {
+        nbr = ft_atol(array[i]);
+        array2[i] = (int)nbr;
+        i++;
+    }
+    printf("%i %i %i\n", array2[0], array2[1], array2[2]);
+    ft_dupeChecker(array2, argnbr);
+}
+
+static void dosort_1(char *str)
+{
+    int argnbr;
+
+    argnbr = countsubstr(str);
+    if(argnbr == 1)
+    {
+        printf("Error!");
+        return;
+    }
+    else if(argnbr != 1)
+        dosort_2(str, argnbr);
+}
 
 int main(int argc, char **argv)
 {
     int argnbr;
-    char **array;
     int i;
     int j;
     int result;
     int *array2;
     long nbr;
 
-    array = NULL;
     if (argc == 1)
     {
         printf("No arguments");
@@ -42,47 +88,12 @@ int main(int argc, char **argv)
     }
     if (argc == 2)
     {
-      
         argnbr = 0;
         result = checkarg1(argv[1]);
         if(result == 1)
-        {
-            i = 0;
-            argnbr = countsubstr(argv[1]);
-            if(argnbr == 1)
-            {
-                printf("Error!!");
-                return(0);
-            }
-            array = ft_split(argv[1], ' ');
-            printf("Number okay\n");
-            printf("Number of arguments: %d\n", argnbr);
-            array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
-            while(argnbr >= (i + 1))
-            {
-                nbr = ft_atol(array[i]);
-                array2[i] = (int)nbr;
-                i++;
-            }
-            if(find_dup(array2, argnbr) == 0)
-            {
-                printf("No duplicate\n");
-                if(argnbr == 3)
-                    random3(array2, argnbr);
-                
-            //    else if(argnbr == 5)
-                printf("%i %i %i", array2[0], array2[1], array2[2]);
-            }
-            else if(find_dup(array2, argnbr) == 1)
-            {
-                printf("Error (there is duplicate)!");
-                return(0);
-            }
-        }
+            dosort_1(argv[1]);
         else if (result == 0)
-        {
-            printf("Error in input");
-        }
+            printf("Error");
     }
     if (argc >= 3)
     {
@@ -97,8 +108,6 @@ int main(int argc, char **argv)
         j = 1;
         if(result == 1)
         {
-            printf("number of input is: %d\n", (i - 1));
-            printf("input good\n");
             array2 = (int *)malloc(sizeof(int) * i);
             while(i > j)
             {
@@ -128,7 +137,5 @@ int main(int argc, char **argv)
         else if (result == 0)
             printf("Error in input\n");
     }
-    free(array);
-    free(array2);
     return(0);
 }
