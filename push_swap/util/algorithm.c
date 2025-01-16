@@ -32,39 +32,27 @@ void   random3(int *array, int *length)
 void    quick_sort(int *array, int *array2, int *lengthA, int *lengthB)
 {
     int median;
-    int i; //
+    int i;
     int j;
+ 
 
-    j = *lengthB;
+    j = *lengthA;
     i = 0;
     median = get_median(array, j);
-   // printf("%i\n", median);
-    while(i < (*lengthA - 1))
+    printf("median: %i\n", median); //
+    while(i <= (j - 1))
     {
-        if(array[i] < median)
+        printf("%i %i %i %i %i %i %i\n", array2[0], array2[1], array2[2], array2[3], array2[4], array2[5], array2[6]);
+        printf("%i %i %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4], array[5], array[6]);
+        printf("%i\n", *lengthA);
+        printf("%i\n", *lengthB);
+        if(array[0] < median)
             ft_pb(array, array2, lengthA, lengthB);
+        else if(array[0] >= median)
+            ft_ra(array, lengthA);
         i++;
     }
-    printf("%i %i %i %i %i", array2[0], array2[1], array2[2], array2[3], array2[4]);
 }
-/*
-void    random5(int *array, int *length)
-{
-    int i;
-    int *array2;
-    int lengthB;
-    int lengthA;
-
-    i = 0;
-    while((i + 2) < length)
-    {
-        ft_pb(array, array2, &lengthA, &lengthB);
-        printf("Element[0]: %i", array2[0]);
-        i++;
-    }
-    random3
-}
-*/
 
 /*
 quicksort(int n)

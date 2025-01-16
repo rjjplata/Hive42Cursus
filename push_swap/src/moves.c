@@ -20,6 +20,7 @@ void ft_ss(int *arrayA, int *arrayB, int *length)
 void ft_pb(int *arrayA, int *arrayB, int *lengthA, int *lengthB)
 {
     ft_push(arrayA, arrayB, lengthA, lengthB);
+    write(1, "pb\n", 3);
 }
 
 void ft_pa(int *arrayA, int *arrayB, int *lengthA, int *lengthB)

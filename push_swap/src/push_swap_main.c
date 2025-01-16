@@ -34,7 +34,7 @@ static void ft_dupeChecker(int *array, int argnbr)
     if(find_dup(array, argnbr) == 1)
             return;
     lengthA = argnbr;
-    lengthB = argnbr;
+    lengthB = 0;
     array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
     if(array2 == NULL)
         return;

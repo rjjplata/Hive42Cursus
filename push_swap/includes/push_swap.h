@@ -22,8 +22,8 @@ void    ft_rrr(int *arrayA, int *arrayB, int *length);
 long ft_atol(const char *str);
 
 void ft_swap(int *array, int *length);
-void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthA);
-void ft_push(int *arraySRC, int *arrayDST, int *lengthA, int *lengthB);
+void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST);
+void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST);
 void ft_rotate(int *array, int *length);
 void ft_revrotate(int *array, int *length);
 char    **ft_split(char *str, char c);

@@ -14,34 +14,33 @@ void ft_swap(int *array, int *length)
     }
 }
 
-void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthA)
+void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
 {
     int i;
 
-    if(lengthA == 0)
+    if(*lengthSRC == 0)
         return;
-   // printf("i was here\n");
     arrayDST[0] = arraySRC[0];
     i = 0;
-    while (i < (*lengthA - 1))  //
+    while (i < (*lengthSRC - 1))  //
     {
         arraySRC[i] = arraySRC[i + 1];
         i++;
     }
-    *lengthA = *lengthA - 1;
+    arraySRC[i] = 0;
+    *lengthSRC = *lengthSRC - 1;
+    *lengthDST = *lengthDST + 1;
 }
 
-void ft_push(int *arraySRC, int *arrayDST, int *lengthA, int *lengthB) 
+void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST) 
 {
     int i;
 
-    // printf("i was here\n");
-    if(lengthA == 0)
+    if(*lengthSRC == 0)
         return;
-    i = 0;
-    if (lengthB != 0 && lengthB != 0)
+    if (*lengthDST != 0)
     {
-        printf("i was here\n");i = *lengthB;
+        i = *lengthDST;
         while(i >= 1)
         {
             arrayDST[i] = arrayDST[i - 1];
@@ -49,17 +48,19 @@ void ft_push(int *arraySRC, int *arrayDST, int *lengthA, int *lengthB)
         }
         arrayDST[0] = arraySRC[0];
         i = 0;
-        while (i < *lengthA - 1)
+        while (i < *lengthSRC - 1)
         {
             arraySRC[i] = arraySRC[i + 1];
             i++;
         }
-        *lengthA -= 1;
+        arraySRC[i] = 0;
+        *lengthSRC -= 1;
+        *lengthDST += 1;
     }
-    if (lengthB == 0 && lengthA != 0)
+    else if (*lengthDST == 0)
     {
-        printf("how");
-        ft_pushToEmpty(arraySRC, arrayDST, lengthA);
+        printf("how\n");
+        ft_pushToEmpty(arraySRC, arrayDST, lengthSRC, lengthDST);
     }
 }
 
