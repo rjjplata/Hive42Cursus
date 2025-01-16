@@ -18,7 +18,9 @@ void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthA)
 {
     int i;
 
-
+    if(lengthA == 0)
+        return;
+   // printf("i was here\n");
     arrayDST[0] = arraySRC[0];
     i = 0;
     while (i < (*lengthA - 1))  //
@@ -26,23 +28,20 @@ void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthA)
         arraySRC[i] = arraySRC[i + 1];
         i++;
     }
+    *lengthA = *lengthA - 1;
 }
 
 void ft_push(int *arraySRC, int *arrayDST, int *lengthA, int *lengthB) 
 {
     int i;
 
-
- //  while (arraySRC[lengthA] != 0) 
- //       lengthA++;
- //   while (arrayDST[lengthB] != 0) 
-//        lengthB++;
- //   if (arraySRC == NULL)
- //       return;
+    // printf("i was here\n");
+    if(lengthA == 0)
+        return;
     i = 0;
-    if (arrayDST != NULL && arraySRC != NULL)
+    if (lengthB != 0 && lengthB != 0)
     {
-        i = *lengthB;
+        printf("i was here\n");i = *lengthB;
         while(i >= 1)
         {
             arrayDST[i] = arrayDST[i - 1];
@@ -57,8 +56,11 @@ void ft_push(int *arraySRC, int *arrayDST, int *lengthA, int *lengthB)
         }
         *lengthA -= 1;
     }
-    else if (arrayDST == 0 && arraySRC != NULL)
-        ft_pushToEmpty(arraySRC, arrayDST , lengthA);
+    if (lengthB == 0 && lengthA != 0)
+    {
+        printf("how");
+        ft_pushToEmpty(arraySRC, arrayDST, lengthA);
+    }
 }
 
 void ft_revrotate(int *array, int *length)

@@ -11,7 +11,7 @@ void    ft_putchar(char c);
 void    ft_sa(int *arrayA, int *length);
 void    ft_sb(int *arrayB, int *length);
 void    ft_ss(int *arrayA, int *arrayB, int *length);
-void    ft_pb(int *arrayB, int *arrayA, int *lengthB, int *lengthA);
+void    ft_pb(int *arrayA, int *arrayB, int *lengthA, int *lengthB);
 void    ft_pa(int *arrayA, int *arrayB, int *lengthA, int *lengthB);
 void    ft_ra(int *arrayA, int *length);
 void    ft_rb(int *arrayB, int *length);
@@ -33,5 +33,7 @@ void   random3(int *array, int *length);
 void    ft_putchar(char c);
 size_t countsubstr(char const *str);
 int find_dup(int *arr, int length);
+int get_median(int *array, int length);
+void    quick_sort(int *array, int *array2, int *lengthA, int *lengthB);
 
 #endif

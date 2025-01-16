@@ -17,14 +17,14 @@ void ft_ss(int *arrayA, int *arrayB, int *length)
     ft_swap(arrayB, length);
 }
 
-void ft_pb(int *arrayB, int *arrayA, int *lengthB, int *lengthA)
+void ft_pb(int *arrayA, int *arrayB, int *lengthA, int *lengthB)
 {
-    ft_push(arrayB, arrayA, lengthA, lengthB);
+    ft_push(arrayA, arrayB, lengthA, lengthB);
 }
 
 void ft_pa(int *arrayA, int *arrayB, int *lengthA, int *lengthB)
 {
-    ft_push(arrayA, arrayB, lengthA, lengthB);
+    ft_push(arrayB, arrayA, lengthB, lengthA);
 }
 
 void ft_ra(int *arrayA, int *length)

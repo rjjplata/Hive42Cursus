@@ -12,7 +12,7 @@ int get_median(int *array, int length)
 		num = length / 2;
 	else
 		num = (length / 2) + 1;
-
+	i = 0;
 	while (i < (length - 1)) 
 	{
         j = 0;
@@ -31,5 +31,3 @@ int get_median(int *array, int length)
 	median = array[num - 1];
 	return(median);
 }
-
-

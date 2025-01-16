@@ -28,6 +28,25 @@ void   random3(int *array, int *length)
         ft_rra(array, length);
     }
 }
+
+void    quick_sort(int *array, int *array2, int *lengthA, int *lengthB)
+{
+    int median;
+    int i; //
+    int j;
+
+    j = *lengthB;
+    i = 0;
+    median = get_median(array, j);
+   // printf("%i\n", median);
+    while(i < (*lengthA - 1))
+    {
+        if(array[i] < median)
+            ft_pb(array, array2, lengthA, lengthB);
+        i++;
+    }
+    printf("%i %i %i %i %i", array2[0], array2[1], array2[2], array2[3], array2[4]);
+}
 /*
 void    random5(int *array, int *length)
 {

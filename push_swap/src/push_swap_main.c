@@ -28,20 +28,20 @@ static void ft_dupeChecker(int *array, int argnbr)
 {
     int *array2;
     int lengthA;
-  //  int lengthB;
+    int lengthB;
     
     
     if(find_dup(array, argnbr) == 1)
             return;
     lengthA = argnbr;
-  //  lengthB = argnbr;
+    lengthB = argnbr;
     array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
     if(array2 == NULL)
         return;
     if(lengthA == 3)
         random3(array, &lengthA);
-  //  else if(lengthA == 5)
-  //      random5(array, &lengthB);
+    else if(lengthA > 3)
+        quick_sort(array, array2, &lengthA, &lengthB);
 }
 
 
