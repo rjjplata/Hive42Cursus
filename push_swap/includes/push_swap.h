@@ -36,7 +36,14 @@ int find_dup(int *arr, int length);
 int get_median(int *array, int length);
 void    quick_sort1(int *array, int *array2, int *lengthA, int *lengthB);
 void    quick_sort2(int *array, int *array2, int *lengthA, int *lengthB);
+void    quick_sort3(int *array, int *array2, int *lengthA, int *lengthB);
 int arrayASortedOrNot(int *arr, int *length);
 int arrayBSortedOrNot(int *arr, int *length);
+void    AandBnotSorted(int *array, int *array2, int *lengthA, int *lengthB);
+void    onlyAnotSorted(int *array, int *lengthA);
+void    onlyBnotSorted(int *array2, int *lengthB);
+void    min_max(int *array, int *array2, int *lengthA, int *lengthB);
+int get_max(int *array2, int *lengthB);
+int get_min(int *array, int *lengthA);
 
 #endif
