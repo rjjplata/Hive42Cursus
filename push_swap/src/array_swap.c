@@ -14,7 +14,7 @@ void ft_swap(int *array, int *length)
     }
 }
 
-void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
+void ft_pushToEmpty(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
 {
     int i;
 
@@ -41,10 +41,12 @@ void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
     if (*lengthDST != 0)
     {
         i = *lengthDST;
+        printf("i was here\n");
+        i = *lengthDST;
         while(i >= 1)
         {
-            arrayDST[i] = arrayDST[i - 1];
-            i--;
+        arrayDST[i] = arrayDST[i - 1];
+        i--;
         }
         arrayDST[0] = arraySRC[0];
         i = 0;
@@ -63,6 +65,7 @@ void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
         ft_pushToEmpty(arraySRC, arrayDST, lengthSRC, lengthDST);
     }
 }
+
 
 void ft_revrotate(int *array, int *length)
 {

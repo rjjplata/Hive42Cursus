@@ -41,7 +41,7 @@ static void ft_dupeChecker(int *array, int argnbr)
     if(lengthA == 3)
         random3(array, &lengthA);
     else if(lengthA > 3)
-        quick_sort(array, array2, &lengthA, &lengthB);
+        quick_sort1(array, array2, &lengthA, &lengthB);
 }
 
 
