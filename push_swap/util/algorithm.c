@@ -1,6 +1,13 @@
 #include "../includes/push_swap.h"
+void    random2(int *array, int *length)
+{
+    if((arrayASortedOrNot(array, length) == 1))
+        return;
+    ft_sa(array, length);
+    printf("%i %i", array[0], array[1]);
+}
 
-void   random3(int *array, int *length)
+void    random3(int *array, int *length)
 {
     int i;
     
@@ -30,6 +37,52 @@ void   random3(int *array, int *length)
         ft_rra(array, length);
     }
 }
+
+void    random4(int *array, int *length)
+{
+    int i;
+    int max;
+    int *temparray;
+    int templength;
+    int len;
+
+    if((arrayASortedOrNot(array, length) == 1))
+        return;
+    templength = 0;
+    len = *length;
+	temparray = (int *)malloc(sizeof(int) * (len - 1));
+	if(temparray == NULL)
+		return;
+    max = get_max(array, length);
+    i = 0;
+    while(i < *length)
+    {
+        printf("check for max\n");
+        if (array[0] == max)
+            ft_pb(array, temparray, length, &templength);
+        ft_ra(array, length);
+        i++;
+    }
+    random3(array, length);
+    printf("after random3 = %i %i %i %i\n", array[0], array[1], array[2], array[3]);
+    printf("after random3 temparray = %i\n", temparray[0]);
+    ft_pa(array, temparray, length, &templength);
+    i = 0;
+    while(i < *length)
+    {
+        if(array[*length - 1] != max)
+            ft_rra(array, length);
+        i++;
+    }
+    i = 0;
+    while(i < *length)
+    {
+        printf("Element[%i] = %i\n", i, array[i]);
+        i++;
+    }
+    free(temparray);
+}
+
 
 void    min_max(int *array, int *array2, int *lengthA, int *lengthB)
 {
@@ -115,6 +168,8 @@ void    quick_sort2(int *array, int *array2, int *lengthA, int *lengthB)
     int i;
     int x;
     int y;
+    int a;
+    int b;
 
     i = 0;
     while(i < ((*lengthA + *lengthB)))
@@ -148,6 +203,10 @@ void    quick_sort2(int *array, int *array2, int *lengthA, int *lengthB)
         printf("lengthB = %i\n", *lengthB);
         i++;
     }
+    a = arrayASortedOrNot(array, lengthA);
+    b = arrayBSortedOrNot(array2, lengthB);
+    if(a == 0 || b == 0)
+        quick_sort2(array, array2, lengthA, lengthB);
     quick_sort3(array, array2, lengthA, lengthB);
 }
    
@@ -167,8 +226,6 @@ void    quick_sort1(int *array, int *array2, int *lengthA, int *lengthB)
     printf("%i\n", median); 
     while(i <= (j - 1))
     {
-        
-
         if(array[0] < median)
             ft_pb(array, array2, lengthA, lengthB);
         else if(array[0] >= median)
@@ -182,6 +239,9 @@ void    quick_sort1(int *array, int *array2, int *lengthA, int *lengthB)
     printf("=================\n");
     quick_sort2(array, array2, lengthA, lengthB);
 }
+/*PROBLEMS
+5 numbers with ""
+*/
 
 /*
 quicksort(int n)

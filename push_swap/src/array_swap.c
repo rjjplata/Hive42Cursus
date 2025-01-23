@@ -22,7 +22,7 @@ void ft_pushToEmpty(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST
         return;
     arrayDST[0] = arraySRC[0];
     i = 0;
-    while (i < (*lengthSRC - 1))  //
+    while (i < (*lengthSRC - 1))
     {
         arraySRC[i] = arraySRC[i + 1];
         i++;

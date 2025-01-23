@@ -38,10 +38,15 @@ static void ft_dupeChecker(int *array, int argnbr)
     array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
     if(array2 == NULL)
         return;
+    if(lengthA == 2)
+        random2(array, &lengthA);
     if(lengthA == 3)
         random3(array, &lengthA);
-    else if(lengthA > 3)
+    else if(lengthA == 4)
+        random4(array, &lengthA);
+    else if(lengthA > 4)
         quick_sort1(array, array2, &lengthA, &lengthB);
+    free(array2);
 }
 
 
@@ -62,6 +67,7 @@ static void dosort_2(char **array, int argnbr)
         i++;
     }
     ft_dupeChecker(array2, argnbr);
+    free(array2);
 }
 
 static void dosort_1(char *str)
@@ -128,6 +134,7 @@ int main(int argc, char **argv)
             }
             argnbr = i - 1;
             ft_dupeChecker(array2, argnbr);
+            free(array2);
         }
         else if(result == 0)
             printf("Error in input\n");
