@@ -218,12 +218,14 @@ void    quick_sort1(int *array, int *array2, int *lengthA, int *lengthB)
     int i;
     int j;
 
+     printf("quick sort 1st position: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
     j = *lengthA;
     i = 0;
     if((arrayASortedOrNot(array, lengthA) == 1))
         return;
     median = get_median(array, j);
     printf("%i\n", median); 
+    printf("%i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
     while(i <= (j - 1))
     {
         if(array[0] < median)

@@ -33,6 +33,7 @@ static void ft_dupeChecker(int *array, int argnbr)
     
     if(find_dup(array, argnbr) == 1)
             return;
+    printf("dupeCheck position array: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
     lengthA = argnbr;
     lengthB = 0;
     array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
@@ -45,7 +46,10 @@ static void ft_dupeChecker(int *array, int argnbr)
     else if(lengthA == 4)
         random4(array, &lengthA);
     else if(lengthA > 4)
+    {
+        printf("dupeCheck before quicksort1: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
         quick_sort1(array, array2, &lengthA, &lengthB);
+    }
     free(array2);
 }
 
