@@ -95,17 +95,15 @@ int main(int argc, char **argv)
 
     array2 = NULL;
     if (argc == 1)
-    {
-        printf("No arguments");
         return(0);
-    }
     if (argc == 2)
     {
         result = checkarg1(argv[1]);
         if(result == 1)
             dosort_1(argv[1]);
         else if (result == 0)
-            printf("Error");
+            write(1, "Error", 5);
+            write(1, "\n", 1);
     }
     if (argc >= 3)
     {
@@ -134,7 +132,8 @@ int main(int argc, char **argv)
             free(array2);
         }
         else if(result == 0)
-            printf("Error in input\n");
+            write(1, "Error", 5);
+            write(1, "\n", 1);
     }
     return(0);
 }
