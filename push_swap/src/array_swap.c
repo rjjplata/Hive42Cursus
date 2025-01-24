@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array_swap.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/24 17:11:59 by root              #+#    #+#             */
+/*   Updated: 2025/01/24 17:39:38 by root             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-void ft_swap(int *array, int *length)
+void	ft_swap(int *array, int *length)
 {
-    int temp;
+	int	temp;
 
-    if (*length <= 1)
-        return;
-    else
-    {
-        temp = array[0];
-        array[0] = array[1];
-        array[1] = temp;
-    }
+	if (*length <= 1)
+		return ;
+	else
+	{
+		temp = array[0];
+		array[0] = array[1];
+		array[1] = temp;
+	}
 }
 
 void ft_pushToEmpty(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
