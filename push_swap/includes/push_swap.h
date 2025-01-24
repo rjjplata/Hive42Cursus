@@ -20,6 +20,7 @@ void    ft_rra(int *arrayA, int *lengthA);
 void    ft_rrb(int *arrayB, int *lengthB);
 void    ft_rrr(int *arrayA, int *arrayB, int *lengthA, int *lengthB);
 long ft_atol(const char *str);
+void ft_putchar(char c);
 
 void ft_swap(int *array, int *length);
 void ft_pushToEmpty (int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST);
@@ -31,7 +32,6 @@ long ft_atol(const char *str);
 void    random2(int *array, int *length);
 void    random3(int *array, int *length);
 void    random4(int *array, int *length);
-//void    random5(int *array, int *length);
 void    ft_putchar(char c);
 size_t countsubstr(char const *str);
 int find_dup(int *arr, int length);

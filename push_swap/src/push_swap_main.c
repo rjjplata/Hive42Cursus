@@ -1,6 +1,5 @@
 #include "../includes/push_swap.h"
 
-
 static int checkarg1(char *str)
 {
     int i;
@@ -34,9 +33,7 @@ static void ft_dupeChecker(int *array, int argnbr)
     lengthB = 0;
     if(find_dup(array, argnbr) == 1)
             return;
-    printf("dupeCheck position array: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
     array2 = (int *)malloc(sizeof(int) * argnbr);
-    printf("after malloc position array: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
     if(array2 == NULL)
         return;
     if(lengthA == 2)
@@ -45,18 +42,10 @@ static void ft_dupeChecker(int *array, int argnbr)
         random3(array, &lengthA);
     if(lengthA == 4)
         random4(array, &lengthA);
- //   else if (lengthA == 5)
- //       random5(array, &lengthA);
- //   printf("dupeCheck position array: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
     if(lengthA > 4)
-    {
-        printf("lengthA is: %i\n", lengthA);
-        printf("dupeCheck before quicksort1: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
         quick_sort1(array, array2, &lengthA, &lengthB);
-    }
     free(array2);
 }
-
 
 static void dosort_2(char **array, int argnbr)
 {

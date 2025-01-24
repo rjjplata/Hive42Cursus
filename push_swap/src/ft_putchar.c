@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void ft_putchar(char c) //not in push_swap.h yet
+void ft_putchar(char c)
 {
     write(1, &c, 1);
 }

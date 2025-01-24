@@ -30,8 +30,6 @@ void ft_pushToEmpty(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST
     arraySRC[i] = 0;
     *lengthSRC = *lengthSRC - 1;
     *lengthDST = *lengthDST + 1;
-    printf("pushtoempty position array: %i %i %i %i\n", arraySRC[0], arraySRC[1], arraySRC[2], arraySRC[3]);
-    printf("pushtoempty position array: %i %i\n", arrayDST[0], arrayDST[1]);
 }
 
 void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST) 
@@ -43,7 +41,6 @@ void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
     if (*lengthDST != 0)
     {
         i = *lengthDST;
-        printf("i was here\n");
         i = *lengthDST;
         while(i >= 1)
         {
@@ -60,14 +57,9 @@ void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
         arraySRC[i] = 0;
         *lengthSRC -= 1;
         *lengthDST += 1;
-        printf("push position array: %i %i %i %i\n", arraySRC[0], arraySRC[1], arraySRC[2], arraySRC[3]);
-        printf("push position array: %i %i\n", arrayDST[0], arrayDST[1]);
     }
     else if (*lengthDST == 0)
-    {
-        printf("how\n");
         ft_pushToEmpty(arraySRC, arrayDST, lengthSRC, lengthDST);
-    }
 }
 
 
@@ -80,7 +72,7 @@ void ft_revrotate(int *array, int *length)
     temp = array[i];
     while (i >= 1) 
     {
-        array[i] = array[i - 1];  // Shift each element downwards/to the right
+        array[i] = array[i - 1];
         i--;  
     }
     array[0] = temp;
@@ -96,7 +88,7 @@ void ft_rotate(int *array, int *length)
     temp = array[0];
     while (i != (*length - 1))
     {
-        array[i] = array[i + 1];  // Shift each element downwards/to the right
+        array[i] = array[i + 1];
         i++;  
     }
     array[*length-1] = temp;

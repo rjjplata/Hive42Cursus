@@ -33,7 +33,6 @@ static char **checksplit(char *str, char c, char **result)
             ft_strncpy(result[k++], &str[j], i - j);
         }
     }
-  //  result[k] = NULL;
     return(result);
 }
 
