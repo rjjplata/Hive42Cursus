@@ -30,6 +30,8 @@ void ft_pushToEmpty(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST
     arraySRC[i] = 0;
     *lengthSRC = *lengthSRC - 1;
     *lengthDST = *lengthDST + 1;
+    printf("pushtoempty position array: %i %i %i %i\n", arraySRC[0], arraySRC[1], arraySRC[2], arraySRC[3]);
+    printf("pushtoempty position array: %i %i\n", arrayDST[0], arrayDST[1]);
 }
 
 void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST) 
@@ -58,6 +60,8 @@ void ft_push(int *arraySRC, int *arrayDST, int *lengthSRC, int *lengthDST)
         arraySRC[i] = 0;
         *lengthSRC -= 1;
         *lengthDST += 1;
+        printf("push position array: %i %i %i %i\n", arraySRC[0], arraySRC[1], arraySRC[2], arraySRC[3]);
+        printf("push position array: %i %i\n", arrayDST[0], arrayDST[1]);
     }
     else if (*lengthDST == 0)
     {

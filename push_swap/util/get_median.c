@@ -32,7 +32,7 @@ int get_median(int *array, int length)
 	int median;
 	int *temparray;
 
-	temparray = (int *)malloc(sizeof(int) * (length - 1));
+	temparray = (int *)malloc(sizeof(int) * (length));
 	if(temparray == NULL)
 		return(0);
 	copyArray(array, temparray, length);

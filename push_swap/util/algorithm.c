@@ -82,8 +82,30 @@ void    random4(int *array, int *length)
     }
     free(temparray);
 }
+/*
+void    random5(int *array, int *length)
+{
+    //int i;
+    int *temparray;
+    int templength;
+    int len;
 
-
+    if((arrayASortedOrNot(array, length) == 1))
+        return;
+    templength = 0;
+    len = *length;
+	temparray = (int *)malloc(sizeof(int) * (len - 1));
+	if(temparray == NULL)
+		return;
+    printf("before random5: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]);
+    ft_pb(array, temparray, length, &templength);
+    ft_pb(array, temparray, length, &templength);
+    printf("before random5: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]); 
+    printf("before random5: %i %i\n", temparray[0], temparray[1]);
+    random3(array, length);
+    printf("before random5: %i %i %i %i %i\n", array[0], array[1], array[2], array[3], array[4]); 
+}
+*/
 void    min_max(int *array, int *array2, int *lengthA, int *lengthB)
 {
     int min;
@@ -209,7 +231,6 @@ void    quick_sort2(int *array, int *array2, int *lengthA, int *lengthB)
         quick_sort2(array, array2, lengthA, lengthB);
     quick_sort3(array, array2, lengthA, lengthB);
 }
-   
 
 
 void    quick_sort1(int *array, int *array2, int *lengthA, int *lengthB)
@@ -241,39 +262,3 @@ void    quick_sort1(int *array, int *array2, int *lengthA, int *lengthB)
     printf("=================\n");
     quick_sort2(array, array2, lengthA, lengthB);
 }
-/*PROBLEMS
-5 numbers with ""
-*/
-
-/*
-quicksort(int n)
-    if n == 1 return
-    int top_half_len = 0
-    choose a median //it's up to you to determine the best way to do this
-    for 0 to n {    //filter all values above the median into list 2
-        if (value > median) {
-            push list 1 top to list 2 //list 2 stores the larger half
-            top_half_len++
-        }
-        rotate list 1 forward
-    }
-
-    //reverse the list back to original position
-    rotate list 1 backward (n - top_half_len) times
-
-    //push larger half onto smaller half
-    push list 2 top to list 1 top_half_len times
-
-    //recursively call this on the larger half
-    quicksort(top_half_len)
-
-    //rotate smaller half to front
-    rotate list 1 forward top_half_len times
-
-    //recursively call this on smaller half
-    quicksort(n - top_half_len) 
-
-    //reverse list back to original position
-    rotate list 1 backward top_half_len times
-
-    */
