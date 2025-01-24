@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 20:06:15 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 20:07:26 by root             ###   ########.fr       */
+/*   Created: 2025/01/24 18:19:34 by root              #+#    #+#             */
+/*   Updated: 2025/01/24 18:20:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	ft_atol(const char *str)
+void	ft_swap(int *array, int *length)
 {
-	long	result;
-	long	sign;
-	long	i;
+	int	temp;
 
-	result = 0;
-	sign = 1;
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
+	if (*length <= 1)
+		return ;
+	else
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		temp = array[0];
+		array[0] = array[1];
+		array[1] = temp;
 	}
-	while ((str[i] >= '0' && str[i] <= '9'))
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sign * result);
 }

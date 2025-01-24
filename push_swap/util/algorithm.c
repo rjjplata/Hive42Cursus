@@ -2,7 +2,7 @@
 
 void    random2(int *array, int *length)
 {
-    if((arrayASortedOrNot(array, length) == 1))
+    if((array_a_sort(array, length) == 1))
         return;
     ft_sa(array, length);
 }
@@ -11,7 +11,7 @@ void    random3(int *array, int *length)
 {
     int i;
     
-    if((arrayASortedOrNot(array, length) == 1))
+    if((array_a_sort(array, length) == 1))
         return;
     i = 0;
     if((array[i + 1] < array[i]) && (array[i + 1] < array[i + 2]))
@@ -46,7 +46,7 @@ void    random4(int *array, int *length)
     int templength;
     int len;
 
-    if((arrayASortedOrNot(array, length) == 1))
+    if((array_a_sort(array, length) == 1))
         return;
     templength = 0;
     len = *length;
@@ -148,16 +148,16 @@ void    quick_sort2(int *array, int *array2, int *lengthA, int *lengthB)
     while(i < ((*lengthA + *lengthB)))
     {
         min_max(array, array2, lengthA, lengthB);
-        if((arrayASortedOrNot(array, lengthA) == 0) && (arrayBSortedOrNot(array2, lengthB) == 0))
+        if((array_a_sort(array, lengthA) == 0) && (array_b_sort(array2, lengthB) == 0))
             AandBnotSorted(array, array2, lengthA, lengthB);
-        else if((arrayASortedOrNot(array, lengthA) == 0) && (arrayBSortedOrNot(array2, lengthB) == 1))
+        else if((array_a_sort(array, lengthA) == 0) && (array_b_sort(array2, lengthB) == 1))
             onlyAnotSorted(array, lengthA);
-        else if((arrayASortedOrNot(array, lengthA) == 1) && (arrayBSortedOrNot(array2, lengthB) == 0))
+        else if((array_a_sort(array, lengthA) == 1) && (array_b_sort(array2, lengthB) == 0))
             onlyBnotSorted(array2, lengthB);
         i++;
     }
-    a = arrayASortedOrNot(array, lengthA);
-    b = arrayBSortedOrNot(array2, lengthB);
+    a = array_a_sort(array, lengthA);
+    b = array_b_sort(array2, lengthB);
     if(a == 0 || b == 0)
         quick_sort2(array, array2, lengthA, lengthB);
     quick_sort3(array, array2, lengthA, lengthB);
@@ -171,7 +171,7 @@ void    quick_sort1(int *array, int *array2, int *lengthA, int *lengthB)
 
     j = *lengthA;
     i = 0;
-    if((arrayASortedOrNot(array, lengthA) == 1))
+    if((array_a_sort(array, lengthA) == 1))
         return;
     median = get_median(array, j);
     while(i <= (j - 1))

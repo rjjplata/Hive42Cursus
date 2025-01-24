@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 20:06:15 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 20:07:26 by root             ###   ########.fr       */
+/*   Created: 2025/01/24 18:20:36 by root              #+#    #+#             */
+/*   Updated: 2025/01/24 19:47:38 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	ft_atol(const char *str)
+void	ft_revrotate(int *array, int *length)
 {
-	long	result;
-	long	sign;
-	long	i;
+	int	i;
+	int	temp;
 
-	result = 0;
-	sign = 1;
+	i = *length - 1;
+	temp = array[i];
+	while (i >= 1)
+	{
+		array[i] = array[i - 1];
+		i--;
+	}
+	array[0] = temp;
+	return ;
+}
+
+void	ft_rotate(int *array, int *length)
+{
+	int	i;
+	int	temp;
+
 	i = 0;
-	if (str[i] == '-' || str[i] == '+')
+	temp = array[0];
+	while (i != (*length - 1))
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		array[i] = array[i + 1];
 		i++;
 	}
-	while ((str[i] >= '0' && str[i] <= '9'))
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sign * result);
+	array[*length - 1] = temp;
+	return ;
 }

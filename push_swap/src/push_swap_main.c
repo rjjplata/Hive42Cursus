@@ -80,8 +80,10 @@ static void dosort_1(char *str)
         return;
     }
     else if(argnbr != 1)
+    {
         array = ft_split(str, ' ');
         dosort_2(array, argnbr);
+    }
 }
 
 int main(int argc, char **argv)
@@ -102,8 +104,10 @@ int main(int argc, char **argv)
         if(result == 1)
             dosort_1(argv[1]);
         else if (result == 0)
+        {
             write(1, "Error", 5);
             write(1, "\n", 1);
+        }
     }
     if (argc >= 3)
     {
@@ -132,8 +136,10 @@ int main(int argc, char **argv)
             free(array2);
         }
         else if(result == 0)
+        {
             write(1, "Error", 5);
             write(1, "\n", 1);
+        }
     }
     return(0);
 }
