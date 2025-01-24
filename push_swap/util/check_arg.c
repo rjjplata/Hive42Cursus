@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 18:19:34 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 22:30:11 by root             ###   ########.fr       */
+/*   Created: 2025/01/24 22:01:59 by root              #+#    #+#             */
+/*   Updated: 2025/01/24 23:06:40 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(int *array, int *length)
+int	checkarg1(char *str)
 {
-	int	temp;
+	int	i;
 
-	if (*length <= 1)
-		return ;
-	else
+	i = 0;
+	while (str[i] != '\0')
 	{
-		temp = array[0];
-		array[0] = array[1];
-		array[1] = temp;
+		if (!(str[i] == '+' || str[i] == '-' || str[i] == ' ' || (str[i] >= '0'
+					&& str[i] <= '9')))
+			return (0);
+		if (str[i] == '+' || str[i] == '-')
+		{
+			if (!(str[i + 1] >= '0' && str[i + 1] <= '9'))
+				return (0);
+			i++;
+		}
+		while (str[i] >= '0' && str[i] <= '9')
+			i++;
+		while (str[i] == ' ')
+			i++;
 	}
+	return (1);
 }

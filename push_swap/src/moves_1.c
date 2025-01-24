@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   moves_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 18:19:34 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 22:30:11 by root             ###   ########.fr       */
+/*   Created: 2025/01/24 21:51:02 by root              #+#    #+#             */
+/*   Updated: 2025/01/24 21:58:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(int *array, int *length)
+void	ft_sa(int *arrayA, int *lengthA)
 {
-	int	temp;
+	ft_swap(arrayA, lengthA);
+	write(1, "sa\n", 3);
+}
 
-	if (*length <= 1)
-		return ;
-	else
-	{
-		temp = array[0];
-		array[0] = array[1];
-		array[1] = temp;
-	}
+void	ft_sb(int *arrayB, int *lengthB)
+{
+	ft_swap(arrayB, lengthB);
+	write(1, "sb\n", 3);
+}
+
+void	ft_ss(int *arrayA, int *arrayB, int *lengthA, int *lengthB)
+{
+	ft_swap(arrayA, lengthA);
+	ft_swap(arrayB, lengthB);
+	write(1, "ss\n", 3);
 }

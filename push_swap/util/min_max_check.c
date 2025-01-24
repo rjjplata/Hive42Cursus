@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   min_max_check.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 18:19:34 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 22:30:11 by root             ###   ########.fr       */
+/*   Created: 2025/01/24 23:39:57 by root              #+#    #+#             */
+/*   Updated: 2025/01/24 23:40:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(int *array, int *length)
+void	min_max(int *array, int *array2, int *lengthA, int *lengthB)
 {
-	int	temp;
+	int	min;
+	int	max;
 
-	if (*length <= 1)
-		return ;
-	else
-	{
-		temp = array[0];
-		array[0] = array[1];
-		array[1] = temp;
-	}
+	max = get_max(array, lengthA);
+	min = get_min(array2, lengthB);
+	if (array[0] == max && array2[0] == min)
+		ft_rr(array, array2, lengthA, lengthB);
+	if (array[0] == max && array2[0] != min)
+		ft_ra(array, lengthA);
+	if (array2[0] == min && array[0] != max)
+		ft_rb(array2, lengthB);
 }

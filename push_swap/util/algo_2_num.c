@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   algo_2_num.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 18:19:34 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 22:30:11 by root             ###   ########.fr       */
+/*   Created: 2025/01/24 23:36:20 by root              #+#    #+#             */
+/*   Updated: 2025/01/24 23:43:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(int *array, int *length)
+void	random2(int *array, int *length)
 {
-	int	temp;
-
-	if (*length <= 1)
+	if ((array_a_sort(array, length) == 1))
 		return ;
-	else
-	{
-		temp = array[0];
-		array[0] = array[1];
-		array[1] = temp;
-	}
+	ft_sa(array, length);
 }
