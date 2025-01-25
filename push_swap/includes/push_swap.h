@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:08:35 by root              #+#    #+#             */
-/*   Updated: 2025/01/25 16:23:32 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 18:57:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include <stdio.h> //need to remove
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>

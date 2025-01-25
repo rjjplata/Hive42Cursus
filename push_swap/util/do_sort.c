@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:25:59 by root              #+#    #+#             */
-/*   Updated: 2025/01/25 18:39:43 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 18:55:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	dosort_1(char *str)
 	argnbr = countsubstr(str);
 	if (argnbr == 1)
 	{
-		printf("Error!");
+		write(2, "Error", 5);
+		write(1, "\n", 1);
 		return ;
 	}
 	else if (argnbr != 1)

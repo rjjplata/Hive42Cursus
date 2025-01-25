@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:25:37 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 23:28:03 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 18:56:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,12 @@
 void	quick_sort3(int *array, int *array2, int *lengthA, int *lengthB)
 {
 	int	len;
-	int	i;
 
 	len = *lengthB;
 	while (len > 0)
 	{
 		ft_pa(array, array2, lengthA, lengthB);
 		len--;
-	}
-	i = 0;
-	len = *lengthA;
-	while (i < len)
-	{
-		printf("Element [%i] = %i\n", i, array[i]);
-		i++;
 	}
 }
 
