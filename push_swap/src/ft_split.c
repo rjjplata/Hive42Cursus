@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:08:17 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 20:09:56 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 16:14:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ static char	**checksplit(char *str, char c, char **result)
 			i++;
 		if (i > j)
 		{
-			result[k] = (char *)malloc(sizeof(char) * ((i - j) + 1));
+			result[k] = (char *)malloc(sizeof(char) * (i - j));
 			if (result == NULL)
 				return (result);
 			ft_strncpy(result[k++], &str[j], i - j);
+			free (result);
 		}
 	}
 	return (result);
@@ -55,10 +56,12 @@ char	**ft_split(char *str, char c)
 	char	**result;
 	size_t	count;
 
-	count = countsubstr(str);
-	result = (char **)malloc(sizeof(char *) * (count + 1));
-	if (!str || !result)
+	if (!str)
 		return (NULL);
-	checksplit(str, c, result);
+	count = countsubstr(str);
+	result = (char **)malloc(sizeof(char *) * count);
+	if (result == NULL)
+		return (NULL);
+	checksplit (str, c, result);
 	return (result);
 }

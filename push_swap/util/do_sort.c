@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:25:59 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 23:05:12 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 16:11:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	dosort_2(char **array, int argnbr)
 	int	nbr;
 
 	i = 0;
-	array2 = (int *)malloc(sizeof(int) * (argnbr - 1));
+	array2 = (int *)malloc(sizeof(int) * argnbr);
 	if (array2 == NULL)
 		return ;
 	while (argnbr > (i))
@@ -47,6 +47,7 @@ void	dosort_1(char *str)
 	else if (argnbr != 1)
 	{
 		array = ft_split(str, ' ');
+		free (str);
 		dosort_2(array, argnbr);
 	}
 }
