@@ -1,63 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_swap.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:11:59 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 19:54:11 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 22:50:01 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pushtoempty(int *arrSRC, int *arrDST, int *lenSRC, int *lenDST)
+void	pushtoempty(int *arr_src, int *arr_dst, int *len_src, int *len_dst)
 {
 	int	i;
 
-	if (*lenSRC == 0)
+	if (*len_src == 0)
 		return ;
-	arrDST[0] = arrSRC[0];
+	arr_dst[0] = arr_src[0];
 	i = 0;
-	while (i < (*lenSRC - 1))
+	while (i < (*len_src - 1))
 	{
-		arrSRC[i] = arrSRC[i + 1];
+		arr_src[i] = arr_src[i + 1];
 		i++;
 	}
-	arrSRC[i] = 0;
-	*lenSRC = *lenSRC - 1;
-	*lenDST = *lenDST + 1;
+	arr_src[i] = 0;
+	*len_src = *len_src - 1;
+	*len_dst = *len_dst + 1;
 }
 
-void	ft_pushagaintob(int *arrSRC, int *arrDST, int *lenSRC, int *lenDST)
+void	ft_pushagaintob(int *arr_src, int *arr_dst, int *len_src, int *len_dst)
 {
 	int	i;
 
-	i = *lenDST;
+	i = *len_dst;
 	while (i >= 1)
 	{
-		arrDST[i] = arrDST[i - 1];
+		arr_dst[i] = arr_dst[i - 1];
 		i--;
 	}
-	arrDST[0] = arrSRC[0];
+	arr_dst[0] = arr_src[0];
 	i = 0;
-	while (i < *lenSRC - 1)
+	while (i < *len_src - 1)
 	{
-		arrSRC[i] = arrSRC[i + 1];
+		arr_src[i] = arr_src[i + 1];
 		i++;
 	}
-	arrSRC[i] = 0;
-	*lenSRC -= 1;
-	*lenDST += 1;
+	arr_src[i] = 0;
+	*len_src -= 1;
+	*len_dst += 1;
 }
 
-void	ft_push(int *arrSRC, int *arrDST, int *lenSRC, int *lenDST)
+void	ft_push(int *arr_src, int *arr_dst, int *len_src, int *len_dst)
 {
-	if (*lenSRC == 0)
+	if (*len_src == 0)
 		return ;
-	if (*lenDST != 0)
-		ft_pushagaintob(arrSRC, arrDST, lenSRC, lenDST);
-	else if (*lenDST == 0)
-		pushtoempty(arrSRC, arrDST, lenSRC, lenDST);
+	if (*len_dst != 0)
+		ft_pushagaintob(arr_src, arr_dst, len_src, len_dst);
+	else if (*len_dst == 0)
+		pushtoempty(arr_src, arr_dst, len_src, len_dst);
 }

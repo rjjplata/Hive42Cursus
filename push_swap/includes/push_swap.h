@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:08:35 by root              #+#    #+#             */
-/*   Updated: 2025/01/25 18:57:03 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 22:56:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,37 @@
 # include <unistd.h>
 
 void	ft_putchar(char c);
-void	ft_sa(int *arrayA, int *lengthA);
-void	ft_sb(int *arrayB, int *lengthB);
-void	ft_ss(int *arrayA, int *arrayB, int *lengthA, int *lengthB);
-void	ft_pb(int *arrayA, int *arrayB, int *lengthA, int *lengthB);
-void	ft_pa(int *arrayA, int *arrayB, int *lengthA, int *lengthB);
-void	ft_ra(int *arrayA, int *lengthA);
-void	ft_rb(int *arrayB, int *lengthB);
-void	ft_rr(int *arrayA, int *arrayB, int *lengthA, int *lengthB);
-void	ft_rra(int *arrayA, int *lengthA);
-void	ft_rrb(int *arrayB, int *lengthB);
-void	ft_rrr(int *arrayA, int *arrayB, int *lengthA, int *lengthB);
+void	ft_sa(int *arr_a, int *len_a);
+void	ft_sb(int *arr_b, int *len_b);
+void	ft_ss(int *arr_a, int *arr_b, int *len_a, int *len_b);
+void	ft_pb(int *arr_a, int *arr_b, int *len_a, int *len_b);
+void	ft_pa(int *arr_a, int *arr_b, int *len_a, int *len_b);
+void	ft_ra(int *arr_a, int *len_a);
+void	ft_rb(int *arr_b, int *len_b);
+void	ft_rr(int *arr_a, int *arr_b, int *len_a, int *len_b);
+void	ft_rra(int *arr_a, int *len_a);
+void	ft_rrb(int *arr_b, int *len_b);
+void	ft_rrr(int *arr_a, int *arr_b, int *len_a, int *len_b);
+
 void	ft_putchar(char c);
 long	ft_atol(const char *str);
 void	ft_swap(int *array, int *length);
-void	ft_push(int *arrSRC, int *arrDST, int *lenSRC, int *lenDST);
-void	pushtoempty(int *arrSRC, int *arrDST, int *lenSRC, int *lenDST);
-void	ft_pushagaintob(int *arrSRC, int *arrDST, int *lenSRC, int *lenDST);
+void	ft_push(int *arr_src, int *arr_dst, int *len_src, int *len_dst);
+void	pushtoempty(int *arr_src, int *arr_dst, int *len_src, int *len_dst);
+void	ft_pushagaintob(int *arr_src, int *arr_dst, int *len_src, int *len_dst);
 void	ft_rotate(int *array, int *length);
 void	ft_revrotate(int *array, int *length);
 void	random2(int *array, int *length);
 void	random3(int *array, int *length);
 void	random4(int *array, int *length);
 void	ft_putchar(char c);
-void	quick_sort1(int *array, int *array2, int *lengthA, int *lengthB);
-void	quick_sort2(int *array, int *array2, int *lengthA, int *lengthB);
-void	quick_sort3(int *array, int *array2, int *lengthA, int *lengthB);
-void	ab_not_sorted(int *array, int *array2, int *lengthA, int *lengthB);
-void	a_not_sorted(int *array, int *lengthA);
-void	b_not_sorted(int *array2, int *lengthB);
-void	min_max(int *array, int *array2, int *lengthA, int *lengthB);
+void	quick_sort1(int *array, int *array2, int *len_a, int *len_b);
+void	quick_sort2(int *array, int *array2, int *len_a, int *len_b);
+void	quick_sort3(int *array, int *array2, int *len_a, int *len_b);
+void	ab_not_sorted(int *array, int *array2, int *len_a, int *len_b);
+void	a_not_sorted(int *array, int *len_a);
+void	b_not_sorted(int *array2, int *len_b);
+void	min_max(int *array, int *array2, int *len_a, int *len_b);
 char	**ft_split(char *str, char c);
 long	ft_atol(const char *str);
 size_t	countsubstr(char const *str);
@@ -56,8 +57,8 @@ int		find_dup(int *arr, int length);
 int		get_median(int *array, int length);
 int		array_a_sort(int *arr, int *length);
 int		array_b_sort(int *arr, int *length);
-int		get_max(int *array2, int *lengthB);
-int		get_min(int *array, int *lengthA);
+int		get_max(int *array, int *len_a);
+int		get_min(int *array2, int *len_b);
 int		checkarg1(char *str);
 void	dupe_checker(int *array, int argnbr);
 void	dosort_1(char *str);
