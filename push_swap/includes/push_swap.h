@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:08:35 by root              #+#    #+#             */
-/*   Updated: 2025/01/24 23:24:38 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 16:23:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int		checkarg1(char *str);
 void	dupe_checker(int *array, int argnbr);
 void	dosort_1(char *str);
 void	dosort_2(char **array, int argnbr);
+
 
 #endif
