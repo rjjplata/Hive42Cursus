@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:02:04 by root              #+#    #+#             */
-/*   Updated: 2025/01/25 18:52:27 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 23:14:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	ft_argc3_1(int argc, char **argv)
 	else if (result == 0)
 	{
 		write(2, "Error", 5);
-		write(1, "\n", 1);
+		write(2, "\n", 1);
 	}
 }
 
@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 		else if (result == 0)
 		{
 			write(2, "Error", 5);
-			write(1, "\n", 1);
+			write(2, "\n", 1);
 		}
 	}
 	if (argc >= 3)
