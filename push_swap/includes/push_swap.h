@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:08:35 by root              #+#    #+#             */
-/*   Updated: 2025/01/25 22:56:13 by root             ###   ########.fr       */
+/*   Updated: 2025/01/27 15:34:34 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_rr(int *arr_a, int *arr_b, int *len_a, int *len_b);
 void	ft_rra(int *arr_a, int *len_a);
 void	ft_rrb(int *arr_b, int *len_b);
 void	ft_rrr(int *arr_a, int *arr_b, int *len_a, int *len_b);
-
 void	ft_putchar(char c);
 long	ft_atol(const char *str);
 void	ft_swap(int *array, int *length);
@@ -51,8 +50,10 @@ void	a_not_sorted(int *array, int *len_a);
 void	b_not_sorted(int *array2, int *len_b);
 void	min_max(int *array, int *array2, int *len_a, int *len_b);
 char	**ft_split(char *str, char c);
+char	*ft_strjoin(char const *s1, char const *s2);
 long	ft_atol(const char *str);
 size_t	countsubstr(char const *str);
+size_t	ft_strlen(const char *str);
 int		find_dup(int *arr, int length);
 int		get_median(int *array, int length);
 int		array_a_sort(int *arr, int *length);
@@ -63,6 +64,6 @@ int		checkarg1(char *str);
 void	dupe_checker(int *array, int argnbr);
 void	dosort_1(char *str);
 void	dosort_2(char **array, int argnbr);
-
+char 	*mixed_input(int argc, char **argv);
 
 #endif

@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_4.c                                          :+:      :+:    :+:   */
+/*   mixed_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 21:53:46 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 10:18:33 by rplata           ###   ########.fr       */
+/*   Created: 2025/01/27 15:34:02 by rplata            #+#    #+#             */
+/*   Updated: 2025/01/27 15:34:34 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../includes/push_swap.h"
 
-void	ft_rra(int *arr_a, int *len_a)
-{
-	ft_revrotate(arr_a, len_a);
-	write(1, "rra\n", 4);
-}
 
-void	ft_rrb(int *arr_b, int *len_b)
+char 	*mixed_input(int argc, char **argv)
 {
-	ft_revrotate(arr_b, len_b);
-	write(1, "rrb\n", 4);
-}
+    int i;
+    char *temp;
+    char *str;
 
-void	ft_rrr(int *arr_a, int *arr_b, int *len_a, int *len_b)
-{
-	ft_revrotate(arr_a, len_a);
-	ft_revrotate(arr_b, len_b);
-	write(1, "rrr\n", 4);
+    i = 1;
+    temp = (char *)malloc(sizeof(char) * 1);
+    str = " ";
+    while (argc > 1)
+    {
+        temp = ft_strjoin(temp, argv[i]);
+        temp = ft_strjoin(temp, str);
+        argc--;
+        i++;
+    }
+    return (temp);
 }

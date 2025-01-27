@@ -5,6 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = 	src/main.c		 			\
 			src/ft_atol.c			\
 			src/ft_putchar.c		\
+			src/ft_strlen.c			\
+			src/ft_strjoin.c		\
 			src/ft_split.c			\
 			src/array_check.c		\
 			src/moves_1.c			\
@@ -27,6 +29,7 @@ SRCS = 	src/main.c		 			\
 			util/quick_sort.c		\
 			util/sort_check.c		\
 			util/string_counter.c	\
+			util/mixed_input.c		\
 
 OFILES = $(SRCS:.c=.o)
 

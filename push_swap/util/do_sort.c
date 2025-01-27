@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:25:59 by root              #+#    #+#             */
-/*   Updated: 2025/01/25 23:03:53 by root             ###   ########.fr       */
+/*   Updated: 2025/01/27 15:17:03 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,7 @@ void	dosort_1(char *str)
 	array = NULL;
 	argnbr = countsubstr(str);
 	if (argnbr == 1)
-	{
-		write(2, "Error", 5);
-		write(2, "\n", 1);
 		return ;
-	}
 	else if (argnbr != 1)
 	{
 		array = ft_split(str, ' ');

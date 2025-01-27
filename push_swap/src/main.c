@@ -3,52 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:02:04 by root              #+#    #+#             */
-/*   Updated: 2025/01/25 23:14:37 by root             ###   ########.fr       */
+/*   Updated: 2025/01/27 15:10:15 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	ft_argc3_2(int i, char **argv)
+static void	ft_argc3_2(char *str) //
 {
 	int		*array2;
-	int		j;
+	int		i;
+	char	**strs;
 	long	nbr;
-	int		argnbr;
 
-	j = 1;
-	array2 = (int *)malloc(sizeof(int) * i);
+	i = 0;
+	int z = countsubstr(str);
+	strs = ft_split(str, ' ');
+	array2 = (int *)malloc(sizeof(int) * z);
 	if (array2 == NULL)
 		return ;
-	while (i > j)
+	while (i < z)
 	{
-		nbr = ft_atol(argv[j]);
-		array2[j - 1] = (int)nbr;
-		j++;
+		nbr = ft_atol(strs[i]);
+		array2[i] = (int)nbr;
+		i++;
 	}
-	argnbr = i - 1;
-	dupe_checker(array2, argnbr);
+	dupe_checker(array2, z);
 	free(array2);
 }
 
 static void	ft_argc3_1(int argc, char **argv)
 {
 	int	i;
+	int x;
 	int	result;
 
 	i = 1;
+	x = argc;
 	result = 1;
-	while (argc > 1 && result == 1)
+	while (x > 1 && result == 1)
 	{
 		result = checkarg1(argv[i]);
 		i++;
-		argc--;
+		x--;
 	}
 	if (result == 1)
-		ft_argc3_2(i, argv);
+	{
+		char *str = mixed_input(argc, argv);
+		ft_argc3_2(str);
+	}
 	else if (result == 0)
 	{
 		write(2, "Error", 5);
