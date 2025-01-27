@@ -6,7 +6,7 @@
 /*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:02:04 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 15:10:15 by rplata           ###   ########.fr       */
+/*   Updated: 2025/01/27 15:44:44 by rplata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,13 @@ static void	ft_argc3_1(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	int	result;
+//	int	result;
 
 	if (argc == 1)
 		return (0);
-	if (argc == 2)
+/*	if (argc == 2)
 	{
+		
 		result = checkarg1(argv[1]);
 		if (result == 1)
 			dosort_1(argv[1]);
@@ -78,8 +79,9 @@ int	main(int argc, char **argv)
 			write(2, "Error", 5);
 			write(2, "\n", 1);
 		}
-	}
-	if (argc >= 3)
+	
+	}*/
+	if (argc >= 2)
 		ft_argc3_1(argc, argv);
 	return (0);
 }
