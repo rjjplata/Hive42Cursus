@@ -21,8 +21,8 @@ void	min_max(int *array, int *array2, int *len_a, int *len_b)
 	min = get_min(array2, len_b);
 	if (array[0] == max && array2[0] == min)
 		ft_rr(array, array2, len_a, len_b);
-	if (array[0] == max && array2[0] != min)
+	else if (array[0] == max && array2[0] != min)
 		ft_ra(array, len_a);
-	if (array2[0] == min && array[0] != max)
+	else if (array2[0] == min && array[0] != max)
 		ft_rb(array2, len_b);
 }

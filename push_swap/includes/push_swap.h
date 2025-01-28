@@ -62,8 +62,6 @@ int		get_max(int *array, int *len_a);
 int		get_min(int *array2, int *len_b);
 int		checkarg1(char *str);
 void	dupe_checker(int *array, int argnbr);
-void	dosort_1(char *str);
-void	dosort_2(char **array, int argnbr);
 char 	*mixed_input(int argc, char **argv);
 
 #endif

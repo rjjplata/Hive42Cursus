@@ -20,7 +20,6 @@ SRCS = 	src/main.c		 			\
 			util/algo_3_num.c		\
 			util/algo_4_up.c		\
 			util/check_arg.c		\
-			util/do_sort.c			\
 			util/dupe_checker.c		\
 			util/get_max.c			\
 			util/get_median.c		\
