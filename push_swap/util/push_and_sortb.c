@@ -96,6 +96,21 @@ int scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
     return (0);
 }
 
+int move_cost(int *len_a, int top, int bottom)
+{
+    int middle;
+
+    middle = *len_a / 2;
+    if ((top - 1) <= ((*len - bottom) + 1))
+        return(1);
+    return (0);
+}
+
+void chunk_sort1(int *arr_a, int *arr_b, int *len_a, int *len_b)
+{
+
+}
+
 void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
     int x;
@@ -111,10 +126,10 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
     find_chunk_elmnt(arr_a, len_a, chunk, x) ;
     top_index = scan_chunk_top(arr_a, chunk, len_a);
     bottom_index = scan_chunk_bottom(arr_a, chunk, len_a);
-    move_cost
-
-
-
+    if(move_cost(len_a, top_index, bottom_index) == 1)
+        chunk_sort1(arr_a, arr_b, len_a, len_b);
+    else if (move_cost(len_a, top_index, bottom_index) == 0)
+        chunk_sort2(arr_a, arr_b, len_a, len_b);
 }
 
 
