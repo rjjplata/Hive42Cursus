@@ -98,21 +98,32 @@ int scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
 
 int move_cost(int *len_a, int top, int bottom)
 {
-    if ((top - 1) <= ((*len_a - bottom) + 1))
+    if ((top - 1) <= (*len_a - bottom))
         return(1);
     return (0);
 }
 
 void chunk_sort3(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
-
+    if (*len_a == NULL)
+        return;
+    if (*len_b == NULL)
+        ft_pb(arr_a, arr_b, len_a, len_b);
+    if (arr_a[0] > arr_b[0])
+        ft_pb(arr_a, arr_b, len_a, len_b);
+    else if (arr_a[0] < arr_b[0])
+    {
+        if(*len_b == 1)
+            ft_pb(arr_a, arr_b, len_a, len_b);
+            ft_sb(arr_b, len_b);
+    }
 }
 
 void chunk_sort2(int *arr_a, int *len_a, int bottom_index)
 {
     if (*len_a == NULL)
         return;
-    while (bottom_index < (*len_a + 1))
+    while (bottom_index < *len_a)
     {
         ft_rra(arr_a, len_a);
         bottom_index++;
@@ -154,7 +165,8 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
     else if (move_cost(len_a, top_index, bottom_index) == 0)
         chunk_sort2(arr_a, len_a, bottom_index);
     chunk_sort3 (arr_a, arr_b, len_a, len_b);
-
+    
+    free(chunk);
 }
 
 
