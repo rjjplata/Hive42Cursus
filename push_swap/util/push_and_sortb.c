@@ -98,27 +98,50 @@ int scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
 
 int move_cost(int *len_a, int top, int bottom)
 {
-    int middle;
-
-    middle = *len_a / 2;
-    if ((top - 1) <= ((*len - bottom) + 1))
+    if ((top - 1) <= ((*len_a - bottom) + 1))
         return(1);
     return (0);
 }
 
-void chunk_sort1(int *arr_a, int *arr_b, int *len_a, int *len_b)
+void chunk_sort3(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
 
+}
+
+void chunk_sort2(int *arr_a, int *len_a, int bottom_index)
+{
+    if (*len_a == NULL)
+        return;
+    while (bottom_index < (*len_a + 1))
+    {
+        ft_rra(arr_a, len_a);
+        bottom_index++;
+    }
+}
+
+void chunk_sort1(int *arr_a, int *len_a, int top_index)
+{
+    int i;
+
+    if (*len_a == NULL)
+        return;
+    i = 0;
+    while (i < top_index)
+    {
+        ft_ra(arr_a, len_a);
+        i++;
+    }
 }
 
 void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
     int x;
     int *chunk;
-    int *small2;   
     int top_index;
     int bottom_index;
 
+    if ((array_a_sort(arr_a, len_a) == 1))
+		return ;
     x = *len_a / 5;
     chunk = (int *)malloc(sizeof(int) * x);
     if (chunk == NULL)
@@ -127,9 +150,11 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
     top_index = scan_chunk_top(arr_a, chunk, len_a);
     bottom_index = scan_chunk_bottom(arr_a, chunk, len_a);
     if(move_cost(len_a, top_index, bottom_index) == 1)
-        chunk_sort1(arr_a, arr_b, len_a, len_b);
+        chunk_sort1(arr_a, len_a, top_index);
     else if (move_cost(len_a, top_index, bottom_index) == 0)
-        chunk_sort2(arr_a, arr_b, len_a, len_b);
+        chunk_sort2(arr_a, len_a, bottom_index);
+    chunk_sort3 (arr_a, arr_b, len_a, len_b);
+
 }
 
 
