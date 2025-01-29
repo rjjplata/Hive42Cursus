@@ -31,7 +31,9 @@ void	dupe_checker(int *array, int argnbr)
 		random3(array, &len_a);
 	if (len_a == 4)
 		random4(array, &len_a);
-	if (len_a > 4)
+	if (len_a > 4 && len_a < 20)
 		quick_sort1(array, array2, &len_a, &len_b);
+	if (len_a >= 20)
+		push_and_sortb(array, array2, &len_a, &lenb);
 	free(array2);
 }

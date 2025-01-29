@@ -52,6 +52,7 @@ void	quick_sort2(int *array, int *array2, int *len_a, int *len_b)
 	quick_sort3(array, array2, len_a, len_b);
 }
 
+
 void	quick_sort1(int *array, int *array2, int *len_a, int *len_b)
 {
 	int	median;
