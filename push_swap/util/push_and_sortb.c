@@ -52,7 +52,7 @@ static void    find_chunk_elmnt(int *arr_a, int *chunk, int *len_a)
     }
 }
 
-int scan_chunk_top(int *arr_a, int *chunk, int *len_a, int chunk_len)
+static int scan_chunk_top(int *arr_a, int *chunk, int *len_a, int chunk_len)
 {
     int i;
     int j;
@@ -74,7 +74,7 @@ int scan_chunk_top(int *arr_a, int *chunk, int *len_a, int chunk_len)
     return (0);
 }
 
-int scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
+static int scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
 {
     int i;
     int j;
@@ -96,30 +96,38 @@ int scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
     return (0);
 }
 
-int move_cost(int *len_a, int top, int bottom)
+static int move_cost(int *len_a, int top, int bottom)
 {
     if ((top - 1) <= (*len_a - bottom))
         return(1);
     return (0);
 }
 
-void chunk_sort3(int *arr_a, int *arr_b, int *len_a, int *len_b)
+static void chunk_sort3(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
     if (*len_a == NULL)
         return;
     if (*len_b == NULL)
         ft_pb(arr_a, arr_b, len_a, len_b);
-    if (arr_a[0] > arr_b[0])
-        ft_pb(arr_a, arr_b, len_a, len_b);
-    else if (arr_a[0] < arr_b[0])
+    if (*len_b == 1)
     {
-        if(*len_b == 1)
+        ft_pb(arr_a, arr_b, len_a, len_b);
+        if (array_b_sort(arr_a, len_b) == 0)
+            ft_sb(arr_b, len_b);
+    }
+    if (*len_b >= 2)
+    {
+        if (arr_a[0] > arr_b[0])
+            ft_pb(arr_a, arr_b, len_a, len_b);
+        else if (arr_a[0] < arr_b[0])
+        {
             ft_pb(arr_a, arr_b, len_a, len_b);
             ft_sb(arr_b, len_b);
+        }
     }
 }
 
-void chunk_sort2(int *arr_a, int *len_a, int bottom_index)
+static void chunk_sort2(int *arr_a, int *len_a, int bottom_index)
 {
     if (*len_a == NULL)
         return;
@@ -130,7 +138,7 @@ void chunk_sort2(int *arr_a, int *len_a, int bottom_index)
     }
 }
 
-void chunk_sort1(int *arr_a, int *len_a, int top_index)
+static void chunk_sort1(int *arr_a, int *len_a, int top_index)
 {
     int i;
 
@@ -144,8 +152,36 @@ void chunk_sort1(int *arr_a, int *len_a, int top_index)
     }
 }
 
+static int chunk_index_value(int *arr_a, int *len_a)
+{
+    int x;
+
+    if (*len_a == 0)
+        return (0);
+    if (*len_a > 4)
+        x = *len_a / 4;
+    else if (*len_a < 4)
+    {
+        dupe_checker(arr_a, len_a);
+        return (0);
+    }
+    return (x);
+}
+
+int divide_stack(int *len_a)
+{
+    int x;
+
+    if (*len_a >= 20 && *len_a <= 300)
+        x = 4;
+    return (x);
+//    else if (*len_a > 300)
+//        x = 11;
+}
+
 void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
+    int i;
     int x;
     int *chunk;
     int top_index;
@@ -153,20 +189,26 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
 
     if ((array_a_sort(arr_a, len_a) == 1))
 		return ;
-    x = *len_a / 5;
-    chunk = (int *)malloc(sizeof(int) * x);
-    if (chunk == NULL)
-        return ;
-    find_chunk_elmnt(arr_a, len_a, chunk, x) ;
-    top_index = scan_chunk_top(arr_a, chunk, len_a);
-    bottom_index = scan_chunk_bottom(arr_a, chunk, len_a);
-    if(move_cost(len_a, top_index, bottom_index) == 1)
-        chunk_sort1(arr_a, len_a, top_index);
-    else if (move_cost(len_a, top_index, bottom_index) == 0)
-        chunk_sort2(arr_a, len_a, bottom_index);
-    chunk_sort3 (arr_a, arr_b, len_a, len_b);
-    
-    free(chunk);
+    if (*len_a >= 20 && *len_a <= 300)
+        i = 4;
+    if ()
+    i = 4;
+    while(i > 0)
+    {
+        chunk = (int *)malloc(sizeof(int) * x);
+        if (chunk == NULL)
+            return ;
+        find_chunk_elmnt(arr_a, len_a, chunk, x);
+        top_index = scan_chunk_top(arr_a, chunk, len_a);
+        bottom_index = scan_chunk_bottom(arr_a, chunk, len_a);
+        if(move_cost(len_a, top_index, bottom_index) == 1)
+            chunk_sort1(arr_a, len_a, top_index);
+        else if (move_cost(len_a, top_index, bottom_index) == 0)
+            chunk_sort2(arr_a, len_a, bottom_index);
+        chunk_sort3 (arr_a, arr_b, len_a, len_b);
+        free(chunk);
+        i--;
+    }
 }
 
 

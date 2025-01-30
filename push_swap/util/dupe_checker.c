@@ -25,6 +25,8 @@ void	dupe_checker(int *array, int argnbr)
 	array2 = (int *)malloc(sizeof(int) * argnbr);
 	if (array2 == NULL)
 		return ;
+	if (len_a == 1)
+		return ;
 	if (len_a == 2)
 		random2(array, &len_a);
 	if (len_a == 3)
