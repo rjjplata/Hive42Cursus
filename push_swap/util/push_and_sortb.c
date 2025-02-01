@@ -198,7 +198,7 @@ int divide_stack(int *len_a)
     x = 0;
     if (*len_a >= 20 && *len_a <= 300)
     {
-        x = 21;
+        x = 5;
         return (x);
     }
     else if (*len_a > 300)
@@ -212,6 +212,7 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
     int i;
     int j;
     int k;
+    int min;
     int *chunk;
     int top_index;
     int bottom_index;
@@ -248,6 +249,17 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
         i--;
     }
     quick_sort3(arr_a, arr_b, len_a, len_b);
+    min = get_min (arr_a, len_a);
+    if (arr_a[0] != min)
+    {
+        i = 0;
+        while (arr_a[0] != min && i < *len_a)
+        {
+            ft_ra(arr_a, len_a);
+            i++;
+        }
+
+    }
     free (chunk);
 }
 
