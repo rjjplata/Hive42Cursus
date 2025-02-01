@@ -119,7 +119,15 @@ static void chunk_sort4(int *arr_a, int *arr_b, int *len_a, int *len_b)
         ft_rb(arr_b, len_b);
     }
     else if (arr_a[0] > max)
+    {
+        i = 0;
+        while ((arr_b[0] != max) && i < *len_b)
+        {
+            ft_rrb(arr_b, len_b);
+            i++;
+        }
         ft_pb(arr_a, arr_b, len_a, len_b);
+    }
     else if (arr_a[0] < max && arr_a[0] > min)
     {
         i = 0;
@@ -128,7 +136,12 @@ static void chunk_sort4(int *arr_a, int *arr_b, int *len_a, int *len_b)
             ft_rb(arr_b, len_b);
             i++;
         }
-        ft_pb(arr_a, arr_b, len_a, len_b);
+        while ((arr_a[0] > arr_b[*len_b - 1] || arr_a[0] < arr_b[0]) && i < *len_b)
+        {
+            ft_rrb(arr_b, len_b);
+            i++;
+        }
+        ft_pb(arr_a, arr_b, len_a, len_b); //
     }
 }
 
