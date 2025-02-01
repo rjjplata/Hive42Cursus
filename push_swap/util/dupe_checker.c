@@ -14,10 +14,12 @@
 
 void	dupe_checker(int *array, int argnbr)
 {
+	int i; //to delete
 	int	*array2;
 	int	len_a;
 	int	len_b;
 
+	i = 0;  //to delete
 	len_a = argnbr;
 	len_b = 0;
 	if (find_dup(array, argnbr) == 1)
@@ -36,6 +38,11 @@ void	dupe_checker(int *array, int argnbr)
 	if (len_a > 4 && len_a < 20)
 		quick_sort1(array, array2, &len_a, &len_b);
 	if (len_a >= 20)
-		push_and_sortb(array, array2, &len_a, &lenb);
+		push_and_sortb(array, array2, &len_a, &len_b);
+	while (i < argnbr) //to delete
+	{
+		printf("Element[%i] = %i\n", i, array[i]);
+		i++;
+	}
 	free(array2);
 }

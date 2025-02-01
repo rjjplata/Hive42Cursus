@@ -16,6 +16,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdio.h> //to delete
 # include <unistd.h>
 
 void	ft_putchar(char c);
@@ -49,6 +50,7 @@ void	ab_not_sorted(int *array, int *array2, int *len_a, int *len_b);
 void	a_not_sorted(int *array, int *len_a);
 void	b_not_sorted(int *array2, int *len_b);
 void	min_max(int *array, int *array2, int *len_a, int *len_b);
+void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b);
 char	**ft_split(char *str, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 long	ft_atol(const char *str);
@@ -62,6 +64,7 @@ int		get_max(int *array, int *len_a);
 int		get_min(int *array2, int *len_b);
 int		checkarg1(char *str);
 void	dupe_checker(int *array, int argnbr);
+void	copy_array(int *array, int *temp, int length);
 char 	*mixed_input(int argc, char **argv);
 
 #endif

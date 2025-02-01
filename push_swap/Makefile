@@ -29,6 +29,8 @@ SRCS = 	src/main.c		 			\
 			util/sort_check.c		\
 			util/string_counter.c	\
 			util/mixed_input.c		\
+			util/push_and_sortb.c	\
+			util/copy_array.c		\
 
 OFILES = $(SRCS:.c=.o)
 

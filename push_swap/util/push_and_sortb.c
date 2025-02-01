@@ -1,55 +1,57 @@
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
+#include "../includes/push_swap.h"
 
 
-static int  contain_dup(int *array, int size, int value)
-{
-    int i;
-    
-    i = 0;
-    while (i < size)
-    {
-        if (array[i] == value)
-            return (1);
-        i++;
-    }
-    return (0);
-}
-
-static void    find_chunk_elmnt(int *arr_a, int *chunk, int *len_a)
+static void    find_chunk_elmnt(int *arr_a, int *chunk, int *len_a, int len)
 {
     int i;
     int j;
-    int result_size;
-    int smallest;
-    int smallest_index;
+    int min;
+    int m;
+    int found;
+    int k;
+    int *temparray;
 
     if (*len_a <= 0)
         return ;
-    result_size = 0;
-    while(result_size < (*len_a / 5))
+    temparray = (int *)malloc(sizeof(int) * (*len_a)); // allocate space for all elements in arr_a
+    if (temparray == NULL)
+        return;
+    copy_array(arr_a, temparray, *len_a); // copy all elements from arr_a
+    i = 0;
+    while (i < len) 
     {
-        smallest = INT_MAX;
-        smallest_index = -1;
-        i = 0;
-        while (i < *len_a)
+        min = INT_MAX; // initialize min with the maximum possible integer value
+        k = -1; // initialize k with an invalid index
+        j = 0;
+        while (j < *len_a) 
         {
-            if(arr_a[i] < smallest)
+            found = 0;
+            m = 0;
+            while (m < i) 
             {
-                smallest = arr_a[i];
-                smallest_index = i;
+                if (chunk[m] == temparray[j]) 
+                {
+                    found = 1;
+                    break;
+                }
+                m++;
             }
-            i++;
+            if (!found && temparray[j] < min)  // line 52
+            {
+                min = temparray[j]; // update min
+                k = j;
+            }
+            j++;
         }
-        if (!contain_dup(chunk, result_size, smallest))
-        {
-            chunk[result_size] = smallest;
-            result_size++;
-        }
-        arr_a[smallest_index] = INT_MAX;
+        if (k != -1) // check if a valid index was found
+            chunk[i] = temparray[k];
+        else
+            break; // exit the loop if no valid index was found
+        temparray[k] = INT_MAX; // mark the selected element as used
+        i++;
     }
+    free(temparray);
 }
 
 static int scan_chunk_top(int *arr_a, int *chunk, int *len_a, int chunk_len)
@@ -105,9 +107,9 @@ static int move_cost(int *len_a, int top, int bottom)
 
 static void chunk_sort3(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
-    if (*len_a == NULL)
+    if (*len_a == 0)
         return;
-    if (*len_b == NULL)
+    if (*len_b == 0)
         ft_pb(arr_a, arr_b, len_a, len_b);
     if (*len_b == 1)
     {
@@ -129,7 +131,7 @@ static void chunk_sort3(int *arr_a, int *arr_b, int *len_a, int *len_b)
 
 static void chunk_sort2(int *arr_a, int *len_a, int bottom_index)
 {
-    if (*len_a == NULL)
+    if (*len_a == 0)
         return;
     while (bottom_index < *len_a)
     {
@@ -142,7 +144,7 @@ static void chunk_sort1(int *arr_a, int *len_a, int top_index)
 {
     int i;
 
-    if (*len_a == NULL)
+    if (*len_a == 0)
         return;
     i = 0;
     while (i < top_index)
@@ -152,66 +154,60 @@ static void chunk_sort1(int *arr_a, int *len_a, int top_index)
     }
 }
 
-static int chunk_index_value(int *arr_a, int *len_a)
-{
-    int x;
-
-    if (*len_a == 0)
-        return (0);
-    if (*len_a > 4)
-        x = *len_a / 4;
-    else if (*len_a < 4)
-    {
-        dupe_checker(arr_a, len_a);
-        return (0);
-    }
-    return (x);
-}
-
 int divide_stack(int *len_a)
 {
     int x;
 
+    x = 0;
     if (*len_a >= 20 && *len_a <= 300)
-        x = 4;
+    {
+        x = 5;
+        return (x);
+    }
+    else if (*len_a > 300)
+        x = 11;
     return (x);
-//    else if (*len_a > 300)
-//        x = 11;
 }
 
 void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
     int i;
-    int x;
+    int j;
     int *chunk;
     int top_index;
     int bottom_index;
 
     if ((array_a_sort(arr_a, len_a) == 1))
 		return ;
-    if (*len_a >= 20 && *len_a <= 300)
-        i = 4;
-    if ()
-    i = 4;
+    i = divide_stack(len_a);
     while(i > 0)
     {
-        chunk = (int *)malloc(sizeof(int) * x);
+        j = (*len_a / 4) + (*len_a % 4);
+        printf("value of j = %i\n", j);
+        chunk = (int *)malloc(sizeof(int) * j);
         if (chunk == NULL)
             return ;
-        find_chunk_elmnt(arr_a, len_a, chunk, x);
-        top_index = scan_chunk_top(arr_a, chunk, len_a);
-        bottom_index = scan_chunk_bottom(arr_a, chunk, len_a);
+        find_chunk_elmnt(arr_a, chunk, len_a, j);
+        printf("chunk[0] = %i, chunk[1] = %i, chunk[2] = %i, chunk[3] = %i, chunk[4] = %i, chunk[5] = %i\n", chunk[0], chunk[1], chunk[2], chunk[3], chunk[4], chunk[5]);
+        
+        
+        
+        
+        
+        top_index = scan_chunk_top(arr_a, chunk, len_a, j);
+        bottom_index = scan_chunk_bottom(arr_a, chunk, len_a, j);
         if(move_cost(len_a, top_index, bottom_index) == 1)
             chunk_sort1(arr_a, len_a, top_index);
         else if (move_cost(len_a, top_index, bottom_index) == 0)
             chunk_sort2(arr_a, len_a, bottom_index);
         chunk_sort3 (arr_a, arr_b, len_a, len_b);
+        
         free(chunk);
         i--;
     }
 }
 
-
+/*
 int main ()
 {
     int x;
@@ -229,7 +225,6 @@ int main ()
     return(0);
 }
 
-/*
 int *find_smallest(int *arr_a, int *len_a, int *chunk)
 {
     int i;

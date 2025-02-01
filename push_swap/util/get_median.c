@@ -23,18 +23,6 @@ static int	odd_or_even(int length)
 	return (result);
 }
 
-static void	copy_array(int *array, int *temp, int length)
-{
-	int	i;
-
-	i = 0;
-	while (i <= (length - 1))
-	{
-		temp[i] = array[i];
-		i++;
-	}
-}
-
 int	get_median_2(int *array, int length)
 {
 	int	i;
