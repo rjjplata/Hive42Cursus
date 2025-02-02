@@ -105,6 +105,7 @@ static int move_cost(int *len_a, int top, int bottom)
     return (0);
 }
 
+
 static void chunk_sort4(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
     int max;
@@ -122,7 +123,7 @@ static void chunk_sort4(int *arr_a, int *arr_b, int *len_a, int *len_b)
             i++;
         }
         ft_pb(arr_a, arr_b, len_a, len_b);
-        ft_rb(arr_b, len_b);
+   //     ft_rb(arr_b, len_b);
     }
     else if (arr_a[0] > max && (!(arr_a[0] < max && arr_a[0] > min)))
     {
@@ -147,7 +148,7 @@ static void chunk_sort4(int *arr_a, int *arr_b, int *len_a, int *len_b)
             ft_rrb(arr_b, len_b);
             i++;
         }
-        ft_pb(arr_a, arr_b, len_a, len_b); //
+        ft_pb(arr_a, arr_b, len_a, len_b);
     }
 }
 
@@ -202,16 +203,15 @@ int divide_stack(int *len_a)
     int x;
 
     x = 0;
-    if (*len_a >= 20 && *len_a <= 100)
+    if (*len_a >= 20 && *len_a < 500)
     {
-        x = 10;
+        x = 5;
         return (x);
     }
-    else if (*len_a > 100)
-        x = 11;
+    else if (*len_a >= 500)
+        x = 15;
     return (x);
 }
-
 
 void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
@@ -243,7 +243,14 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
             top_index = scan_chunk_top(arr_a, chunk, len_a, j);
      //       printf("top index = %i\n", top_index);
             bottom_index = scan_chunk_bottom(arr_a, chunk, len_a, j);
-    //        printf("bottom index = %i\n", bottom_index);
+      //      printf("bottom index = %i\n", bottom_index);
+            if(top_index == -1 || bottom_index == -1)
+            {
+                if (top_index == -1)
+                    chunk_sort2(arr_a, len_a, bottom_index);
+                else if (bottom_index == -1)
+                    chunk_sort1 (arr_a, len_a, top_index);
+            }
             if(move_cost(len_a, top_index, bottom_index) == 1)
                 chunk_sort1(arr_a, len_a, top_index);
             else if (move_cost(len_a, top_index, bottom_index) == 0)
