@@ -202,12 +202,12 @@ int divide_stack(int *len_a)
     int x;
 
     x = 0;
-    if (*len_a >= 20 && *len_a <= 300)
+    if (*len_a >= 20 && *len_a <= 100)
     {
-        x = 4;
+        x = 10;
         return (x);
     }
-    else if (*len_a > 300)
+    else if (*len_a > 100)
         x = 11;
     return (x);
 }
@@ -226,10 +226,10 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
     if ((array_a_sort(arr_a, len_a) == 1))
 		return ;
     i = divide_stack(len_a);
-    j = (*len_a / 4) + (*len_a % 4);
+    j = (*len_a / i) + (*len_a % i);
     while(i > 0)
     {
-        printf("value of j = %i\n", j);
+     //   printf("value of j = %i\n", j);
         chunk = (int *)malloc(sizeof(int) * j);
         if (chunk == NULL)
             return ;
