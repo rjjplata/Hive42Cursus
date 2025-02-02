@@ -115,10 +115,16 @@ static void chunk_sort4(int *arr_a, int *arr_b, int *len_a, int *len_b)
     min = get_min(arr_b, len_b);
     if (arr_a[0] < min)
     {
+        i = 0;
+        while (arr_b[0] != max && i < *len_b)
+        {
+            ft_rb(arr_b, len_b);
+            i++;
+        }
         ft_pb(arr_a, arr_b, len_a, len_b);
         ft_rb(arr_b, len_b);
     }
-    else if (arr_a[0] > max)
+    else if (arr_a[0] > max && (!(arr_a[0] < max && arr_a[0] > min)))
     {
         i = 0;
         while ((arr_b[0] != max) && i < *len_b)
@@ -198,7 +204,7 @@ int divide_stack(int *len_a)
     x = 0;
     if (*len_a >= 20 && *len_a <= 300)
     {
-        x = 5;
+        x = 4;
         return (x);
     }
     else if (*len_a > 300)
@@ -220,25 +226,24 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
     if ((array_a_sort(arr_a, len_a) == 1))
 		return ;
     i = divide_stack(len_a);
-
+    j = (*len_a / 4) + (*len_a % 4);
     while(i > 0)
     {
-        j = (*len_a / 4) + (*len_a % 4);
         printf("value of j = %i\n", j);
         chunk = (int *)malloc(sizeof(int) * j);
         if (chunk == NULL)
             return ;
-        find_chunk_elmnt(arr_a, chunk, len_a, j);
         k = j;
+        find_chunk_elmnt(arr_a, chunk, len_a, j);
         while (k > 0)
         {
-            printf("\n\n\n\nchunk[0] = %i, chunk[1] = %i, chunk[2] = %i, chunk[3] = %i, chunk[4] = %i, chunk[5] = %i\n", chunk[0], chunk[1], chunk[2], chunk[3], chunk[4], chunk[5]);
-            printf("%i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i\n", arr_a[0], arr_a[1], arr_a[2], arr_a[3], arr_a[4], arr_a[5], arr_a[6], arr_a[7], arr_a[8], arr_a[9], arr_a[10], arr_a[11], arr_a[12], arr_a[13], arr_a[14], arr_a[15], arr_a[16], arr_a[17], arr_a[18], arr_a[19], arr_a[20]);
-            printf("%i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i\n", arr_b[0], arr_b[1], arr_b[2], arr_b[3], arr_b[4], arr_b[5], arr_b[6], arr_b[7], arr_b[8], arr_b[9], arr_b[10], arr_b[11], arr_b[12], arr_b[13], arr_b[14], arr_b[15], arr_b[16], arr_b[17], arr_b[18], arr_b[19], arr_b[20]);
+     //       printf("\n\n\n\nchunk[0] = %i, chunk[1] = %i, chunk[2] = %i, chunk[3] = %i, chunk[4] = %i, chunk[5] = %i\n", chunk[0], chunk[1], chunk[2], chunk[3], chunk[4], chunk[5]);
+    //        printf("%i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i\n", arr_a[0], arr_a[1], arr_a[2], arr_a[3], arr_a[4], arr_a[5], arr_a[6], arr_a[7], arr_a[8], arr_a[9], arr_a[10], arr_a[11], arr_a[12], arr_a[13], arr_a[14], arr_a[15], arr_a[16], arr_a[17], arr_a[18], arr_a[19], arr_a[20]);
+     //       printf("%i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i, %i\n", arr_b[0], arr_b[1], arr_b[2], arr_b[3], arr_b[4], arr_b[5], arr_b[6], arr_b[7], arr_b[8], arr_b[9], arr_b[10], arr_b[11], arr_b[12], arr_b[13], arr_b[14], arr_b[15], arr_b[16], arr_b[17], arr_b[18], arr_b[19], arr_b[20]);
             top_index = scan_chunk_top(arr_a, chunk, len_a, j);
-            printf("top index = %i\n", top_index);
+     //       printf("top index = %i\n", top_index);
             bottom_index = scan_chunk_bottom(arr_a, chunk, len_a, j);
-            printf("bottom index = %i\n", bottom_index);
+    //        printf("bottom index = %i\n", bottom_index);
             if(move_cost(len_a, top_index, bottom_index) == 1)
                 chunk_sort1(arr_a, len_a, top_index);
             else if (move_cost(len_a, top_index, bottom_index) == 0)
