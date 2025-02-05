@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:02:04 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 23:03:49 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 23:12:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static void	ft_argc3_1(int argc, char **argv)
 	{
 		str = mixed_input(argc, argv);
 		ft_argc3_2(str);
+		free(str);
 	}
 	else if (result == 0)
 	{
