@@ -6,18 +6,21 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:03:30 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 18:19:59 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 19:52:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 void	dupe_checker(int *array, int argnbr)
 {
+	int i;	// to delete
 	int	*array2;
 	int	len_a;
 	int	len_b;
 
+	i = 0; // to delete
 	len_a = argnbr;
 	len_b = 0;
 	if (find_dup(array, argnbr) == 1)
@@ -40,6 +43,11 @@ void	dupe_checker(int *array, int argnbr)
 		push_and_sortb(array, array2, &len_a, &len_b);
 		quick_sort3(array, array2, &len_a, &len_b);
 		final_sort(array, &len_a);
+	}
+	while (i < argnbr)
+	{
+		printf("Element[%i] = %i\n", i, array[i]);
+		i++;
 	}
 	free(array2);
 }

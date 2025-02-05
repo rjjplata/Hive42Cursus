@@ -6,13 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:02:04 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 14:02:53 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 20:47:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	ft_argc3_2(char *str) //
+static void	ft_argc3_2(char *str)
 {
 	int		*array2;
 	int		i;

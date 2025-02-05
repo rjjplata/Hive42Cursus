@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -gdwarf-4
 
 SRCS = 	src/main.c		 				\
 			src/ft_atol.c				\

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:08:35 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 18:20:07 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 19:52:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	b_not_sorted(int *array2, int *len_b);
 void	min_max(int *array, int *array2, int *len_a, int *len_b);
 void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b);
 char	**ft_split(char *str, char c);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 long	ft_atol(const char *str);
 size_t	countsubstr(char const *str);
 size_t	ft_strlen(const char *str);
