@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mixed_input.c                                      :+:      :+:    :+:   */
+/*   final_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 15:34:02 by rplata            #+#    #+#             */
-/*   Updated: 2025/01/27 15:34:34 by rplata           ###   ########.fr       */
+/*   Created: 2025/02/05 18:12:23 by root              #+#    #+#             */
+/*   Updated: 2025/02/05 18:13:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char	*mixed_input(int argc, char **argv)
+void	final_sort(int *arr_a, int *len_a)
 {
-	int		i;
-	char	*temp;
-	char	*str;
+	int	min;
+	int	i;
 
-	i = 1;
-	temp = (char *)malloc(sizeof(char) * 1);
-	str = " ";
-	while (argc > 1)
+	min = get_min(arr_a, len_a);
+	if (arr_a[0] != min)
 	{
-		temp = ft_strjoin(temp, argv[i]);
-		temp = ft_strjoin(temp, str);
-		argc--;
-		i++;
+		i = 0;
+		while (arr_a[0] != min && i < *len_a)
+		{
+			ft_ra(arr_a, len_a);
+			i++;
+		}
 	}
-	return (temp);
 }

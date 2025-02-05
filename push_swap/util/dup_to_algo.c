@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dupe_checker.c                                     :+:      :+:    :+:   */
+/*   dup_to_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:03:30 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 15:17:09 by rplata           ###   ########.fr       */
+/*   Updated: 2025/02/05 18:19:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	dupe_checker(int *array, int argnbr)
 {
-	int i; //to delete
 	int	*array2;
 	int	len_a;
 	int	len_b;
 
-	i = 0;  //to delete
 	len_a = argnbr;
 	len_b = 0;
 	if (find_dup(array, argnbr) == 1)
@@ -38,11 +36,10 @@ void	dupe_checker(int *array, int argnbr)
 	if (len_a > 4 && len_a < 20)
 		quick_sort1(array, array2, &len_a, &len_b);
 	if (len_a >= 20)
-	push_and_sortb(array, array2, &len_a, &len_b);
-	while (i < argnbr) //to delete
 	{
-		printf("Element[%i] = %i\n", i, array[i]);
-		i++;
+		push_and_sortb(array, array2, &len_a, &len_b);
+		quick_sort3(array, array2, &len_a, &len_b);
+		final_sort(array, &len_a);
 	}
 	free(array2);
 }

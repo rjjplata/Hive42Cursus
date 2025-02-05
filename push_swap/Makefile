@@ -34,6 +34,7 @@ SRCS = 	src/main.c		 				\
 			util/chunk_sort4.c			\
 			util/scan_chunk.c			\
 			util/find_chunk_element.c	\
+			util/final_sort.c			\
 
 OFILES = $(SRCS:.c=.o)
 

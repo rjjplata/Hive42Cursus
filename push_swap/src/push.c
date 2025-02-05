@@ -3,61 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:11:59 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 10:18:34 by rplata           ###   ########.fr       */
+/*   Updated: 2025/02/05 13:55:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pushtoempty(int *arr_src, int *arr_dst, int *len_src, int *len_dst)
+void	pushtoempty(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
 	int	i;
 
-	if (*len_src == 0)
+	if (*len_a == 0)
 		return ;
-	arr_dst[0] = arr_src[0];
+	arr_b[0] = arr_a[0];
 	i = 0;
-	while (i < (*len_src - 1))
+	while (i < (*len_a - 1))
 	{
-		arr_src[i] = arr_src[i + 1];
+		arr_a[i] = arr_a[i + 1];
 		i++;
 	}
-	arr_src[i] = 0;
-	*len_src = *len_src - 1;
-	*len_dst = *len_dst + 1;
+	arr_a[i] = 0;
+	*len_a = *len_a - 1;
+	*len_b = *len_b + 1;
 }
 
-void	ft_pushagaintob(int *arr_src, int *arr_dst, int *len_src, int *len_dst)
+void	ft_pushagaintob(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
 	int	i;
 
-	i = *len_dst;
+	i = *len_b;
 	while (i >= 1)
 	{
-		arr_dst[i] = arr_dst[i - 1];
+		arr_b[i] = arr_b[i - 1];
 		i--;
 	}
-	arr_dst[0] = arr_src[0];
+	arr_b[0] = arr_a[0];
 	i = 0;
-	while (i < *len_src - 1)
+	while (i < *len_a - 1)
 	{
-		arr_src[i] = arr_src[i + 1];
+		arr_a[i] = arr_a[i + 1];
 		i++;
 	}
-	arr_src[i] = 0;
-	*len_src -= 1;
-	*len_dst += 1;
+	arr_a[i] = 0;
+	*len_a -= 1;
+	*len_b += 1;
 }
 
-void	ft_push(int *arr_src, int *arr_dst, int *len_src, int *len_dst)
+void	ft_push(int *arr_a, int *arr_b, int *len_a, int *len_b)
 {
-	if (*len_src == 0)
+	if (*len_a == 0)
 		return ;
-	if (*len_dst != 0)
-		ft_pushagaintob(arr_src, arr_dst, len_src, len_dst);
-	else if (*len_dst == 0)
-		pushtoempty(arr_src, arr_dst, len_src, len_dst);
+	if (*len_b != 0)
+		ft_pushagaintob(arr_a, arr_b, len_a, len_b);
+	else if (*len_b == 0)
+		pushtoempty(arr_a, arr_b, len_a, len_b);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:08:35 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 15:34:34 by rplata           ###   ########.fr       */
+/*   Updated: 2025/02/05 18:20:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <stdio.h>
 
 void	ft_putchar(char c);
 void	ft_sa(int *arr_a, int *len_a);
@@ -35,8 +34,8 @@ void	ft_rrr(int *arr_a, int *arr_b, int *len_a, int *len_b);
 long	ft_atol(const char *str);
 void	ft_swap(int *array, int *length);
 void	ft_push(int *arr_src, int *arr_dst, int *len_src, int *len_dst);
-void	pushtoempty(int *arr_src, int *arr_dst, int *len_src, int *len_dst);
-void	ft_pushagaintob(int *arr_src, int *arr_dst, int *len_src, int *len_dst);
+void	pushtoempty(int *arr_a, int *arr_b, int *len_a, int *len_b);
+void	ft_pushagaintob(int *arr_a, int *arr_b, int *len_a, int *len_b);
 void	ft_rotate(int *array, int *length);
 void	ft_revrotate(int *array, int *length);
 void	random2(int *array, int *length);
@@ -72,6 +71,7 @@ void    chunk_sort2(int *arr_a, int *len_a, int bottom_index);
 void    chunk_sort3(int *arr_a, int *arr_b, int *len_a, int *len_b);
 void    chunk_sort4(int *arr_a, int *arr_b, int *len_a, int *len_b);
 void    find_chunk_elmnt(int *arr_a, int *chunk, int *len_a, int len);
+void	final_sort(int *arr_a, int *len_a);
 char 	*mixed_input(int argc, char **argv);
 
 #endif

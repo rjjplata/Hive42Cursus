@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:02:04 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 15:44:44 by rplata           ###   ########.fr       */
+/*   Updated: 2025/02/05 14:02:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ static void	ft_argc3_2(char *str) //
 {
 	int		*array2;
 	int		i;
+	int		z;
 	char	**strs;
 	long	nbr;
 
 	i = 0;
-	int z = countsubstr(str);
+	z = countsubstr(str);
 	strs = ft_split(str, ' ');
 	array2 = (int *)malloc(sizeof(int) * z);
 	if (array2 == NULL)
@@ -37,9 +38,10 @@ static void	ft_argc3_2(char *str) //
 
 static void	ft_argc3_1(int argc, char **argv)
 {
-	int	i;
-	int x;
-	int	result;
+	int		i;
+	int		x;
+	int		result;
+	char	*str;
 
 	i = 1;
 	x = argc;
@@ -52,7 +54,7 @@ static void	ft_argc3_1(int argc, char **argv)
 	}
 	if (result == 1)
 	{
-		char *str = mixed_input(argc, argv);
+		str = mixed_input(argc, argv);
 		ft_argc3_2(str);
 	}
 	else if (result == 0)
