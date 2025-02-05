@@ -64,22 +64,8 @@ static void	ft_argc3_1(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-
 	if (argc == 1)
 		return (0);
-/*	if (argc == 2)
-	{
-		
-		result = checkarg1(argv[1]);
-		if (result == 1)
-			dosort_1(argv[1]);
-		else if (result == 0)
-		{
-			write(2, "Error", 5);
-			write(2, "\n", 1);
-		}
-	
-	}*/
 	if (argc >= 2)
 		ft_argc3_1(argc, argv);
 	return (0);

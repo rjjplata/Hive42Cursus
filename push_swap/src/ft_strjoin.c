@@ -32,7 +32,6 @@ static void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-
 static size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
@@ -56,7 +55,6 @@ static size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (i + ft_strlen(src));
 }
 
-
 static size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	src_len;
@@ -72,7 +70,6 @@ static size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (src_len);
 }
 
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
@@ -83,7 +80,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s2_len = ft_strlen(s2);
 	if (!s1 || !s2)
 		return (NULL);
-	str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 2)); // for space
+	str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 2));
 	if (!str)
 		return (0);
 	ft_strlcpy(str, s1, s1_len + 1);

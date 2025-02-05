@@ -16,8 +16,8 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <string.h>
-# include <stdio.h> //to delete
 # include <unistd.h>
+# include <stdio.h>
 
 void	ft_putchar(char c);
 void	ft_sa(int *arr_a, int *len_a);
@@ -31,7 +31,7 @@ void	ft_rr(int *arr_a, int *arr_b, int *len_a, int *len_b);
 void	ft_rra(int *arr_a, int *len_a);
 void	ft_rrb(int *arr_b, int *len_b);
 void	ft_rrr(int *arr_a, int *arr_b, int *len_a, int *len_b);
-void	ft_putchar(char c);
+
 long	ft_atol(const char *str);
 void	ft_swap(int *array, int *length);
 void	ft_push(int *arr_src, int *arr_dst, int *len_src, int *len_dst);
@@ -63,8 +63,15 @@ int		array_b_sort(int *arr, int *length);
 int		get_max(int *array, int *len_a);
 int		get_min(int *array2, int *len_b);
 int		checkarg1(char *str);
+int     scan_chunk_top(int *arr_a, int *chunk, int *len_a, int chunk_len);
+int     scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len);
 void	dupe_checker(int *array, int argnbr);
 void	copy_array(int *array, int *temp, int length);
+void    chunk_sort1(int *arr_a, int *len_a, int top_index);
+void    chunk_sort2(int *arr_a, int *len_a, int bottom_index);
+void    chunk_sort3(int *arr_a, int *arr_b, int *len_a, int *len_b);
+void    chunk_sort4(int *arr_a, int *arr_b, int *len_a, int *len_b);
+void    find_chunk_elmnt(int *arr_a, int *chunk, int *len_a, int len);
 char 	*mixed_input(int argc, char **argv);
 
 #endif

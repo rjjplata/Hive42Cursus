@@ -13,7 +13,6 @@
 
 #include "../includes/push_swap.h"
 
-
 char 	*mixed_input(int argc, char **argv)
 {
     int i;
