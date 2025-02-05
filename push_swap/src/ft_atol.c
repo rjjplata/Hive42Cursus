@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:06:15 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 20:10:11 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 22:49:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ long	ft_atol(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
+	free((char *)str);
 	return (sign * result);
 }

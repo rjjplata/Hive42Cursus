@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:02:04 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 20:47:56 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 23:03:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	ft_argc3_2(char *str)
 		i++;
 	}
 	dupe_checker(array2, z);
+	free(strs);
 	free(array2);
 }
 

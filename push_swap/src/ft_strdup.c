@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mixed_input.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 15:34:02 by rplata            #+#    #+#             */
-/*   Updated: 2025/02/05 22:38:18 by root             ###   ########.fr       */
+/*   Created: 2025/02/05 22:31:33 by root              #+#    #+#             */
+/*   Updated: 2025/02/05 22:31:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char	*mixed_input(int argc, char **argv)
+char	*ft_strdup(const char *str)
 {
 	int		i;
-	char	*temp;
-	char	*str;
+	char	*dup;
 
-	i = 1;
-	str = ft_strdup("");
-	while (i < argc)
+	i = 0;
+	dup = (char *)malloc(ft_strlen(str) * sizeof(char) + 1);
+	if (!dup)
+		return (NULL);
+	while (str[i] != '\0')
 	{
-		temp = str;
-		str = ft_strjoin(temp, argv[i]);
-		free (temp);
-		if (i < (argc - 1))
-		{
-			temp = str;
-			str = ft_strjoin(temp, " ");
-			free (temp);
-		}
+		dup[i] = str[i];
 		i++;
 	}
-	return (str);
+	dup[i] = '\0';
+	return (dup);
 }

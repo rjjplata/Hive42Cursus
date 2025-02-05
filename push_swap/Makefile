@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -gdwarf-4
+CFLAGS = -Wall -Wextra -Werror -gdwarf-4 
 
 SRCS = 	src/main.c		 				\
 			src/ft_atol.c				\
@@ -15,6 +15,7 @@ SRCS = 	src/main.c		 				\
 			src/push.c					\
 			src/rotate.c				\
 			src/swap.c					\
+			src/ft_strdup.c				\
 		util/algo_2_num.c				\
 			util/algo_3_num.c			\
 			util/algo_4_up.c			\

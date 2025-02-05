@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:33:42 by rplata            #+#    #+#             */
-/*   Updated: 2025/02/05 20:38:41 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 21:31:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (src_len);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*str;
 	size_t	s1_len;
@@ -84,6 +84,5 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (0);
 	ft_strlcpy(str, s1, s1_len + 1);
 	ft_strlcat(str + (s1_len), s2, s2_len + 1);
-	free(s1);
 	return (str);
 }
