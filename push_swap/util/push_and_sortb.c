@@ -205,7 +205,7 @@ int divide_stack(int *len_a)
     x = 0;
     if (*len_a >= 20 && *len_a < 500)
     {
-        x = 5;
+        x = 15;
         return (x);
     }
     else if (*len_a >= 500)
@@ -270,7 +270,6 @@ void    push_and_sortb(int *arr_a, int *arr_b, int *len_a, int *len_b)
             ft_ra(arr_a, len_a);
             i++;
         }
-
     }
     free (chunk);
 }
