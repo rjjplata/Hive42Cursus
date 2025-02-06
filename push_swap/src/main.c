@@ -98,6 +98,17 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	if (argc >= 2)
-		ft_argc3_1(argc, argv);
+	{
+		if (checkarg1(argv[1]) == 0)
+		{
+			write (2, "Error\n", 6);
+			return (0);
+		}
+		else
+		{
+			ft_argc3_1(argc, argv);
+			return (0);
+		}
+	}
 	return (0);
 }
