@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 22:02:04 by root              #+#    #+#             */
-/*   Updated: 2025/02/06 14:33:22 by root             ###   ########.fr       */
+/*   Updated: 2025/02/06 17:30:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ static void	ft_argc3_1(int argc, char **argv)
 {
 	int		i;
 	int		result;
-	int		z;
 	char	*str;
 
 	i = 0;
@@ -83,11 +82,11 @@ static void	ft_argc3_1(int argc, char **argv)
 		str = mixed_input(argc, argv);
 		if (checkarg1(str) == 0)
 		{
+			free(str);
 			write(2, "Error\n", 6);
 			return ;
 		}
-		z = countsubstr(str);
-		ft_argc3_2(str, z);
+		ft_argc3_2(str, countsubstr(str));
 	}
 	else if (result == 0)
 		write(2, "Error\n", 6);
