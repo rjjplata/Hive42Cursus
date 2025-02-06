@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_4_up.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:34:30 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 10:18:37 by rplata           ###   ########.fr       */
+/*   Updated: 2025/02/05 23:23:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	random4(int *array, int *length)
 	while (i < *length)
 	{
 		if (array[*length - 1] != max)
-			ft_rra(array, length);
+			ft_ra(array, length);
 		i++;
 	}
 	free(temparray);

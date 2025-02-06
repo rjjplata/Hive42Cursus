@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rplata <rplata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:58:40 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 15:17:08 by rplata           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:45:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	find_dup(int *arr, int length)
 		{
 			if (arr[i] == arr[j])
 			{
-				write (2, "Error", 5);
-				write (2, "\n", 1);
+				write (2, "Error\n", 6);
 				return (1);
 			}
 			j++;

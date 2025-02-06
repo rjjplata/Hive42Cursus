@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:25:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 18:13:38 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 23:30:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void	quick_sort1(int *array, int *array2, int *len_a, int *len_b)
 		return ;
 	j = *len_a;
 	i = 0;
-	if ((array_a_sort(array, len_a) == 1))
-		return ;
 	median = get_median(array, j);
 	while (i <= (j - 1))
 	{
