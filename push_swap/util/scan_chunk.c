@@ -17,8 +17,6 @@ int	scan_chunk_top(int *arr_a, int *chunk, int *len_a, int chunk_len)
 	int	i;
 	int	j;
 
-	if (*len_a == 0)
-		return (0);
 	i = 0;
 	while (i < *len_a)
 	{
@@ -31,7 +29,7 @@ int	scan_chunk_top(int *arr_a, int *chunk, int *len_a, int chunk_len)
 		}
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int	scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
@@ -39,8 +37,6 @@ int	scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
 	int	i;
 	int	j;
 
-	if (*len_a == 0)
-		return (0);
 	i = *len_a - 1;
 	while (i > 0)
 	{
@@ -53,5 +49,5 @@ int	scan_chunk_bottom(int *arr_a, int *chunk, int *len_a, int chunk_len)
 		}
 		i--;
 	}
-	return (0);
+	return (-1);
 }
