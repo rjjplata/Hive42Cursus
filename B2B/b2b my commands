@@ -83,7 +83,7 @@ to add new port:
 to allow rules on new port:
 	sudo ufw allow 8080
 to delete the port:
-	sudo delete (num)		
+	sudo ufw delete (num)		
 
 SSH is started:
 	sudo service ssh status
